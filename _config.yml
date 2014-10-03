@@ -14,4 +14,4 @@ contact:
 # Markdown renderer
 markdown: kramdown
 # Jekyll will try to compile everything it sees outside of _site. Here's what we should ignore.
-exclude: ['config.ru', 'Gemfile', 'Gemfile.lock', 'vendor']
+exclude: ['config.ru', 'Gemfile', 'Gemfile.lock', 'site_components', 'bower_components', 'node_modules']
