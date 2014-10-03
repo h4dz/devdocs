@@ -1,0 +1,17 @@
+{
+  "name": "PagerDuty",
+  "version": "0.0.1",
+  "dependencies": {
+    "bower": "*",
+    "grunt": "*",
+    "grunt-exec": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-watch": "*"
+  },
+  "private": true
+}

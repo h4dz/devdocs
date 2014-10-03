@@ -1,0 +1,16 @@
+{
+  "name": "PagerDuty",
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "typicons": "*"
+  },
+  "homepage": "https://github.com/PagerDuty",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "authors": [
+  "Amanda Folson", "Amanda Folson <amanda@pagerduty.com>"
+  ]
+}
