@@ -1,0 +1,32 @@
+---
+title: PagerDuty Developer
+layout: main
+---
+<ul class="breadcrumb"><li><a href="../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../services.html">Services</a></li><span class="divider">/</span><li>Update</li></ul>
+<div class='section'>
+<h1 class="title">PUT services/:id</h1><p>Update an existing service.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>PUT https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/services/<span class="url_param contenteditable" contenteditable="true">:id</span></pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>name</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>The name of the service.
+</td></tr><tr><td>description</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>A description for the service. 1024 character maximum.
+</td></tr><tr><td>escalation_policy_id</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>The id of the escalation policy to be used by this service.
+</td></tr><tr><td>acknowledgement_timeout</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>No</td><td><p>The duration in seconds before an incidents acknowledged in this service become triggered again.</p>
+</td></tr><tr><td>auto_resolve_timeout</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>No</td><td><p>The duration in seconds before a triggered incident auto-resolves itself.</p>
+</td></tr><tr><td>severity_filter</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>Specifies what severity levels will create a new open incident.
+<p>For Keynote it can be one of:</p>
+<ul>
+<li><code>critical</code> Incidents are created when an alarm enters the Critical state</li>
+<li><code>critical_or_warning</code> Incidents are created when an alarm enters the Critical OR Warning states</li>
+</ul>
+For SQL Monitor it can be one of:
+<ul>
+<li><code>on_any</code> Incidents are created for alerts of any severity</li>
+<li><code>on_high</code> Incidents are created for alerts with high severity</li>
+<li><code>on_medium_high</code> Incidents are created for with high or medium severity</li>
+</ul>
+</td></tr></tbody></table></div><h4>Email specific settings</h4>
+<h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>service_key</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td><p>The service key for the service.</p>
+<p>Do not specify the domain. e.g. <code>my-service</code> rather than <code>my-service@my-subdomain.pagerduty.com</code></p>
+</td></tr><tr><td>email_incident_creation</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>One of <code>only-if-no-open-incidents</code>, <code>on-new-email-subject</code> or <code>on-new-email</code>.
+Defaults to <code>on-new-email</code>.
+</td></tr></tbody></table></div><h3>Example: Generic Email Service</h3>
+<pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X PUT \&#x000A;    -d '{"service":{"name":"<span class='curl_params-name contenteditable' contenteditable='true'>My New Name</span>","description":"<span class='curl_params-description contenteditable' contenteditable='true'>Brand New Description</span>","escalation_policy_id":"<span class='curl_params-escalation_policy_id contenteditable' contenteditable='true'>PIJ90N7</span>"}}' \&#x000A;    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/services/<span class="sub_params_in_url-id id contenteditable" contenteditable="true">PBIS5NX</span>"</code></pre><p class="content-type-warning clearfix">Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code></p><div class="clearfix"></div>
+<h4>Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;service&quot;: {&#x000A;    &quot;id&quot;: &quot;PBIS5NX&quot;,&#x000A;    &quot;name&quot;: &quot;My New Name&quot;,&#x000A;    &quot;service_url&quot;: &quot;/services/PBIS5NX&quot;,&#x000A;    &quot;service_key&quot;: &quot;7b68a2c011c20130a61638f6b11a5d17&quot;,&#x000A;    &quot;auto_resolve_timeout&quot;: 57600,&#x000A;    &quot;acknowledgement_timeout&quot;: 1800,&#x000A;    &quot;created_at&quot;: &quot;2012-11-15T21:23:07-05:00&quot;,&#x000A;    &quot;status&quot;: &quot;active&quot;,&#x000A;    &quot;last_incident_timestamp&quot;: null,&#x000A;    &quot;email_incident_creation&quot;: null,&#x000A;    &quot;incident_counts&quot;: {&#x000A;      &quot;triggered&quot;: 0,&#x000A;      &quot;acknowledged&quot;: 0,&#x000A;      &quot;resolved&quot;: 0,&#x000A;      &quot;total&quot;: 0&#x000A;    },&#x000A;    &quot;email_filter_mode&quot;: &quot;all-email&quot;,&#x000A;    &quot;type&quot;: &quot;generic_events_api&quot;,&#x000A;    &quot;description&quot;: &quot;Brand New Description&quot;&#x000A;  }&#x000A;}</code></pre></div>
+</div>

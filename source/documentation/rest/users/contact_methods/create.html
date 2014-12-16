@@ -1,0 +1,23 @@
+---
+title: PagerDuty Developer
+layout: main
+---
+<ul class="breadcrumb"><li><a href="../../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../../users.html">Users</a></li><span class="divider">/</span><li><a href="../contact_methods.html">Contact Methods</a></li><span class="divider">/</span><li>Create</li></ul>
+<div class='section'>
+<h1 class="title">POST users/:user_id/contact_methods</h1><p>
+Create a new contact method for a given user. A contact method can be one of the following types:
+<code>SMS</code>, <code>email</code>, and <code>phone</code>.
+<code>push_notification</code> contact methods cannot be created using this API, they are added
+automatically during device registration.
+</p>
+<p>The contact info must be unique.</p>
+<h3>Resource URL</h3><div class="prism action-url language-bash"><pre>POST https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/users/<span class="url_param contenteditable" contenteditable="true">:user_id</span>/contact_methods</pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>type</td><td><a href="/documentation/rest/types#string">String</a></td><td>Yes</td><td>The type of the contact method. One of <code>SMS</code>, <code>email</code> or <code>phone</code>.
+</td></tr><tr><td>address</td><td><a href="/documentation/rest/types#string">String</a></td><td>Yes</td><td>The id of the contact method. For <code>SMS</code> and <code>phone</code> it is the number,
+and for <code>email</code> it is the email address.
+</td></tr><tr><td>country_code</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>No</td><td>The number code for your country. Not used for <code>email</code>. Defaults to 1.
+</td></tr><tr><td>label</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>A human friendly label for the contact method. (ie: "Home Phone", "Work Email", etc.)
+Defaults to the type of the contact method and the address (with country code for phone numbers).
+</td></tr><tr><td>send_short_email</td><td><a href="/documentation/rest/types#boolean">Boolean</a></td><td>No</td><td>Send an abbreviated email message instead of the standard email output. Useful for email-to-SMS
+gateways and email based pagers. Only valid for <code>email</code> contact methods. Defaults to false.
+</td></tr></tbody></table></div><h3>Example</h3><pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X POST \&#x000A;    -d '{"contact_method":{"type":"<span class='curl_params-type contenteditable' contenteditable='true'>phone</span>","address":"<span class='curl_params-address contenteditable' contenteditable='true'>5551112222</span>","label":"<span class='curl_params-label contenteditable' contenteditable='true'>Island Lair</span>","country_code":"<span class='curl_params-country_code contenteditable' contenteditable='true'>1</span>"}}' \&#x000A;    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/users/<span class="sub_params_in_url-user_id user_id contenteditable" contenteditable="true">PPSFHH7</span>/contact_methods"</code></pre><p class="content-type-warning clearfix">Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code></p><div class="clearfix"></div><h4>Response <span class="response-status">Status: 201 Created <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;contact_method&quot;: {&#x000A;    &quot;id&quot;: &quot;PSDKM6U&quot;,&#x000A;    &quot;label&quot;: &quot;Island Lair&quot;,&#x000A;    &quot;address&quot;: &quot;5551112222&quot;,&#x000A;    &quot;user_id&quot;: &quot;PPSFHH7&quot;,&#x000A;    &quot;type&quot;: &quot;phone&quot;,&#x000A;    &quot;country_code&quot;: 1,&#x000A;    &quot;phone_number&quot;: &quot;5551112222&quot;,&#x000A;    &quot;blacklisted&quot;: false&#x000A;  }&#x000A;}</code></pre></div>
+</div>

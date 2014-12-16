@@ -1,0 +1,20 @@
+---
+title: PagerDuty Developer
+layout: main
+---
+<ul class="breadcrumb"><li><a href="../events.html">Integration</a></li><span class="divider">/</span><li><a href="../events.html">Events</a></li><span class="divider">/</span><li>Resolve</li></ul>
+<div class='section'>
+<title></title>
+<h1 class="title">Resolve Events</h1>
+<p>Resolve events cause the referenced incident to enter the resolved state. Once an incident is resolved, it won't generate any additional notifications. New trigger events with the same <code>incident_key</code> as a resolved incident won't re-open the incident. Instead, a new incident will be created. Your monitoring tools should send PagerDuty a resolve event when the problem that caused the initial trigger event has been fixed.</p>
+<h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>service_key</td><td><a href="/documentation/rest/types#string">String</a></td><td>Yes</td><td>The GUID of one of your "Events API" services. This is the "service key" listed on a Generic API's service detail page.
+</td></tr><tr><td>event_type</td><td><a href="/documentation/rest/types#string">String</a></td><td>Yes</td><td>Set this to "resolve".
+</td></tr><tr><td>incident_key</td><td><a href="/documentation/rest/types#string">String</a></td><td>Yes</td><td>Identifies the incident to resolve. This should be the <code>incident_key</code> you received back when
+the incident was first opened by a trigger event. Resolve events referencing resolved
+or nonexistent incidents will be discarded.
+</td></tr><tr><td>description</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>Text that will appear in the incident's log associated with this event.
+</td></tr><tr><td>details</td><td><a href="/documentation/rest/types#object">Object</a></td><td>No</td><td>An arbitrary JSON object containing any data you'd like included in the incident log.
+</td></tr></tbody></table></div><h3>Example</h3>
+<pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -X POST \&#x000A;    -d '{    &#x000A;      "service_key": "<span class='curl_params-service_key contenteditable' contenteditable='true'>e93facc04764012d7bfb002500d5d1a6</span>",&#x000A;      "incident_key": "<span class='curl_params-incident_key contenteditable' contenteditable='true'>srv01/HTTP</span>",&#x000A;      "event_type": "<span class='curl_params-event_type contenteditable' contenteditable='true'>resolve</span>",&#x000A;      "description": "<span class='curl_params-description contenteditable' contenteditable='true'>Andrew fixed the problem.</span>",&#x000A;      "details": {&#x000A;        "fixed at": "<span class='curl_params-fixed at contenteditable' contenteditable='true'>2010-06-10 06:00</span>"&#x000A;      }&#x000A;    }' \&#x000A;    "https://events.pagerduty.com/generic/2010-04-15/create_event.json"</code></pre>
+<h4>Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;status&quot;: &quot;success&quot;,&#x000A;  &quot;message&quot;: &quot;Event processed&quot;,&#x000A;  &quot;incident_key&quot;: &quot;srv01/HTTP&quot;&#x000A;}</code></pre></div>
+</div>

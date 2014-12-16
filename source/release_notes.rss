@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>PagerDuty API Release Notes</title>
+    <link>http://developer.pagerduty.com/release_notes.rss</link>
+    <description>Keep up to date on all the goings on of PagerDuty's API</description>
+    <item>
+      <title>Added job_title to User endpoint</title>
+      <link>https://developer.pagerduty.com/release_notes#october-3-2014</link>
+      <pubDate>Fri, 03 Oct 2014 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#october-3-2014</guid>
+    </item>
+    <item>
+      <title>Deprecation of HTTP Basic Authentication</title>
+      <link>https://developer.pagerduty.com/release_notes#june-16-2014</link>
+      <pubDate>Mon, 16 Jun 2014 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#june-16-2014</guid>
+    </item>
+    <item>
+      <title>Added On-Call API Endpoints</title>
+      <link>https://developer.pagerduty.com/release_notes#march-4-2014</link>
+      <pubDate>Tue, 04 Mar 2014 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#march-4-2014</guid>
+    </item>
+    <item>
+      <title>Added Incident Resolve, Acknowledge, and Reassign API Endpoints</title>
+      <link>https://developer.pagerduty.com/release_notes#august-19-2013</link>
+      <pubDate>Mon, 19 Aug 2013 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#august-19-2013</guid>
+    </item>
+    <item>
+      <title>Webhooks API released</title>
+      <link>https://developer.pagerduty.com/release_notes#august-1-2013</link>
+      <pubDate>Thu, 01 Aug 2013 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#august-1-2013</guid>
+    </item>
+    <item>
+      <title>Webhooks API released</title>
+      <link>https://developer.pagerduty.com/release_notes#july-11-2013</link>
+      <pubDate>Thu, 11 Jul 2013 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#july-11-2013</guid>
+    </item>
+    <item>
+      <title>Escalation Policies API released</title>
+      <link>https://developer.pagerduty.com/release_notes#june-7-2013</link>
+      <pubDate>Fri, 07 Jun 2013 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#june-7-2013</guid>
+    </item>
+    <item>
+      <title>Added contact_methods and notification_rules to Users API</title>
+      <link>https://developer.pagerduty.com/release_notes#june-1-2013</link>
+      <pubDate>Sat, 01 Jun 2013 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#june-1-2013</guid>
+    </item>
+    <item>
+      <title>Incident Notes API</title>
+      <link>https://developer.pagerduty.com/release_notes#april-8-2013</link>
+      <pubDate>Mon, 08 Apr 2013 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#april-8-2013</guid>
+    </item>
+    <item>
+      <title>Optional Timezone parameter added to Log Entry APIs</title>
+      <link>https://developer.pagerduty.com/release_notes#february-01-2013</link>
+      <pubDate>Fri, 01 Feb 2013 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#february-01-2013</guid>
+    </item>
+    <item>
+      <title>Documenting Incidents#show Api</title>
+      <link>https://developer.pagerduty.com/release_notes#january-30-2013</link>
+      <pubDate>Wed, 30 Jan 2013 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#january-30-2013</guid>
+    </item>
+    <item>
+      <title>Documenting push notification Contact Methods and Notification Rules</title>
+      <link>https://developer.pagerduty.com/release_notes#january-28-2013</link>
+      <pubDate>Mon, 28 Jan 2013 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#january-28-2013</guid>
+    </item>
+    <item>
+      <title>Fixed filter parameter on the alerts API</title>
+      <link>https://developer.pagerduty.com/release_notes#december-7-2012</link>
+      <pubDate>Fri, 07 Dec 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#december-7-2012</guid>
+    </item>
+    <item>
+      <title>Requester Id parameter documented for creating Users</title>
+      <link>https://developer.pagerduty.com/release_notes#december-6-2012</link>
+      <pubDate>Thu, 06 Dec 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#december-6-2012</guid>
+    </item>
+    <item>
+      <title>Email Filters APIs released</title>
+      <link>https://developer.pagerduty.com/release_notes#november-26-2012</link>
+      <pubDate>Mon, 26 Nov 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#november-26-2012</guid>
+    </item>
+    <item>
+      <title>Log Entry APIs released</title>
+      <link>https://developer.pagerduty.com/release_notes#november-20-2012</link>
+      <pubDate>Tue, 20 Nov 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#november-20-2012</guid>
+    </item>
+    <item>
+      <title>Services APIs released</title>
+      <link>https://developer.pagerduty.com/release_notes#november-19-2012</link>
+      <pubDate>Mon, 19 Nov 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#november-19-2012</guid>
+    </item>
+    <item>
+      <title>Since and until parameters are properly documented as not required on Incidents#list</title>
+      <link>https://developer.pagerduty.com/release_notes#november-16-2012</link>
+      <pubDate>Fri, 16 Nov 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#november-16-2012</guid>
+    </item>
+    <item>
+      <title>Requester Id parameter is passed when required, as a result of using Api Keys</title>
+      <link>https://developer.pagerduty.com/release_notes#october-29-2012</link>
+      <pubDate>Mon, 29 Oct 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#october-29-2012</guid>
+    </item>
+    <item>
+      <title>Requester Id is now explicitly shown as a top level parameter.</title>
+      <link>https://developer.pagerduty.com/release_notes#october-22-2012</link>
+      <pubDate>Mon, 22 Oct 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#october-22-2012</guid>
+    </item>
+    <item>
+      <title>Fixing wrong date format in schedules examples</title>
+      <link>https://developer.pagerduty.com/release_notes#september-28-2012</link>
+      <pubDate>Fri, 28 Sep 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#september-28-2012</guid>
+    </item>
+    <item>
+      <title>Maintenance Windows API</title>
+      <link>https://developer.pagerduty.com/release_notes#september-21-2012</link>
+      <pubDate>Fri, 21 Sep 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#september-21-2012</guid>
+    </item>
+    <item>
+      <title>API Key authentication</title>
+      <link>https://developer.pagerduty.com/release_notes#september-18-2012</link>
+      <pubDate>Tue, 18 Sep 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#september-18-2012</guid>
+    </item>
+    <item>
+      <title>Schedules rotation_virtual_start property properly documente</title>
+      <link>https://developer.pagerduty.com/release_notes#september-18-2012</link>
+      <pubDate>Tue, 18 Sep 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#september-18-2012</guid>
+    </item>
+    <item>
+      <title>Incidents#list full example and fixed GET Curls</title>
+      <link>https://developer.pagerduty.com/release_notes#september-12-2012</link>
+      <pubDate>Wed, 12 Sep 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#september-12-2012</guid>
+    </item>
+    <item>
+      <title>Incidents#update</title>
+      <link>https://developer.pagerduty.com/release_notes#september-5-2012</link>
+      <pubDate>Wed, 05 Sep 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#september-5-2012</guid>
+    </item>
+    <item>
+      <title>developer.pagerduty.com is live</title>
+      <link>https://developer.pagerduty.com/release_notes#august-27-2012</link>
+      <pubDate>Mon, 27 Aug 2012 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#august-27-2012</guid>
+    </item>
+  </channel>
+</rss>

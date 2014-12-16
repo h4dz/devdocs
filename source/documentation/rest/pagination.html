@@ -1,0 +1,25 @@
+---
+title: Types
+layout: main
+permalink: /documentation/rest/pagination/
+redirect_from:
+  - /documentation/rest/pagination.html
+---
+<ul class="breadcrumb"><li><a href="../rest.html">REST API</a></li><span class="divider">/</span><li>Pagination</li></ul>
+<div class='section'>
+<title></title>
+<h1 class="title">Pagination</h1>
+<p>
+Most APIs that list resources are paginated. Pagination is consistent across all APIs that require it.
+You can use the <code>offset</code> and <code>limit</code> parameters to page through query results.
+</p>
+<h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>offset</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>No</td><td>The offset of the first record returned. Default is 0.
+</td></tr><tr><td>limit</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>No</td><td>The number of records returned. Default (and max limit) is 100 for most APIs.
+</td></tr></tbody></table></div><p>
+The API response will include the <code>total</code> number of records that match this query as well
+as the <code>limit</code> and <code>offset</code> actually used.
+</p>
+<h3>Response Fields</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Description</th></thead><tbody><tr><td>offset</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>The offset used in the execution of the query.
+</td></tr><tr><td>limit</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>The limit used in the execution of the query.
+</td></tr><tr><td>total</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>The total number of records available.
+</td></tr></tbody></table></div></div>

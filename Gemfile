@@ -1,7 +1,5 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 ruby '2.0.0'
-gem 'bundler'
-gem 'jekyll'
-gem 'rack-jekyll'
-gem 'kramdown'
+gem 'jekyll', '~> 2.0'
 gem 'jekyll-redirect-from'
+gem 'jekyll-sitemap'

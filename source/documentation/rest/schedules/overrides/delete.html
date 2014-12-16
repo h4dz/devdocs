@@ -1,0 +1,19 @@
+---
+title: PagerDuty Developer
+layout: main
+---
+<ul class="breadcrumb"><li><a href="../../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../../schedules.html">Schedules</a></li><span class="divider">/</span><li><a href="../overrides.html">Overrides</a></li><span class="divider">/</span><li>Delete</li></ul>
+<div class='section'>
+<h1 class="title">DELETE schedules/:schedule_id/overrides/:id</h1><p>
+Remove an override. You cannot remove a past override. If the override start time is before the current time,
+but the end time is after the current time, the override will be truncated to the current time.
+If the override is truncated, the status code will be <code>200 OK</code>,
+as opposed to a <code>204 No Content</code>
+for a successful delete.
+</p>
+<h3>Resource URL</h3><div class="prism action-url language-bash"><pre>DELETE https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/schedules/<span class="url_param contenteditable" contenteditable="true">:schedule_id</span>/overrides/<span class="url_param contenteditable" contenteditable="true">:id</span></pre></div><h3>Parameters</h3><p>None</p>
+<h3>Example</h3>
+<pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X DELETE \&#x000A;    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/schedules/<span class="sub_params_in_url-schedule_id schedule_id contenteditable" contenteditable="true">PIJ90N7</span>/overrides/<span class="sub_params_in_url-id id contenteditable" contenteditable="true">PP1565R</span>"</code></pre><p class="content-type-warning clearfix">Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code></p><div class="clearfix"></div>
+<h4>Response <span class="response-status">Status: 204 No Content <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums"></code></pre></div>
+<div class="errors well"><h4>Errors</h4><div class="table-container"><table class="table table-striped"><thead><th>Code</th><th>Message</th></thead><tbody><tr><td>4001</td><td>Missing or invalid 'time' parameter</td></tr><tr><td>4002</td><td>Missing 'override' parameter</td></tr><tr><td>4003</td><td>User Not Found</td></tr><tr><td>4004</td><td>Invalid Override</td></tr><tr><td>4005</td><td>Cannot Destroy Override</td></tr></tbody></table></div></div>
+</div>

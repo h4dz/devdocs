@@ -1,0 +1,21 @@
+---
+title: Schedules API
+layout: main
+---
+<ul class="breadcrumb"><li><a href="../rest.html">REST API</a></li><span class="divider">/</span><li>Schedules</li></ul>
+<div class='section'>
+<title></title>
+<h1 class="title">Schedules API</h1>
+On call schedules determine the time periods that users are on-call. Only when a user is on-call he is eligible to receive alerts from <a href="incidents.html">incidents</a>.
+<table class="table action_index"><caption>This API allows users to manipulate on-call schedules.</caption><thead><th>Resource</th><th>Description</th></thead><tbody><tr><td><a href="schedules/list.html">GET schedules</a></td><td>List existing on-call schedules.</td></tr><tr><td><a href="schedules/show.html">GET schedules/:id</a></td><td>Show detailed information about a schedule, including entries for each layer and sub-schedule.</td></tr>
+<tr><td><a href="schedules/users.html">GET schedules/:id/users</a></td><td>List all the users on-call in a given schedule for a given time range.</td></tr>
+<tr><td><a href="schedules/create.html">POST schedules</a></td><td>Create a new on-call schedule.</td></tr><tr><td><a href="schedules/update.html">PUT schedules/:id</a></td><td>Update an existing on-call schedule.</td></tr>
+<tr><td><a href="schedules/preview.html">POST schedules/preview</a></td><td>Preview the configuration of an on-call schedule.</td></tr>
+<tr><td><a href="schedules/delete.html">DELETE schedules/:id</a></td><td>Delete an on-call schedule.</td></tr>
+<tr><td><a href="schedules/entries.html">GET schedules/:id/entries</a></td><td>List schedule entries that are active for a given time range for a specified on-call schedule.</td></tr>
+</tbody></table><div class="row-fluid pro-tip"><div class="span2 label label-info">Pro Tip</div><div class="span9"><strong>Going on vacation?</strong>
+<strong>Standard schedule layering not cutting it for you?</strong>
+<br>
+Check out the <a href="schedules/overrides.html">Schedule Overrides API</a>
+for setting up exceptions to your on-call schedules.
+</div></div></div>

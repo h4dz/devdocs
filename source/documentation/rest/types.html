@@ -1,0 +1,242 @@
+---
+title: Types
+layout: main
+permalink: /documentation/rest/types/
+redirect_from:
+  - /documentation/rest/types.html
+---
+                  <ul class="breadcrumb">
+                    <li><a href="../rest.html">REST API</a></li>
+                    <span class="divider">/</span>
+                    <li>Types</li>
+                  </ul>
+                  <div class='section'>
+                    <title></title>
+                    <h1 class="title">Types</h1>
+                    <a name='datetime'></a>
+                    <h2>Date and Time</h2>
+                    <p>All dates and times should be represented in the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date/time format. The time element is optional.</p>
+                    <p>Example dates in <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format:</p>
+                    <div class="table-container">
+                      <table class="table table-striped">
+                        <thead>
+                          <th>Date and Time</th>
+                          <th>ISO 8601 Representation</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>May 6th, 2011 at 5pm UTC</td>
+                            <td>2011-05-06T17:00Z</td>
+                          </tr>
+                          <tr>
+                            <td>May 6th, 2011 at 3:30am PDT</td>
+                            <td>2011-05-06T03:30-07</td>
+                          </tr>
+                          <tr>
+                            <td>May 6th, 2011 at midnight (time is optional)</td>
+                            <td>2011-05-06</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <a name='boolean'></a>
+                    <h2>Boolean Values</h2>
+                    <p>The following values can be used to represent true and false. These values are not case sensitive.</p>
+                    <div class="table-container">
+                      <table class="table table-striped">
+                        <thead>
+                          <th>Value</th>
+                          <th>Acceptable String Representation</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>true</td>
+                            <td>1, true</td>
+                          </tr>
+                          <tr>
+                            <td>false</td>
+                            <td>0, false</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <a name='timezone'></a>
+                    <h2>Time Zones</h2>
+                    <p>One of the following strings:
+<pre class='language-bash'><code>Abu Dhabi
+Adelaide
+Alaska
+Almaty
+American Samoa
+Amsterdam
+Arizona
+Astana
+Athens
+Atlantic Time (Canada)
+Auckland
+Azores
+Baghdad
+Baku
+Bangkok
+Beijing
+Belgrade
+Berlin
+Bern
+Bogota
+Brasilia
+Bratislava
+Brisbane
+Brussels
+Bucharest
+Budapest
+Buenos Aires
+Cairo
+Canberra
+Cape Verde Is.
+Caracas
+Casablanca
+Central America
+Central Time (US &amp; Canada)
+Chennai
+Chihuahua
+Chongqing
+Copenhagen
+Cuiaba
+Darwin
+Dhaka
+Dublin
+Eastern Time (US &amp; Canada)
+Edinburgh
+Ekaterinburg
+Fiji
+Georgetown
+Greenland
+Guadalajara
+Guam
+Hanoi
+Harare
+Hawaii
+Helsinki
+Hobart
+Hong Kong
+Indiana (East)
+International Date Line West
+Irkutsk
+Islamabad
+Istanbul
+Jakarta
+Jerusalem
+Kabul
+Kamchatka
+Karachi
+Kathmandu
+Kolkata
+Krasnoyarsk
+Kuala Lumpur
+Kuwait
+Kyiv
+La Paz
+Lima
+Lisbon
+Ljubljana
+London
+Madrid
+Magadan
+Marshall Is.
+Mazatlan
+Melbourne
+Mexico City
+Mid-Atlantic
+Midway Island
+Minsk
+Monrovia
+Monterrey
+Moscow
+Mountain Time (US &amp; Canada)
+Mumbai
+Muscat
+Nairobi
+New Caledonia
+New Delhi
+Newfoundland
+Novosibirsk
+Nuku'alofa
+Osaka
+Pacific Time (US &amp; Canada)
+Paris
+Perth
+Port Moresby
+Prague
+Pretoria
+Quito
+Rangoon
+Riga
+Riyadh
+Rome
+Samoa
+Santiago
+Sapporo
+Sarajevo
+Saskatchewan
+Seoul
+Singapore
+Skopje
+Sofia
+Solomon Is.
+Sri Jayawardenepura
+St. Petersburg
+Stockholm
+Sydney
+Taipei
+Tallinn
+Tashkent
+Tbilisi
+Tehran
+Tijuana
+Tokelau Is.
+Tokyo
+UTC
+Ulaan Bataar
+Urumqi
+Vienna
+Vilnius
+Vladivostok
+Volgograd
+Warsaw
+Wellington
+West Central Africa
+Yakutsk
+Yerevan
+Zagreb</code></pre></p>
+                    <a name='object'></a>
+                    <h2>Object</h2>
+                    <p>Object types are a JSON object.</p>
+                    <a name='array'></a>
+                    <h2>Array</h2>
+                    <p>Array types are used to represent a list of values.</p>
+                    <p>Example array values for the <code>include</code> parameter on a <code>GET</code> request:</p>
+                    <div class="table-container">
+                      <table class="table table-striped">
+                        <thead>
+                          <th>Values</th>
+                          <th>Query String Representation</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>contact_methods</td>
+                            <td><code>include[]=contact_methods</code></td>
+                          </tr>
+                          <tr>
+                            <td>contact_methods, notification_rules</td>
+                            <td><code>include[]=contact_methods&amp;include[]=notification_rules</code></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <a name='string'></a>
+                    <h2>String</h2>
+                    <p>String types are a sequence of UTF-8 characters.</p>
+                    <a name='int'></a>
+                    <h2>Integer</h2>
+                    <p>Integer types are a number without a fractional or decimal component.</p>
+                  </div>

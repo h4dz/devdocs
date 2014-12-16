@@ -1,0 +1,192 @@
+---
+title: Integrations API
+layout: main
+permalink: /documentation/integration/events/
+redirect_from:
+  - /documentation/integration/events.html
+---
+<ul class="breadcrumb"><li><a href="events.html">Integration</a></li><span class="divider">/</span><li>Events</li></ul>
+<div class='section'>
+<title></title>
+<h1 class="title">Integration API</h1>
+<p>
+The PagerDuty event integration API is how you would add PagerDuty's advanced alerting
+functionality to any system that can make an HTTP API call. You can now add phone, SMS
+and email alerting to your monitoring tools, ticketing systems and custom software.
+</p>
+<h3>Description</h3>
+<p>
+The API was designed to allow you to easily integrate a monitoring system with a Service in PagerDuty.
+Monitoring systems generally send out events when problems are detected and when these problems have been
+resolved (fixed). Some more advanced systems also understand the concept of acknowledgements: problems can
+be acknowledged by an engineer to signal he or she is working on fixing the issue.
+</p>
+<p>
+Since monitoring systems emit events, the API is based around accepting events. Incoming events
+(sent via the API) are routed to a PagerDuty service and processed. They may result in a new incident
+being created, or an existing incident being acknowledged or resolved.
+</p>
+<p>
+The same event-based API can also be used to integrate a PagerDuty service with ticketing systems
+and various other software tools.
+</p>
+<p>
+<strong>
+Interested in becoming a PagerDuty partner? Fill out
+<a href='https://pdconnect.wufoo.com/forms/z1ybj8dd0qwq9od/' target='_blank' title='this form'>this form</a>
+for more information.
+</strong>
+</p>
+<h2>Getting Started</h2>
+<p>
+The event integration API can be used with any "Generic API" service in PagerDuty. If you don't already have
+a "Generic API" service, you should create one:
+</p>
+<ol>
+<li>In your account, under the Services tab, click "Add New Service".</li>
+<li>Enter a name for the service and select an escalation policy. Then, select "Generic API" for the Service Type.</li>
+<li>Click the "Add Service" button.</li>
+<li>
+Once the service is created, you'll be taken to the service page. On this page, you'll
+see the "Service key", which is needed to access the API
+</li>
+</ol>
+<h2>Making a Request</h2>
+<p>
+To make an API request, POST a JSON object of the desired event type to the
+following URL
+</p>
+<pre>https://events.pagerduty.com/generic/2010-04-15/create_event.json</pre>
+<h3>Event Types</h3>
+<table class='table'>
+<caption>
+Click on an event type below for full details.
+</caption>
+<thead>
+<tr>
+<th>Event Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="events/trigger.html">Trigger</a></td>
+<td>Your monitoring tools should send PagerDuty a trigger event to report a new or ongoing problem. When PagerDuty receives a trigger event, it will either open a new incident, or add a new trigger log entry to an existing incident, depending on the provided <code>incident_key</code>.</td>
+</tr>
+<tr>
+<td><a href="events/acknowledge.html">Acknowledge</a></td>
+<td>Acknowledge events cause the referenced incident to enter the acknowledged state. While an incident is acknowledged, it won't generate any additional notifications, even if it receives new trigger events. Your monitoring tools should send PagerDuty an acknowledge event when they know someone is presently working on the problem.</td>
+</tr>
+<tr>
+<td><a href="events/resolve.html">Resolve</a></td>
+<td>Resolve events cause the referenced incident to enter the resolved state. Once an incident is resolved, it won't generate any additional notifications. New trigger events with the same <code>incident_key</code> as a resolved incident won't re-open the incident. Instead, a new incident will be created. Your monitoring tools should send PagerDuty a resolve event when the problem that caused the initial trigger event has been fixed.</td>
+</tr>
+</tbody>
+</table>
+<h2>API Response Codes &amp; Retry Logic</h2>
+<p>
+Ideally, the API request will succeed and the PagerDuty server
+will indicate that it successfully received that event.
+In practice, the request may fail due to various reasons.
+</p>
+<p>
+The following table shows the possible results of the API request and
+if you need to retry the API call for that result:
+</p>
+<table class='table'>
+<thead>
+<tr>
+<th>Result</th>
+<th>Description</th>
+<th>Retry?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>200</code>
+</td>
+<td>
+OK - The event has been accepted by PagerDuty.
+See below for details.
+</td>
+<td>No</td>
+</tr>
+<tr>
+<td>
+<code>400</code>
+</td>
+<td>
+Bad Request - Check that the JSON is valid.
+See below for details.
+</td>
+<td>No</td>
+</tr>
+<tr>
+<td>
+<code>403</code>
+</td>
+<td>Forbidden - Too many API calls at a time.</td>
+<td>
+<b>
+Yes - retry after some time.
+</b>
+</td>
+</tr>
+<tr>
+<td>
+<code>500</code>
+or other
+<b>5XX</b>
+</td>
+<td>
+Internal Server Error - the PagerDuty server experienced an error
+while processing the event.
+</td>
+<td>
+<b>
+Yes - retry after some time.
+</b>
+</td>
+</tr>
+<tr>
+<td>Networking Error</td>
+<td>Error while trying to communicate with PagerDuty servers.</td>
+<td>
+<b>
+Yes - retry after some time.
+</b>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Success</h2>
+<p>
+If the request is well-formatted, PagerDuty will respond with HTTP code
+<code class='language-bash'>200</code>
+and a JSON object with the following fields:
+</p>
+<h4>Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;status&quot;: &quot;success&quot;,&#x000A;  &quot;incident_key&quot;: &quot;My Incident Key&quot;,&#x000A;  &quot;message&quot;: &quot;Event processed&quot;&#x000A;}</code></pre></div>
+<h3>Response Fields</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Description</th></thead><tbody><tr><td>status</td><td><a href="/documentation/rest/types#string">String</a></td><td>success
+</td></tr><tr><td>message</td><td><a href="/documentation/rest/types#string">String</a></td><td>Event processed
+</td></tr><tr><td>incident_key</td><td><a href="/documentation/rest/types#string">String</a></td><td>The key of the incident that will be affected by the request.
+</td></tr></tbody></table></div><h2>Bad Request</h2>
+<p>
+If the request is invalid, PagerDuty will respond with HTTP code
+<code>400</code>
+and an object with the following fields
+</p>
+<h3>Response Fields</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Description</th></thead><tbody><tr><td>status</td><td><a href="/documentation/rest/types#string">String</a></td><td>invalid event
+</td></tr><tr><td>message</td><td><a href="/documentation/rest/types#string">String</a></td><td>A description of the problem
+</td></tr><tr><td>errors</td><td><a href="/documentation/rest/types#array">Array</a></td><td>An array of specific error messages
+</td></tr></tbody></table></div><h2>API Limits</h2>
+<p>
+There is a limit on the number of events that a service can accept at any
+given time. Depending on the behavior of the incoming traffic and how many
+incidents are being created at once, we reduce our throttle dynamically.
+</p>
+<p>
+If each of the events your monitoring system is sending is important, be sure
+to retry on a 403 response code, preferably with a back off.
+</p>
+</div>

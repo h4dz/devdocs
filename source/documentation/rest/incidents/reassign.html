@@ -1,0 +1,18 @@
+---
+title: PagerDuty Developer
+layout: main
+---
+<ul class="breadcrumb"><li><a href="../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../incidents.html">Incidents</a></li><span class="divider">/</span><li>Reassign</li></ul>
+<div class='section'>
+<h1 class="title">PUT incidents/:id/reassign</h1><p>Reassign an incident.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>PUT https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/incidents/<span class="url_param contenteditable" contenteditable="true">:id</span>/reassign</pre></div><p>
+The status of this request will be 200 if the updates succeed.
+</p>
+<p>
+One and only one of the following parameters must be specified.
+</p>
+<h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>requester_id</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>The user id of the user making the request. This will be added to the incident log entry.
+This is only needed if you are using token based authentication.
+</td></tr><tr><td>escalation_policy</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>The ID of an escalation policy. Delegate the incident to this escalation policy.
+</td></tr><tr><td>escalation_level</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>No</td><td>Escalate incident to this level in the escalation policy.
+</td></tr><tr><td>assigned_to_user</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>Comma separated list of user IDs to assign this incident to.
+</td></tr></tbody></table></div></div>

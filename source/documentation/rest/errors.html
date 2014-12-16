@@ -1,0 +1,120 @@
+---
+title: Errors
+layout: main
+permalink: /documentation/rest/errors/
+redirect_from:
+  - /documentation/rest/errors.html
+---
+                  <ul class="breadcrumb">
+                    <li><a href="../rest.html">REST API</a></li>
+                    <span class="divider">/</span>
+                    <li>Errors</li>
+                  </ul>
+                  <div class='section'>
+                    <title></title>
+                    <h1 class="title">Errors</h1>
+                    <p>If an API request is successful, PagerDuty will respond to it with HTTP status code 2XX and the resources that match the query.</p>
+                    <p>If the API request is unsuccessful, PagerDuty will respond with a corresponding HTTP error status code and the response body will contain PagerDuty error details.</p>
+                    <p>The response body (with error details) will have the following properties:</p>
+                    <pre><code class='language-javascript'><pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;error&quot;: {&#x000A;    &quot;message&quot;: &quot;Error Message String&quot;,&#x000A;    &quot;code&quot;: 2001,&#x000A;    &quot;errors&quot;: [&#x000A;      &quot;human-readable error details&quot;,&#x000A;      &quot;more details&quot;&#x000A;    ]&#x000A;  }&#x000A;}</code></pre></code></pre>
+                    <a href="#" name="http_codes"></a>
+                    <h3>HTTP Responses</h3>
+                    <p>The HTTP response can be used to determine if the request was successful, and if not, whether the request should be retried.</p>
+                    <div class="table-container">
+                      <table class="table table-striped">
+                        <thead>
+                          <th>Code</th>
+                          <th>HTTP Definition</th>
+                          <th>Description</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>200</td>
+                            <td>OK</td>
+                            <td>The request was successful.</td>
+                          </tr>
+                          <tr>
+                            <td>201</td>
+                            <td>Created</td>
+                            <td>The request was successful and a new resource was created.</td>
+                          </tr>
+                          <tr>
+                            <td>204</td>
+                            <td>No Content</td>
+                            <td>The request was successful. No content is returned.</td>
+                          </tr>
+                          <tr>
+                            <td>400</td>
+                            <td>Bad Request</td>
+                            <td>Caller provided invalid arguments. Please review the response for error details. Retrying with the same arguments will *not* work.</td></tr><tr><td>500</td><td>Internal Server Error</td>
+                            <td>Internal error occurred while processing request. Please try again.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <h3>PagerDuty Error Codes</h3>
+                    <p>In the case of an error, the PagerDuty error code can give further details on the nature of the error.</p>
+                    <div class="table-container">
+                      <table class="table table-striped">
+                        <thead>
+                          <th>Code</th>
+                          <th>Message</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>2000</td>
+                            <td>Internal Error</td>
+                          </tr>
+                          <tr>
+                            <td>2001</td>
+                            <td>Invalid Input Provided</td>
+                          </tr>
+                          <tr>
+                            <td>2002</td>
+                            <td>Arguments Caused Error</td>
+                          </tr>
+                          <tr>
+                            <td>2003</td>
+                            <td>Missing Arguments</td>
+                          </tr>
+                          <tr>
+                            <td>2004</td>
+                            <td>Invalid 'since' or 'until' Parameter Values</td>
+                          </tr>
+                          <tr>
+                            <td>2005</td>
+                            <td>Invalid Query Date Range</td>
+                          </tr>
+                          <tr>
+                            <td>2006</td>
+                            <td>Authentication Failed</td>
+                          </tr>
+                          <tr>
+                            <td>2007</td>
+                            <td>Account Not Found</td>
+                          </tr>
+                          <tr>
+                            <td>2008</td>
+                            <td>Account Locked</td>
+                          </tr>
+                          <tr>
+                            <td>2009</td>
+                            <td>Only HTTPS Allowed For This Call</td>
+                          </tr>
+                          <tr>
+                            <td>2010</td>
+                            <td>Access Denied</td>
+                          </tr>
+                          <tr>
+                            <td>2011</td>
+                            <td>The action requires a 'requester_id' to be specified</td>
+                          </tr>
+                          <tr>
+                            <td>2012</td>
+                            <td>Your account is expired and cannot use the API</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p>In addition to a code and message, the return value will also include an array of human-readable reasons for the error in the <code>errors</code> field. These human-readable values, and even their format, are subject to change.</p>
+                  </div>

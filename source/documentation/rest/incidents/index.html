@@ -1,0 +1,48 @@
+---
+title: Incidents
+layout: main
+permalink: /documentation/rest/incidents/
+redirect_from:
+  - /documentation/rest/incidents.html
+---
+<ul class="breadcrumb"><li><a href="../rest.html">REST API</a></li><span class="divider">/</span><li>Incidents</li></ul>
+<div class='section'>
+<title></title>
+<h1 class="title">Incidents API</h1>
+<p>
+<strong>
+Note that to create an incident you need to trigger it through the <a href="../integration/events.html?controller=integration&amp;id=events">events</a> API.
+</strong>
+</p>
+<p>
+PagerDuty receives updates (called <i>events</i>) from monitoring systems through services
+(like Nagios, email or generic API calls). Upon receiving an event, active services will create a
+new incident and begin escalating it as defined by the service's escalation policy.
+Events can be de-duplicated into existing incidents based on service de-duplication rules to prevent
+you from being overwhelmed by event storms.
+</p>
+<p>
+An incident can be open, acknowledged or resolved. Whenever an incident is created, it is assigned
+to a user (according to the escalation process, as described by escalation rules and
+<a href="schedules.html">schedules</a>).
+The assigned user has a chance to either acknowledge that he is working on it, or to resolve it.
+</p>
+<p>
+Resolving an incident closes it, whereas acknowledging it halts the escalation process.
+If the incident is not resolved by the service's <i>incident ack timeout</i> it continues up the escalation chain.
+</p>
+<p>
+When an incident is triggered or when it is escalated it creates
+<a href="alerts.html">alerts</a> (also known as <i>notifications</i>). Alerts are messages
+containing the details of the incident, and can be sent through SMS, email and phone calls.
+</p>
+<p>
+Incidents and Incident Counts from the last 30 days are returned by default. To change this default date range, see the documentation for the <code>since</code>, <code>until</code> or <code>date_range</code> parameters.
+</p>
+<table class="table action_index"><caption>This API lets you access and manipulate incidents.</caption><thead><th>Resource</th><th>Description</th></thead><tbody><tr><td><a href="list.html">GET incidents</a></td><td>List existing incidents.</td></tr><tr><td><a href="show.html">GET incidents/:id</a></td><td>Show detailed information about an incident. Accepts either an incident id, or an incident number.</td></tr>
+<tr><td><a href="count.html">GET incidents/count</a></td><td>Count the number of incidents matching certain criteria.</td></tr>
+<tr><td><a href="update.html">PUT incidents</a></td><td>Acknowledge, resolve, escalate or reassign one or more incidents.</td></tr>
+<tr><td><a href="resolve.html">PUT incidents/:id/resolve</a></td><td>Resolve an incident.</td></tr>
+<tr><td><a href="acknowledge.html">PUT incidents/:id/acknowledge</a></td><td>Acknowledge an incident.</td></tr>
+<tr><td><a href="reassign.html">PUT incidents/:id/reassign</a></td><td>Reassign an incident.</td></tr>
+</tbody></table></div>

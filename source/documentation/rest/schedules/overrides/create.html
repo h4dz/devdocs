@@ -1,0 +1,24 @@
+---
+title: PagerDuty Developer
+layout: main
+---
+<ul class="breadcrumb"><li><a href="../../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../../schedules.html">Schedules</a></li><span class="divider">/</span><li><a href="../overrides.html">Overrides</a></li><span class="divider">/</span><li>Create</li></ul>
+<div class='section'>
+<h1 class="title">POST schedules/:schedule_id/overrides</h1><p>
+Create an override for a specific user covering the specified time range.
+If you create an override on top of an existing one, the last created override will have priority.
+</p>
+<p>
+You cannot create overrides in the past.
+</p>
+<p>
+If no time zone information is present in the since and until parameters, the schedule's time zone will be used.
+</p>
+<h3>Resource URL</h3><div class="prism action-url language-bash"><pre>POST https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/schedules/<span class="url_param contenteditable" contenteditable="true">:schedule_id</span>/overrides</pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>start</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>Yes</td><td>The start date and time for the override.
+</td></tr><tr><td>end</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>Yes</td><td>The end date and time for the override.
+</td></tr><tr><td>user_id</td><td><a href="/documentation/rest/types#string">String</a></td><td>Yes</td><td>The ID of the user who will be on call for the duration of the override.
+</td></tr></tbody></table></div><h3>Example</h3>
+<pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X POST \&#x000A;    -d '{"override":{"user_id":"<span class='curl_params-user_id contenteditable' contenteditable='true'>PHLG109</span>","start":"<span class='curl_params-start contenteditable' contenteditable='true'>2012-07-01</span>","end":"<span class='curl_params-end contenteditable' contenteditable='true'>2012-07-02</span>"}}' \&#x000A;    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/schedules/<span class="sub_params_in_url-schedule_id schedule_id contenteditable" contenteditable="true">PIJ90N7</span>/overrides"</code></pre><p class="content-type-warning clearfix">Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code></p><div class="clearfix"></div>
+<h4>Response <span class="response-status">Status: 201 Created <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;override&quot;: {&#x000A;    &quot;end&quot;: &quot;2012-07-02T00:00:00-04:00&quot;,&#x000A;    &quot;user&quot;: {&#x000A;      &quot;name&quot;: &quot;Aurelio Rice&quot;,&#x000A;      &quot;email&quot;: &quot;aurelio.rice@acme.com&quot;,&#x000A;      &quot;color&quot;: &quot;turquoise&quot;,&#x000A;      &quot;id&quot;: &quot;PHLG109&quot;&#x000A;    },&#x000A;    &quot;id&quot;: &quot;PQ47DCP&quot;,&#x000A;    &quot;start&quot;: &quot;2012-07-01T00:00:00-04:00&quot;&#x000A;  }&#x000A;}</code></pre></div>
+<div class="errors well"><h4>Errors</h4><div class="table-container"><table class="table table-striped"><thead><th>Code</th><th>Message</th></thead><tbody><tr><td>4001</td><td>Missing or invalid 'time' parameter</td></tr><tr><td>4002</td><td>Missing 'override' parameter</td></tr><tr><td>4003</td><td>User Not Found</td></tr><tr><td>4004</td><td>Invalid Override</td></tr><tr><td>4005</td><td>Cannot Destroy Override</td></tr></tbody></table></div></div>
+</div>
