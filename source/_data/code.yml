@@ -1,0 +1,39 @@
+- name: Ruby API Examples
+  url: https://github.com/julianeon/API-Examples-Ruby
+  description: "Comprehensive API examples in Ruby by the PagerDuty support team"
+
+- name: Python API Examples
+  url: https://github.com/danquixote/API_PythonSampleScripts
+  description: "Comprehensive API examples in Python by the PagerDuty support team"
+
+- name: PHP API Examples
+  url: https://github.com/danquixote/API_PHP_SampleScripts
+  description: "Comprehensive API examples in PHP by the PagerDuty support team"
+
+- name: PagerDutyWebhookToEmail.php
+  url: https://gist.github.com/eurica/6034108
+  description: "PHP examples for parsing webhooks"
+
+- name: Embeddable on-call widget
+  url: https://github.com/ryanhoskin/pagerduty_oncall_dashboard
+  description: "Code to display an iframe with who's on call and their contact information. <a href='http://ryanhoskin.com/dashboard/'>Live demo</a>"
+
+- name: On-call example
+  url: http://jsfiddle.net/eurica/a6hef/
+  description: "Minimal example to display who is on call using <a href='code/libraries.html'>PDJS"
+
+- name: Ruby/HTTParty
+  url: http://euri.ca/2014/pagerduty-ruby-with-httparty/
+  description: "Minimal example of using our REST API with the Ruby gem <a href='https://github.com/jnunemaker/httparty'>HTTParty</a>"
+
+- name: pagerduty-angular
+  url: https://github.com/MosheZada/pagerduty-angular
+  description: "An AngularJS script for filtering and modifying PagerDuty incidents."
+
+- name: Bloombuzz
+  url: https://github.com/JohnnyJohnAndTheFunkyBunch/bloombuzz
+  description: "A winner of the <a href='http://hackthenorth.com/'>Hack the North</a> hackathon in Waterloo, alerts on Bloomberg stock movements in Python."
+
+- name: Twilio and PagerDuty
+  url: http://www.whiteboardcoder.com/p/twilio-and-pagerduty.html
+  description: "A step by step tutorial to set up a phone number, via <a href='https://www.twilio.com/docs'>Twilio</a> that when called will set off a PagerDuty event."
