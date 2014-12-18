@@ -87,3 +87,9 @@
   type: Game
   description: "This doesn't use our API, but it is a photo-realistic on-call simulator. <a href='https://github.com/chamblin/oncallhero'>Source</a>"
   tag: Toy
+
+- name: Raspberry Pi Traffic Light
+  url: https://github.com/mide/traffic-light-controller
+  type: Expert lamp control
+  description: "A project to control a traffic light from a Raspberry Pi based on PagerDuty data"
+  tag: Toy
