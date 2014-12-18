@@ -1,31 +1,25 @@
 # Site settings
 title: PagerDuty Developer Documentation
 email: developers@pagerduty.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-#baseurl: "" # the subpath of your site, e.g. /blog/
-#url: "https://developer.pagerduty.com"
-#twitter_username: jekyllrb
-#github_username:  jekyll
+description: The official site for PagerDuty API documentation.
+url: "https://developer.pagerduty.com"
+social:
+  - twitter: https://www.twitter.com/PagerDuty
+  - github: https://github.com/PagerDuty
+  - facebook: https://www.facebook.com/PagerDuty
 
 # Build settings
-#markdown: kramdown
-
+markdown: kramdown
+permalink: pretty
 source: source
 destination: public
 plugins: plugins
-
 sass:
   # Our main SASS file is located in source/css/developer.scss while our SASS partials are in source/_sass.
   # This will all get compiled into developer.css in public/assets/css/ -- DO NOT EDIT IN THE PUBLIC FOLDER
   # TODO: Actually, this is all broken and we're just using compiled CSS I stole from the site. Don't judge me.
   sass_dir: _sass
   style: :compressed
-
-permalink: pretty
-
 gems:
   - jekyll-redirect-from
   - jekyll-sitemap
