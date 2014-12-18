@@ -5,168 +5,47 @@ permalink: /documentation/code/tools/
 redirect_from:
   - /documentation/code/tools.html
 ---
-<ul class="breadcrumb"><li><a href="../code.html">Code</a></li><span class="divider">/</span><li>Tools</li></ul>
-<div class='section'>
-<title></title>
-<h1 class="title">PagerDuty API-based Tools</h1>
-<p>
-A number of our users have built tools on top of PagerDuty:
-</p>
-<table class='table table-striped'>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tr>
-<td>
-<a href='https://github.com/esigler/lita-pagerduty'>lita-pagerduty</a>
-</td>
-<td>Chatbot</td>
-<td>
-A plugin for the
-<a href='https://www.lita.io/'>Lita</a>
-chatbot for checking who's on call, scheduling, ack, resolve, etc. Works with any chatroom
-<a href='https://www.lita.io/plugins'>supported by Lita</a>
-</td>
-</tr>
-<tr>
-<td>
-<a href='https://github.com/github/hubot-scripts/blob/master/src/scripts/pagerduty.coffee'>Hubot integration</a>
-</td>
-<td>Chatbot</td>
-<td>
-PagerDuty can now participate in any chatroom that
-<a href='https://github.com/github/hubot'>Hubot</a>
-supports thanks to Github and contributors.
-</td>
-</tr>
-<tr>
-<td>
-<a href='https://github.com/stripe/pagerbot'>PagerBot</a>
-</td>
-<td>Chatbot</td>
-<td>
-A custom chatbot for PagerDuty <a href="https://stripe.com/blog/pagerbot">built by Stripe</a> that's easy to self host on Heroku.
-</td>
-</tr>
-<tr>
-<td>
-<a href='https://github.com/jeffwalter/pd-nag-connector'>pd-nag-connector</a>
-</td>
-<td>Integration</td>
-<td>A bi-directional integration package for Nagios and PagerDuty</td>
-</tr>
-<tr>
-<td>
-<a href='https://github.com/etsy/opsweekly'>opsweekly</a>
-</td>
-<td>Reporting</td>
-<td>a weekly report tracker, an on call categorisation and reporting tool, a sleep tracker, a meeting organiser and a coffee maker all in one.</td>
-</tr>
-<tr>
-<td>
-<a href='https://github.com/thegreenrobot/pagerduty_dashing'>pagerduty-dashing</a>
-</td>
-<td>Reporting</td>
-<td>A Dashing dashboard for PagerDuty Services</td>
-</tr>
-<tr>
-<td>
-<a href='https://blog.pagerduty.com/2014/02/build-out-your-pagerduty-reports-with-zoho/'>Zoho reports</a>
-</td>
-<td>Reporting</td>
-<td>Zoho reports can import PagerDuty data and run SQL queries against it. This blog post shows how to generate reports from your incidents.</td>
-</tr>
-<tr>
-<td>
-<a href='https://github.com/PagerDuty/public-support-scripts'>Support scripts</a>
-</td>
-<td>Reporting</td>
-<td>
-Scripts collected by the PagerDuty support team, including:
-<ul>
-<li>Import Users from CSV</li>
-<li>Download Alerts to CSV</li>
-<li>Alert Volume/Pain for On-Call Users</li>
-<li>Create Vacation Overrides</li>
-<li>Get User Activity</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>
-<a href='https://github.com/caredotcom/pdmaint'>pdmaint</a>
-</td>
-<td>Scheduling</td>
-<td>A Python command line utility for scheduling and managing maintenance windows</td>
-</tr>
-<tr>
-<td>
-<a href='https://github.com/olark/pagerdutyduty'>pagerdutyduty</a>
-</td>
-<td>Scheduling</td>
-<td>A Python tool to import schedules from a YAML file</td>
-</tr>
-<tr>
-<td>
-<a href='https://github.com/dsshafer/phoneduty'>phoneduty (Google App Engine)</a>
-</td>
-<td>Alerting</td>
-<td>Dispatch incoming telephone voicemails/SMS messages from Twilio according to a PagerDuty on-call schedule</td>
-</tr>
-<tr>
-<td>
-<a href='https://github.com/vend/phoneduty'>phoneduty (Heroku)</a>
-</td>
-<td>Alerting</td>
-<td>Twilio/PagerDuty integration to forward inbound calls to the currently on-call engineer</td>
-</tr>
-<tr>
-<td>
-<a href='https://github.com/jof/twilio_oncall_redirector'>Twilio On-Call Redirector</a>
-</td>
-<td>Alerting</td>
-<td>Enables the creation of a Twilio phone number that redirects incoming calls to whomever is on-call at the time.</td>
-</tr>
-</table>
-<h2>Toys</h2>
-<p>And here are some more fun things that people have built with our API:</p>
-<table class='table table-striped'>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tr>
-<td>
-<a href='https://github.com/jlintz/pager-huety'>Pager-Huety</a>
-</td>
-<td>Expert lamp control</td>
-<td>
-A script to trigger Philip Hue lightbulbs based on triggered incidents from PagerDuty.
-</td>
-</tr>
-<tr>
-<td>
-<a href='http://chamblin.github.io/oncallhero/'>ON CALL HERO</a>
-</td>
-<td>Game</td>
-<td>
-This doesn't use our API, but it is a photo-realistic on-call simulator.
-<a href='https://github.com/chamblin/oncallhero'>Source</a>
-</td>
-</tr>
-</table>
-<p>
-Please review the
-<a href='disclaimer.html'>
-Disclaimer
-</a>
-below prior to downloading sample code.
-</p>
-</div>
+                <ul class="breadcrumb"><li><a href="../code.html">Code</a></li><span class="divider">/</span><li>Tools</li></ul>
+                <div class='section'>
+                  <h1 class="title">PagerDuty API-based Tools</h1>
+                  <p>A number of our users have built tools on top of PagerDuty:</p>
+                  <table class='table table-striped'>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                {% for tool in site.data.tools %}
+                  {% if tool.tag == 'Tool' %}
+                    <tr>
+                      <td><a href="{{ tool.url }}"</a>{{ tool.name }}</td>
+                      <td>{{ tool.type }}</td>
+                      <td>{{ tool.description }}</td>
+                    </tr>
+                  {% endif %}
+                {% endfor %}
+                  </table>
+                  <h2>Toys</h2>
+                  <p>And here are some more fun things that people have built with our API:</p>
+                  <table class='table table-striped'>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                {% for tool in site.data.tools %}
+                  {% if tool.tag == 'Toy' %}
+                    <tr>
+                      <td><a href="{{ tool.url }}"</a>{{ tool.name }}</td>
+                      <td>{{ tool.type }}</td>
+                      <td>{{ tool.description }}</td>
+                    </tr>
+                  {% endif %}
+                {% endfor %}
+                  </table>
+                  <p>Please review the <a href='disclaimer.html'>Disclaimer</a> below prior to downloading sample code.</p>
+                </div>

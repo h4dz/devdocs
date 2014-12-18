@@ -1,0 +1,89 @@
+- name: lita-pagerduty
+  url: https://github.com/esigler/lita-pagerduty
+  type: Chatbot
+  description: "A plugin for the <a href='https://www.lita.io/'>Lita</a> chatbot for checking who's on call, scheduling, ack, resolve, etc. Works with any chatroom <a href='https://www.lita.io/plugins'>supported by Lita</a>"
+  tag: Tool
+
+- name: Hubot integration
+  url: https://github.com/github/hubot-scripts/blob/master/src/scripts/pagerduty.coffee
+  type: Chatbot
+  description: "PagerDuty can now participate in any chatroom that <a href='https://github.com/github/hubot'>Hubot</a> supports thanks to Github and contributors."
+  tag: Tool
+
+- name: PagerBot
+  url: https://github.com/stripe/pagerbot
+  type: Chatbot
+  description: "A custom chatbot for PagerDuty <a href='https://stripe.com/blog/pagerbot'>built by Stripe</a> that's easy to self host on Heroku."
+  tag: Tool
+
+- name: pd-nag-connector
+  url: https://github.com/jeffwalter/pd-nag-connector
+  type: Integration
+  description: "A bi-directional integration package for Nagios and PagerDuty"
+  tag: Tool
+
+- name: opsweekly
+  url: https://github.com/etsy/opsweekly
+  type: Reporting
+  description: "A weekly report tracker, an on call categorisation and reporting tool, a sleep tracker, a meeting organiser and a coffee maker all in one."
+  tag: Tool
+
+- name: pagerduty-dashing
+  url: https://github.com/thegreenrobot/pagerduty_dashing
+  type: Reporting
+  description: "A Dashing dashboard for PagerDuty Services"
+  tag: Tool
+
+- name: Zoho reports
+  url: https://blog.pagerduty.com/2014/02/build-out-your-pagerduty-reports-with-zoho/
+  type: Reporting
+  description: "Zoho reports can import PagerDuty data and run SQL queries against it. This blog post shows how to generate reports from your incidents."
+  tag: Tool
+
+- name: Support scripts
+  url: https://github.com/PagerDuty/public-support-scripts
+  type: Reporting
+  description: "Scripts collected by the PagerDuty support team, including: <ul><li>Import Users from CSV</li><li>Download Alerts to CSV</li><li>Alert Volume/Pain for On-Call Users</li><li>Create Vacation Overrides</li><li>Get User Activity</li></ul>"
+  tag: Tool
+
+- name: pdmaint
+  url: https://github.com/caredotcom/pdmaint
+  type: Scheduling
+  description: "A Python command line utility for scheduling and managing maintenance windows"
+  tag: Tool
+
+- name: pagerdutyduty
+  url: https://github.com/olark/pagerdutyduty
+  type: Scheduling
+  description: "A Python tool to import schedules from a YAML file"
+  tag: Tool
+
+- name: phoneduty (Google App Engine)
+  url: https://github.com/dsshafer/phoneduty
+  type: Alerting
+  description: "Dispatch incoming telephone voicemails/SMS messages from Twilio according to a PagerDuty on-call schedule"
+  tag: Tool
+
+- name: phoneduty (Heroku)
+  url: https://github.com/vend/phoneduty
+  type: Alerting
+  description: "Twilio/PagerDuty integration to forward inbound calls to the currently on-call engineer"
+  tag: Tool
+
+- name: Twilio On-Call Redirector
+  url: https://github.com/jof/twilio_oncall_redirector
+  type: Alerting
+  description: "Enables the creation of a Twilio phone number that redirects incoming calls to whomever is on-call at the time."
+  tag: Tool
+
+- name: Pager-Huety
+  url: https://github.com/jlintz/pager-huety
+  type: Expert lamp control
+  description: "A script to trigger Philip Hue lightbulbs based on triggered incidents from PagerDuty."
+  tag: Toy
+
+- name: ON CALL HERO
+  url: http://chamblin.github.io/oncallhero/
+  type: Game
+  description: "This doesn't use our API, but it is a photo-realistic on-call simulator. <a href='https://github.com/chamblin/oncallhero'>Source</a>"
+  tag: Toy
