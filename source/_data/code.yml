@@ -37,3 +37,51 @@
 - name: Twilio and PagerDuty
   url: http://www.whiteboardcoder.com/p/twilio-and-pagerduty.html
   description: "A step by step tutorial to set up a phone number, via <a href='https://www.twilio.com/docs'>Twilio</a> that when called will set off a PagerDuty event."
+
+- name: node-pagerduty
+  url: https://github.com/Skomski/node-pagerduty
+  description: "A node.js client for PagerDuty."
+
+- name: PagerDuty Webscripts
+  url: https://github.com/dshack/pagerduty-webscripts
+  description: "Like Zapier for coders. Make conference calls, set up heartbeat monitoring, ping HipChat, and more."
+
+- name: Off-Call - PagerDuty Utilities
+  url: https://github.com/nzoschke/off-call
+  description: "Generate report of PagerDuty activity for a specific time range."
+
+- name: pagerduty-alert-volume
+  url: https://github.com/owenkim/pagerduty-alert-volume
+  description: "A quick command-line to get the incident volume assigned to an escalation policy broken down by week."
+
+- name: pagerduty_oncall
+  url: https://github.com/thegreenrobot/pagerduty_oncall
+  description: "How to determine who is on-call using Ruby and the PagerDuty API. For IRC."
+
+- name: resque-pagerduty
+  url: https://github.com/g5search/resque-pagerduty
+  description: "A Resque failure backend for triggering incidents in Pagerduty."
+
+- name: pdresolver
+  url: https://github.com/inkling/pdresolver
+  description: "Watches PagerDuty for incidents triggered by other services, then resolves them as necessary. Works with Wormly."
+
+- name: Time On Call
+  url: https://github.com/mgresko/pagerduty_utils
+  description: "How much time am I on call?"
+
+- name: pagerdutysays
+  url: https://github.com/avatarnewyork/pagerdutysays
+  description: PagerDutySays catches a PagerDuty webhook (triggered incident) and sends the event description to a Text To Speech Program.
+
+- name: Grappling
+  url: https://github.com/chamblin/grappling
+  description: "Grappling is a hacky domain specific language for working with PagerDuty's webhooks"
+
+- name: pager-hours
+  url: https://github.com/discordianfish/pager-hours
+  description: "Export on call hours for all users on all schedules within a pagerduty account"
+
+- name: jira-pagerduty-escalation_scripts
+  url: https://github.com/jmunevar/jira-pagerduty-escalation_scripts
+  description: "This is a set of Bash and Ruby scripts that can be customized to automate the escalation of particular JIRA issues matching a JQL query to PagerDuty. "
