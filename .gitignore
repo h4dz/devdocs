@@ -1,2 +1,4 @@
 # This is where the website gets compiled to. We don't need to commit this since it's generated when we deploy.
 public/
+# Different tools for different fools.
+.ruby-version
