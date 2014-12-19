@@ -93,3 +93,75 @@
   type: Expert lamp control
   description: "A project to control a traffic light from a Raspberry Pi based on PagerDuty data"
   tag: Toy
+
+- name: hubot-pager-me
+  url: https://github.com/hubot-scripts/hubot-pager-me
+  type: Chatbot
+  description: "PagerDuty can now participate in any chatroom that Hubot (link: https://github.com/github/hubot) supports thanks to Github and contributors."
+  tag: Tool
+
+- name: puppet-pagerduty
+  url: https://github.com/jamtur01/puppet-pagerduty
+  type: Integration
+  description: "A Puppet report handler for sending notifications of failed runs to PagerDuty. It includes sending all log data in the details section of the API call."
+  tag: Tool
+
+- name: samuel-l-incident
+  url: https://github.com/smithclay/samuel-l-incident
+  type: Fun
+  description: "Trigger PagerDuty incidents that contain the wisdom of Samuel L. Jackson. And bacon. Great for generating dummy incidents."
+  tag: Toy
+
+- name: SnapperDuty
+  url: https://github.com/chamblin/snapperduty
+  type: Fun
+  description: "Illegit Snapchat integration for PagerDuty"
+  tag: Toy
+
+- name: pagerduty-graphite
+  url: https://github.com/agent462/pagerduty-graphite
+  type: Integration
+  description: "A script to collect PagerDuty incident metrics and send them to Graphite."
+  tag: Tool
+
+- name: PagerDuty OnCall Schedule to Asterisk DB
+  url: https://github.com/NetworksAreMadeOfString/PagerDuty-Schedule-to-Asterisk
+  type: Telephony
+  description: "A quick ruby script to check the PagerDuty schedule and make an extension redirect to that persons phone number"
+  tag: Tool
+
+- name: pd2pg
+  url: https://github.com/stripe/pd2pg
+  type: Reporting
+  description: "pd2pg imports data from the PagerDuty API into a Postgres database for easy querying and analysis."
+  tag: Tool
+
+- name: hip-pager-bot
+  url: https://github.com/Will-Loderhose/hip-pager-bot
+  type: Integration
+  description: "Create and customize a HipChat bot that interacts with PagerDuty."
+  tag: Tool
+
+- name: tootles
+  url: https://github.com/smithclay/tootles
+  type: Alerting
+  description: "A PagerDuty incident webhook consumer that prints incoming webhooks to STDOUT. Can also be used for Text-to-Speech alerts on Macs."
+  tag: Tool
+
+- name: CanaryRelic
+  url: https://github.com/seanmcelroy/CanaryRelic
+  type: Integration
+  description: "CanaryRelic is a Microsoft .NET Console Application that polls the New Relic API for one or more custom metrics you can configure and will dispatch an alert to PagerDuty when the 5-minute average of the given metric exceeds the alerting threshold you specify."
+  tag: Tool
+
+- name: chrome-pagerduty
+  url: https://github.com/dankrause/chrome-pagerduty
+  type: Alerting
+  description: "A chrome plugin that wraps the pagerduty mobile site, and supports notifications."
+  tag: Tool
+
+- name: Klaxon
+  url: https://play.google.com/store/apps/details?id=org.nerdcircus.android.klaxon
+  type: Alerting
+  description: "An Android app that intercepts incoming SMS messages and alerts"
+  tag: Tool
