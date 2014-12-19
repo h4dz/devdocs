@@ -1,5 +1,20 @@
 {% include header.html %}
 
+                {% if page.breadcrumbs == true %}
+                <ul class="breadcrumb">
+                {% if page.nav %}
+                  {% for nav in page.nav %}
+                  <li><a href="{{ nav.url }}">{{ nav.title }}</a></li>
+                  <span class="divider">/</span>
+                  {% endfor %}
+                {% endif %}
+                  <li>{{ page.title }}</li>
+                </ul>
+                {% endif %}
+
+                <div class='section'>
+
 {{ content }}
 
+                </div>
 {% include footer.html %}

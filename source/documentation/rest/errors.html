@@ -4,14 +4,11 @@ layout: main
 permalink: /documentation/rest/errors/
 redirect_from:
   - /documentation/rest/errors.html
+breadcrumbs: true
+nav:
+  - title: REST API
+    url: /documentation/rest/
 ---
-                  <ul class="breadcrumb">
-                    <li><a href="../rest.html">REST API</a></li>
-                    <span class="divider">/</span>
-                    <li>Errors</li>
-                  </ul>
-                  <div class='section'>
-                    <title></title>
                     <h1 class="title">Errors</h1>
                     <p>If an API request is successful, PagerDuty will respond to it with HTTP status code 2XX and the resources that match the query.</p>
                     <p>If the API request is unsuccessful, PagerDuty will respond with a corresponding HTTP error status code and the response body will contain PagerDuty error details.</p>
@@ -117,4 +114,3 @@ redirect_from:
                       </table>
                     </div>
                     <p>In addition to a code and message, the return value will also include an array of human-readable reasons for the error in the <code>errors</code> field. These human-readable values, and even their format, are subject to change.</p>
-                  </div>
