@@ -1,0 +1,39 @@
+- name: PDJS
+  url: https://github.com/eurica/pdjs
+  language: JavaScript
+  description: "Javascript library to access PagerDuty REST and event APIs, written in CoffeScript."
+
+- name: Pygerduty
+  url: https://github.com/dropbox/pygerduty
+  language: Python
+  description: "Dropbox Python Library for PagerDuty's v1 REST API."
+
+- name: PagerDuty::Connection
+  url: https://github.com/technicalpickles/pager_duty-connection
+  language: Ruby
+  description: "Ruby API wrapper for the PagerDuty REST API"
+
+- name: PagerDuty event gem
+  url: https://github.com/envato/pagerduty
+  language: Ruby
+  description: "A library for triggering and resolving incidents."
+
+- name: PagerDuty event package
+  url: https://github.com/nmcquay/pagerduty
+  language: PHP
+  description: "A library for interacting with PagerDuty REST API"
+
+- name: PagerDuty Incidents for Java
+  url: https://github.com/square/pagerduty-incidents
+  language: Java
+  description: "Utility for programmatically triggering and resolving PagerDuty incidents."
+
+- name: PdClojureBindings
+  url: https://github.com/danielribeiro/PdClojureBindings
+  language: Clojure
+  description: "https://github.com/danielribeiro/PdClojureBindings"
+
+- name: go-pagerduty
+  url: https://github.com/danryan/go-pagerduty
+  language: Go
+  description: "PagerDuty API client in Go. Tested on all Go versions 1.0 and higher."
