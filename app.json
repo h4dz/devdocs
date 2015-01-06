@@ -1,10 +1,14 @@
 {
-  "name": "PagerDuty Developer Documentation",
-  "description": "The official documentation for PagerDuty's developer platform.",
-  "repository": "https://github.com/PagerDuty/devdocs",
-  "logo": "https://developer.pagerduty.com/assets/logos/logo.png",
-  "keywords": ["pagerduty", "jekyll", "static"],
-  "env": {
-    "BUILDPACK_URL": "https://github.com/SwiftIRC/heroku-buildpack-ruby-octopress",
-  }
+    "name": "PagerDuty Developer Documentation",
+    "description": "The official documentation for PagerDuty's developer platform.",
+    "repository": "https://github.com/PagerDuty/devdocs",
+    "logo": "https://developer.pagerduty.com/assets/logos/logo.png",
+    "keywords": [
+        "pagerduty",
+        "jekyll",
+        "static"
+    ],
+    "env": {
+        "BUILDPACK_URL": "https://github.com/SwiftIRC/heroku-buildpack-ruby-octopress"
+    }
 }
