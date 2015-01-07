@@ -2,7 +2,7 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../reports.html">Reports</a></li><span class="divider">/</span><li>Incidents Per Time</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/reports">Reports</a></li><span class="divider">/</span><li>Incidents Per Time</li></ul>
 <div class='section'>
 <h1 class="title">GET reports/incidents_per_time</h1><p>Get high level statistics about the number of incidents created for the desired time period, summed daily, weekly or monthly.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>GET https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/reports/incidents_per_time/</pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>since</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>Yes</td><td>The start of the date range over which you want to search. The time element is optional.
 </td></tr><tr><td>until</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>Yes</td><td>The end of the date range over which you want to search. This should be in the same format as <code>since</code>.

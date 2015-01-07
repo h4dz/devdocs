@@ -2,7 +2,7 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../maintenance_windows.html">Maintenance Windows</a></li><span class="divider">/</span><li>Update</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/maintenance_windows">Maintenance Windows</a></li><span class="divider">/</span><li>Update</li></ul>
 <div class='section'>
 <h1 class="title">PUT maintenance_windows/:id</h1><p>Update an existing maintenance window.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>PUT https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/maintenance_windows/<span class="url_param contenteditable" contenteditable="true">:id</span></pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>start_time</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>No</td><td>The maintenance window's start time. Can only be updated on future maintenance windows.
 If the <code>start_time</code> is set to a date in the past, it will be updated to the current date.

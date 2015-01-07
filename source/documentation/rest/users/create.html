@@ -2,7 +2,7 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../users.html">Users</a></li><span class="divider">/</span><li>Create</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/users">Users</a></li><span class="divider">/</span><li>Create</li></ul>
 <div class='section'>
 <h1 class="title">POST users</h1><p>Create a new user for your account. An invite email will be sent asking the user to choose a password.</p>
 <h3>Resource URL</h3><div class="prism action-url language-bash"><pre>POST https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/users</pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>role</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>The user's role. This can either be <code>admin</code>, <code>user</code>, or <code>limited_user</code> and defaults to <code>user</code> if not specificed

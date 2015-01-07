@@ -2,7 +2,7 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../log_entries.html">Log Entries</a></li><span class="divider">/</span><li>Show</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/log_entries">Log Entries</a></li><span class="divider">/</span><li>Show</li></ul>
 <div class='section'>
 <h1 class="title">GET log_entries/:id</h1><p>Get details for a specific incident log entry. This method provides additional information you can use to get at raw event data.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>GET https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/log_entries/<span class="url_param contenteditable" contenteditable="true">:id</span></pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>time_zone</td><td><a href="/documentation/rest/types#timezone">Time Zone</a></td><td>No</td><td>Time zone in which dates in the result will be rendered. Defaults to <code>UTC</code>
 </td></tr><tr><td>include</td><td><a href="/documentation/rest/types#array">Array</a></td><td>No</td><td>Array of additional details to include. Accepts <code>channel</code> (See "Channel Type" for details),
@@ -29,7 +29,7 @@ layout: main
 </td></tr><tr><td>assigned_user</td><td><a href="/documentation/rest/types#object">Object</a></td><td>Only for <code>assign</code>, <code>escalate</code> log entries. The user to which the incident is assigned.
 </td></tr></tbody></table></div><h2 id='agent_types'>Agent Types</h2>
 <p>The <code>agent</code> field represents the entity that carried out the action represented by the ILE.</p>
-<div class="table-container"><table class="table table-striped"><thead><th>type</th><th>description</th></thead><tbody><tr><td>user</td><td>User that carried out the action. See the <a href="../users/show.html">show user API</a> for format.</td></tr>
+<div class="table-container"><table class="table table-striped"><thead><th>type</th><th>description</th></thead><tbody><tr><td>user</td><td>User that carried out the action. See the <a href="/documentation/rest/users/show">show user API</a> for format.</td></tr>
 <tr><td>service</td><td>Refers to the service to which the incident belongs. No fields besides <code>type</code>.</td></tr>
 </tbody></table></div><h2 id='channel_types'>Channel Types</h2>
 <p>The <code>channel</code> field represents the means by which the action was carried out. By default only the <code>type</code> and <code>summary</code> fields are included in the channel. To get detailed information for the channel, you must include <code>channel</code> in the <code>include</code> request parameter. All types not detailed here will only have the <code>type</code> field.</p>

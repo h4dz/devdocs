@@ -2,7 +2,7 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../services.html">Services</a></li><span class="divider">/</span><li>Disable</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/services">Services</a></li><span class="divider">/</span><li>Disable</li></ul>
 <div class='section'>
 <h1 class="title">PUT services/:id/disable</h1><p>Disable a service. Once a service is disabled, it will not be able to create incidents until it is enabled again.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>PUT https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/services/<span class="url_param contenteditable" contenteditable="true">:id</span>/disable</pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>requester_id</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>The user id of the user creating the maintenance window. This is only needed if you are using token based authentication.
 </td></tr></tbody></table></div><h3>Example</h3>

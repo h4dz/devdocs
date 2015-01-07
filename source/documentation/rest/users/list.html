@@ -2,7 +2,7 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../users.html">Users</a></li><span class="divider">/</span><li>List</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/users">Users</a></li><span class="divider">/</span><li>List</li></ul>
 <div class='section'>
 <h1 class="title">GET users</h1><p>List users of your PagerDuty account, optionally filtered by a search query.</p>
 <h3>Resource URL</h3><div class="prism action-url language-bash"><pre>GET https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/users</pre></div><h3>Parameters</h3><div class="alert alert-warning">This action is paginated. See the <a href="../pagination.html">pagination documentation</a> for details.</div><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>query</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>Filters the result, showing only the users whose names or email addresses match the query

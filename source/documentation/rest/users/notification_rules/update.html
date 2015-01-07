@@ -2,7 +2,7 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="../../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../../users.html">Users</a></li><span class="divider">/</span><li><a href="../notification_rules.html">Notification Rules</a></li><span class="divider">/</span><li>Update</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/users">Users</a></li><span class="divider">/</span><li><a href="/documentation/rest/users/notification_rules">Notification Rules</a></li><span class="divider">/</span><li>Update</li></ul>
 <div class='section'>
 <h1 class="title">PUT users/:user_id/notification_rules/:id</h1><p>Update an existing notification rule.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>PUT https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/users/<span class="url_param contenteditable" contenteditable="true">:user_id</span>/notification_rules/<span class="url_param contenteditable" contenteditable="true">:id</span></pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>start_delay_in_minutes</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>No</td><td>Number of minutes it will take for the notification rule to be activated
 (from the time the incident is assigned to the owning user) and an alert be fired.

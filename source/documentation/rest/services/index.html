@@ -2,15 +2,15 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="../rest.html">REST API</a></li><span class="divider">/</span><li>Services</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li>Services</li></ul>
 <div class='section'>
 <title></title>
 <h1 class="title">Services API</h1>
-<p>A service is an endpoint (like Nagios, email, or an API call) that generates events, which Pagerduty normalizes and dedupes, creating <a href="incidents.html">incidents</a>.</p>
+<p>A service is an endpoint (like Nagios, email, or an API call) that generates events, which Pagerduty normalizes and dedupes, creating <a href="/documentation/rest/incidents">incidents</a>.</p>
 <p>When a service is shown inlined in other resources, a deleted service will have its html_url attribute set to null.</p>
-<table class="table action_index"><caption>This API lets you access and manipulate the services across your account.</caption><thead><th>Resource</th><th>Description</th></thead><tbody><tr><td><a href="services/list.html">GET services</a></td><td>List existing services.</td></tr><tr><td><a href="services/show.html">GET services/:id</a></td><td>Get details about an existing service.</td></tr>
-<tr><td><a href="services/create.html">POST services</a></td><td>Create a new service.</td></tr><tr><td><a href="services/update.html">PUT services/:id</a></td><td>Update an existing service.</td></tr><tr><td><a href="services/delete.html">DELETE services/:id</a></td><td>Delete an existing service. Once the service is deleted, it will not be accessible from the web UI and new incidents won't be able to be created for this service.</td></tr>
-<tr><td><a href="services/disable.html">PUT services/:id/disable</a></td><td>Disable a service. Once a service is disabled, it will not be able to create incidents until it is enabled again.</td></tr>
-<tr><td><a href="services/enable.html">PUT services/:id/enable</a></td><td>Enable a previously disabled service.</td></tr>
-<tr><td><a href="services/regenerate_key.html">POST services/:id/regenerate_key</a></td><td>Regenerate a new service key for an existing service.</td></tr>
+<table class="table action_index"><caption>This API lets you access and manipulate the services across your account.</caption><thead><th>Resource</th><th>Description</th></thead><tbody><tr><td><a href="/documentation/rest/services/list">GET services</a></td><td>List existing services.</td></tr><tr><td><a href="/documentation/rest/services/show">GET services/:id</a></td><td>Get details about an existing service.</td></tr>
+<tr><td><a href="/documentation/rest/services/create">POST services</a></td><td>Create a new service.</td></tr><tr><td><a href="/documentation/rest/services/update">PUT services/:id</a></td><td>Update an existing service.</td></tr><tr><td><a href="/documentation/rest/services/delete">DELETE services/:id</a></td><td>Delete an existing service. Once the service is deleted, it will not be accessible from the web UI and new incidents won't be able to be created for this service.</td></tr>
+<tr><td><a href="/documentation/rest/services/disable">PUT services/:id/disable</a></td><td>Disable a service. Once a service is disabled, it will not be able to create incidents until it is enabled again.</td></tr>
+<tr><td><a href="/documentation/rest/services/enable">PUT services/:id/enable</a></td><td>Enable a previously disabled service.</td></tr>
+<tr><td><a href="/documentation/rest/services/regenerate_key">POST services/:id/regenerate_key</a></td><td>Regenerate a new service key for an existing service.</td></tr>
 </tbody></table></div>

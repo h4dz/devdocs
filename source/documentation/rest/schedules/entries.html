@@ -2,25 +2,7 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class='nav nav-list'><li class="nav-header "><a href="/documentation/rest/">General Information</a></li><li><a href="../authentication.html">Authentication</a></li><li><a href="/documentation/rest/errors">Errors</a></li><li><a href="/documentation/rest/types">Types</a></li><li><a href="/documentation/rest/pagination">Pagination</a></li><li class="nav-header "><a href="../alerts.html">Alerts</a></li><li class="nav-header "><a href="../escalation_policies.html">Escalation Policies</a></li><li><a href="../escalation_policies/escalation_rules.html">Escalation Rules</a></li><li><a href="../escalation_policies/on_call.html">On-Call</a></li><li class="nav-header "><a href="../incidents.html">Incidents</a></li><li><a href="../incidents/notes.html">Notes</a></li><li class="nav-header "><a href="../log_entries.html">Log Entries</a></li><li class="nav-header "><a href="../maintenance_windows.html">Maintenance Windows</a></li><li class="nav-header "><a href="../reports.html">Reports</a></li><li class="nav-header "><a href="../schedules.html">Schedules</a></li><li><a href="overrides.html">Overrides</a></li><li class="nav-header "><a href="../services.html">Services</a></li><li><a href="../services/email_filters.html">Email Filters</a></li><li class="nav-header "><a href="../users.html">Users</a></li><li><a href="../users/contact_methods.html">Contact Methods</a></li><li><a href="../users/notification_rules.html">Notification Rules</a></li><li><a href="../users/on_call.html">On-Call</a></li></ul>
-</div>
-<div class='sidebar-nav'>
-<h3>Webhooks</h3>
-<ul class='nav nav-list'><li><a href="../webhooks.html">Webhooks API</a></li></ul>
-</div>
-<div class='sidebar-nav'>
-<h3>Integration</h3>
-<ul class='nav nav-list'><li class="nav-header "><a href="../../integration/events.html">Integration API</a></li><li><a href="../../integration/events/trigger.html">Trigger</a></li><li><a href="../../integration/events/acknowledge.html">Acknowledge</a></li><li><a href="../../integration/events/resolve.html">Resolve</a></li></ul>
-</div>
-<div class='sidebar-nav'>
-<h3>Code</h3>
-<ul class='nav nav-list'><li class="nav-header "><a href="../../code.html">Code samples</a></li><li><a href="../../code/libraries.html">Libraries</a></li><li><a href="../../code/tools.html">Tools</a></li><li><a href="../../code/disclaimer.html">Disclaimer</a></li></ul>
-</div>
-</div>
-</div>
-<div class='col9'>
-<div class='main-content'>
-<ul class="breadcrumb"><li><a href="../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../schedules.html">Schedules</a></li><span class="divider">/</span><li>Entries</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/schedules">Schedules</a></li><span class="divider">/</span><li>Entries</li></ul>
 <h1 class="title">GET schedules/:id/entries</h1><p>List schedule entries that are active for a given time range for a specified on-call schedule.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>GET https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/schedules/<span class="url_param contenteditable" contenteditable="true">:id</span>/entries</pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>since</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>Yes</td><td><p>The start of the date range over which you want to return on-call schedule entries.</p>
 <p>The maximum range queryable at once is <strong>three months</strong>.</p>
 </td></tr><tr><td>until</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>Yes</td><td>The end of the date range over which you want to return schedule entries.

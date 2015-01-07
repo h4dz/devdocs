@@ -2,7 +2,7 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../maintenance_windows.html">Maintenance Windows</a></li><span class="divider">/</span><li>Create</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/maintenance_windows">Maintenance Windows</a></li><span class="divider">/</span><li>Create</li></ul>
 <div class='section'>
 <h1 class="title">POST maintenance_windows</h1><p>Create a new maintenance window for the specified services. No new incidents will be created for a service that is currently in maintenance.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>POST https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/maintenance_windows</pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>requester_id</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>The user id of the user creating the maintenance window. This is only needed if you are using token based authentication.
 </td></tr><tr><td>maintenance_window</td><td><a href="/documentation/rest/types#object">Object</a></td><td>No</td><td>The maintenance window object. See maintenance window parameters for details.
