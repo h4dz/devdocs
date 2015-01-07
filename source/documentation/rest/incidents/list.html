@@ -2,12 +2,12 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../incidents.html">Incidents</a></li><span class="divider">/</span><li>List</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest/">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/incidents/">Incidents</a></li><span class="divider">/</span><li>List</li></ul>
 <div class='section'>
 <h1 class="title">GET incidents</h1><p>
 The PagerDuty incidents query API can be used to query current and historical PagerDuty incidents over a date range, letting you build custom dashboards or incident reports. The API allows for searching for incidents with multiple filters or query parameters, various sorts, and also supports the pagination of results.
 </p>
-<h3>Resource URL</h3><div class="prism action-url language-bash"><pre>GET https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/incidents</pre></div><h3>Parameters</h3><div class="alert alert-warning">This action is paginated. See the <a href="../pagination.html">pagination documentation</a> for details.</div><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>since</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>No</td><td>The start of the date range over which you want to search.
+<h3>Resource URL</h3><div class="prism action-url language-bash"><pre>GET https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/incidents</pre></div><h3>Parameters</h3><div class="alert alert-warning">This action is paginated. See the <a href="/documentation/rest/pagination">pagination documentation</a> for details.</div><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>since</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>No</td><td>The start of the date range over which you want to search.
 </td></tr><tr><td>until</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>No</td><td><p>
 The end of the date range over which you want to search.
 </p>
@@ -22,7 +22,7 @@ is set to <code>since</code> + 30 days. Defaults to the last 30 days if you leav
 </td></tr><tr><td>status</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td><p>Returns only the incidents currently in the passed status(es). Valid status options are <code>triggered</code>, <code>acknowledged</code>, and <code>resolved</code>. More status codes may be introduced in the future.</p>
 <p>Separate multiple statuses with a comma.</p>
 </td></tr><tr><td>incident_key</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>Returns only the incidents with the passed de-duplication key. See the
-<a href="../../integration/events.html">PagerDuty Integration API</a>
+<a href="/documentation/integration/events">PagerDuty Integration API</a>
 docs for further details.
 </td></tr><tr><td>service</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td><p>Returns only the incidents associated with the passed service(s). This expects one or more service IDs.</p>
 <p>Separate multiple ids with a comma.</p>
@@ -61,7 +61,7 @@ We anticipate the need for introducing new status codes in the future. Please bu
 </ul>
 </td></tr><tr><td>created_on</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>The date/time the incident was triggered.
 </td></tr><tr><td>html_url</td><td><a href="/documentation/rest/types#string">String</a></td><td>The PagerDuty website URL where the incident can be viewed and further actions taken. This is <strong>not</strong> the resource URL.
-</td></tr><tr><td>incident_key</td><td><a href="/documentation/rest/types#string">String</a></td><td>The incident's de-duplication key. See the <a href="../../integration/events.html">PagerDuty Integration API</a> docs for further details.
+</td></tr><tr><td>incident_key</td><td><a href="/documentation/rest/types#string">String</a></td><td>The incident's de-duplication key. See the <a href="/documentation/integration/events">PagerDuty Integration API</a> docs for further details.
 </td></tr><tr><td>service</td><td><a href="/documentation/rest/types#object">Object</a></td><td>The PagerDuty service that the incident belongs to. The service will contain fields of its own.
 </td></tr><tr><td>escalation_policy</td><td><a href="/documentation/rest/types#object">Object</a></td><td>The escalation policy that the incident belongs to. The policy will contain fields of its own.
 </td></tr><tr><td>assigned_to</td><td><a href="/documentation/rest/types#array">Array</a></td><td><p>

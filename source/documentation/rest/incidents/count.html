@@ -2,7 +2,7 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../incidents.html">Incidents</a></li><span class="divider">/</span><li>Count</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/incidents">Incidents</a></li><span class="divider">/</span><li>Count</li></ul>
 <div class='section'>
 <h1 class="title">GET incidents/count</h1><p>
 Use this query if you are simply looking for the count of incidents that match a given query.
@@ -22,7 +22,7 @@ is set to <code>since</code> + 30 days. Defaults to the last 30 days if you leav
 </td></tr><tr><td>status</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td><p>Only counts the incidents currently in the passed status(es). Valid status options are <code>triggered</code>, <code>acknowledged</code>, and <code>resolved</code>. More status codes may be introduced in the future.</p>
 <p>Separate multiple statuses with a comma.</p>
 </td></tr><tr><td>incident_key</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>Only counts the incidents with the passed de-duplication key. See the
-<a href="../../integration/events.html">PagerDuty Integration API</a>
+<a href="/documentation/integration/events/">PagerDuty Integration API</a>
 docs for further details.
 </td></tr><tr><td>service</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td><p>Only counts the incidents associated with the passed service(s). This is expecting one or more service IDs.</p>
 <p>Separate multiple ids with a comma.</p>

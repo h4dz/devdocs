@@ -2,7 +2,7 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../incidents.html">Incidents</a></li><span class="divider">/</span><li>Update</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/incidents">Incidents</a></li><span class="divider">/</span><li>Update</li></ul>
 <div class='section'>
 <h1 class="title">PUT incidents</h1><p>Acknowledge, resolve, escalate or reassign one or more incidents.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>PUT https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/incidents</pre></div><p>
 The status of this request will be 200 if and only if all of the updates succeed. Nonetheless, this request is <b>not</b> atomic: if it gives a 400 error, the error code must be checked out to see which incidents failed to be updated.

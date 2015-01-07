@@ -5,7 +5,7 @@ permalink: /documentation/rest/escalation_policies/list/
 redirect_from:
   - /documentation/rest/escalation_policies/list.html
 ---
-<ul class="breadcrumb"><li><a href="../../rest.html">REST API</a></li><span class="divider">/</span><li><a href="../escalation_policies.html">Escalation Policies</a></li><span class="divider">/</span><li>List</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest/">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/escalation_policies/">Escalation Policies</a></li><span class="divider">/</span><li>List</li></ul>
 <div class='section'>
 <h1 class="title">GET escalation_policies</h1><p>List all the existing escalation policies.</p>
 <h3>Resource URL</h3><div class="prism action-url language-bash"><pre>GET https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/escalation_policies</pre></div><h3>Parameters</h3><div class="alert alert-warning">This action is paginated. See the <a href="/documentation/rest/pagination/">pagination documentation</a> for details.</div><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>query</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>Filters the result, showing only the escalation policies whose names match the query.
@@ -14,7 +14,7 @@ redirect_from:
 </td></tr><tr><td>name</td><td><a href="/documentation/rest/types#string">String</a></td><td>The name of the escalation policy.
 </td></tr><tr><td>num_loops</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>The number of times the escalation policy will repeat after reaching the end of its escalation.
 </td></tr><tr><td>escalation_rules</td><td><a href="/documentation/rest/types#array">Array</a></td><td>A list of the policy's escalation rules in order of escalation. Fields detailed below.
-</td></tr><tr><td>services</td><td><a href="/documentation/rest/types#array">Array</a></td><td>A list of services using this escalation policy. See <a href="../services.html">Services</a> for the fields to expect.
+</td></tr><tr><td>services</td><td><a href="/documentation/rest/types#array">Array</a></td><td>A list of services using this escalation policy. See <a href="/documentation/rest/services/">Services</a> for the fields to expect.
 </td></tr></tbody></table></div><h3>Escalation Rule Response Fields</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Description</th></thead><tbody><tr><td>id</td><td><a href="/documentation/rest/types#string">String</a></td><td>The ID of the escalation rule.
 </td></tr><tr><td>escalation_delay_in_minutes</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>The amount of time before an incident escalates away from this rule.
 </td></tr><tr><td>rule_object</td><td><a href="/documentation/rest/types#object">Object</a></td><td><strong><div>This field is deprecated. See <i>targets</i> instead</div></strong>
