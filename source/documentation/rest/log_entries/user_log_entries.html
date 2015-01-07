@@ -10,7 +10,7 @@ layout: main
 </td></tr><tr><td>is_overview</td><td><a href="/documentation/rest/types#boolean">Boolean</a></td><td>No</td><td>If <code>true</code>, will only return log entries of type <code>trigger</code>,
 <code>acknowledge</code>, or <code>resolve</code>. Defaults to <code>false</code>.
 </td></tr><tr><td>include</td><td><a href="/documentation/rest/types#array">Array</a></td><td>No</td><td>Array of additional details to include. This API accepts <code>channel</code>, <code>incident</code>,
-and <code>service</code>. If <code>channel</code> is not included, a summary will be returned (See <a href="show.html#channel_types">channel format information</a> for more information.)
+and <code>service</code>. If <code>channel</code> is not included, a summary will be returned (See <a href="/documentation/rest/log_entires/show#channel_types">channel format information</a> for more information.)
 </td></tr></tbody></table></div><h3>Response Fields</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Description</th></thead><tbody><tr><td>log_entries</td><td><a href="/documentation/rest/types#array">Array</a></td><td>Array of the log entries. See the <a href="/documentation/rest/log_entries/show">Log Entry Show API</a> for details.
 </td></tr><tr><td>total</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>Total number of log entries matching the request ignoring pagination.
 </td></tr><tr><td>offset</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>Echoes offset pagination parameter.

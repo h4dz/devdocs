@@ -5,7 +5,7 @@ permalink: /documentation/integration/events/
 redirect_from:
   - /documentation/integration/events.html
 ---
-<ul class="breadcrumb"><li><a href="events.html">Integration</a></li><span class="divider">/</span><li>Events</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/integration/events/">Integration</a></li><span class="divider">/</span><li>Events</li></ul>
 <div class='section'>
 <title></title>
 <h1 class="title">Integration API</h1>
@@ -70,15 +70,15 @@ Click on an event type below for full details.
 </thead>
 <tbody>
 <tr>
-<td><a href="events/trigger.html">Trigger</a></td>
+<td><a href="/documentation/integration/events/trigger">Trigger</a></td>
 <td>Your monitoring tools should send PagerDuty a trigger event to report a new or ongoing problem. When PagerDuty receives a trigger event, it will either open a new incident, or add a new trigger log entry to an existing incident, depending on the provided <code>incident_key</code>.</td>
 </tr>
 <tr>
-<td><a href="events/acknowledge.html">Acknowledge</a></td>
+<td><a href="/documentation/integration/events/acknowledge">Acknowledge</a></td>
 <td>Acknowledge events cause the referenced incident to enter the acknowledged state. While an incident is acknowledged, it won't generate any additional notifications, even if it receives new trigger events. Your monitoring tools should send PagerDuty an acknowledge event when they know someone is presently working on the problem.</td>
 </tr>
 <tr>
-<td><a href="events/resolve.html">Resolve</a></td>
+<td><a href="/documentation/integration/events/resolve">Resolve</a></td>
 <td>Resolve events cause the referenced incident to enter the resolved state. Once an incident is resolved, it won't generate any additional notifications. New trigger events with the same <code>incident_key</code> as a resolved incident won't re-open the incident. Instead, a new incident will be created. Your monitoring tools should send PagerDuty a resolve event when the problem that caused the initial trigger event has been fixed.</td>
 </tr>
 </tbody>

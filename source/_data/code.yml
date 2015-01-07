@@ -20,7 +20,7 @@
 
 - name: On-call example
   url: http://jsfiddle.net/eurica/a6hef/
-  description: "Minimal example to display who is on call using <a href='code/libraries.html'>PDJS"
+  description: "Minimal example to display who is on call using <a href='/documentation/code/libraries'>PDJS"
 
 - name: Ruby/HTTParty
   url: http://euri.ca/2014/pagerduty-ruby-with-httparty/
