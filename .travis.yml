@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+- 2.0
+
+branches:
+  only:
+  - master
+  - /dev-(.*)/
+
+script:
+# Ignore "#" used in our menu
+- bundle exec jekyll build
+- bundle exec htmlproof ./public/ --href_ignore "#"
+
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
