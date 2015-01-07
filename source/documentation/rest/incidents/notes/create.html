@@ -2,7 +2,7 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentaion/rest/incidents/">Incidents</a></li><span class="divider">/</span><li><a href="/documentation/rest/incidents/notes">Notes</a></li><span class="divider">/</span><li>Create</li></ul>
+<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/incidents">Incidents</a></li><span class="divider">/</span><li><a href="/documentation/rest/incidents/notes">Notes</a></li><span class="divider">/</span><li>Create</li></ul>
 <div class='section'>
 <h1 class="title">POST incidents/:incident_id/notes</h1><p>Create a new note for the specified incident.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>POST https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/incidents/<span class="url_param contenteditable" contenteditable="true">:incident_id</span>/notes</pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>note</td><td><a href="/documentation/rest/types#object">Object</a></td><td>Yes</td><td>The note object that includes the new note parameters.
 </td></tr><tr><td>requester_id</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>The user id of the user making the request. This is only needed if you are using token based authentication.
