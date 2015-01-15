@@ -19,7 +19,8 @@ nav:
                         <th>Description</th>
                       </tr>
                     </thead>
-                {% for tool in site.data.tools %}
+                {% assign tool_type = site.data.tools | sort: "type" %}
+                {% for tool in tool_type %}
                   {% if tool.tag == 'Tool' %}
                     <tr>
                       <td><a href="{{ tool.url }}"</a>{{ tool.name }}</td>
