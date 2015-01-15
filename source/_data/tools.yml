@@ -4,12 +4,6 @@
   description: "A plugin for the <a href='https://www.lita.io/'>Lita</a> chatbot for checking who's on call, scheduling, ack, resolve, etc. Works with any chatroom <a href='https://www.lita.io/plugins'>supported by Lita</a>"
   tag: Tool
 
-- name: Hubot integration
-  url: https://github.com/github/hubot-scripts/blob/master/src/scripts/pagerduty.coffee
-  type: Chatbot
-  description: "PagerDuty can now participate in any chatroom that <a href='https://github.com/github/hubot'>Hubot</a> supports thanks to Github and contributors."
-  tag: Tool
-
 - name: PagerBot
   url: https://github.com/stripe/pagerbot
   type: Chatbot
@@ -97,7 +91,7 @@
 - name: hubot-pager-me
   url: https://github.com/hubot-scripts/hubot-pager-me
   type: Chatbot
-  description: "PagerDuty can now participate in any chatroom that Hubot (link: https://github.com/github/hubot) supports thanks to Github and contributors."
+  description: "PagerDuty can now participate in any chatroom that <a href='https://github.com/github/hubot'>Hubot</a> supports thanks to Github and contributors."
   tag: Tool
 
 - name: puppet-pagerduty
