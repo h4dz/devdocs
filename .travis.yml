@@ -1,16 +1,20 @@
 language: ruby
 rvm:
-- 2.0
+- 2.1.4
+
 branches:
   only:
   - master
   - /dev-(.*)/
+
 script:
 - bundle exec jekyll build
 - bundle exec htmlproof ./public/ --href_ignore "#"
+
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+
 notifications:
   hipchat:
     rooms:
