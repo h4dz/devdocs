@@ -8,10 +8,14 @@ branches:
   - /dev-(.*)/
 
 script:
-# Ignore "#" used in our menu
 - bundle exec jekyll build
 - bundle exec htmlproof ./public/ --href_ignore "#"
 
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+
+notifications:
+  hipchat:
+    rooms:
+      secure: KFrw+hP21IId8NcQT9xJFjxpuahmuryu5JpZdSw1NDP/rT//4Aeos9/7JHc+F9WFIK+xl9N5UAmj49PAbOjKdu5Cq8wNl5VAWbdCDS//81QjHej7bzCwTbmuk2FK2d0ZunZVrxxglTyox/d+JYRgEEZnahbpgtE+L7d+ki29YwU=
