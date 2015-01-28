@@ -85,3 +85,7 @@
 - name: jira-pagerduty-escalation_scripts
   url: https://github.com/jmunevar/jira-pagerduty-escalation_scripts
   description: "This is a set of Bash and Ruby scripts that can be customized to automate the escalation of particular JIRA issues matching a JQL query to PagerDuty. "
+
+- name: Get Incident Details with Body
+  url: https://gist.github.com/ryanhoskin/b9c305274627c783f0d7
+  description: "Get details about a specific incident or range of incidents including the incident body"
