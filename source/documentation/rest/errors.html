@@ -43,7 +43,31 @@ nav:
                           <tr>
                             <td>400</td>
                             <td>Bad Request</td>
-                            <td>Caller provided invalid arguments. Please review the response for error details. Retrying with the same arguments will *not* work.</td></tr><tr><td>500</td><td>Internal Server Error</td>
+                            <td>Caller provided invalid arguments. Please review the response for error details. Retrying with the same arguments will *not* work.</td>
+                          </tr>
+                          <tr>
+                            <td>401</td>
+                            <td>Unauthorized</td>
+                            <td>Caller did not supply credentials or did not provide the correct credentials.</td>
+                          </tr>
+                          <tr>
+                            <td>403</td>
+                            <td>Forbidden</td>
+                            <td>Caller is not authorized to view the requested resource.</td>
+                          </tr>
+                          <tr>
+                            <td>404</td>
+                            <td>Not Found</td>
+                            <td>The requested resource was not found.</td>
+                          </tr>
+                          <tr>
+                            <td>408</td>
+                            <td>Request Timeout</td>
+                            <td>The request took too long to process. Please try again.</td>
+                          </tr>
+                          <tr>
+                            <td>500</td>
+                            <td>Internal Server Error</td>
                             <td>Internal error occurred while processing request. Please try again.</td>
                           </tr>
                         </tbody>
