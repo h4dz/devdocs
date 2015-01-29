@@ -37,3 +37,8 @@
   url: https://github.com/danryan/go-pagerduty
   language: Go
   description: "PagerDuty API client in Go. Tested on all Go versions 1.0 and higher."
+
+- name: Haskell PagerDuty API Client
+  url: https://github.com/brendanhay/pagerduty
+  language: Haskell
+  description: "A PagerDuty API client written in Haskell"
