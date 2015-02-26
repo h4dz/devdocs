@@ -2,3 +2,6 @@
 public/
 # Different tools for different fools.
 .ruby-version
+/vendor
+.bundle/
+.DS_Store
