@@ -44,7 +44,7 @@ breadcrumbs: true
 </table>
 <p>
   Looking to try out our API? Here are some code samples to get started with:
-</p>{% for code in site.data.code %} {% endfor %}
+</p>
 <table class='table'>
   <thead>
     <tr>
@@ -57,14 +57,16 @@ breadcrumbs: true
     </tr>
   </thead>
   <tbody>
+  {% for code in site.data.code %}
     <tr>
       <td>
-        <a href="{{%20code.url%20}}"></a>{{ code.name }}
+        <a href="{{ code.url }}"></a>{{ code.name }}
       </td>
       <td>
         {{ code.description }}
       </td>
     </tr>
+  {% endfor %}
   </tbody>
 </table>
 <p>
