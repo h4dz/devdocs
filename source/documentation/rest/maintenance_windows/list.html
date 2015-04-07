@@ -114,6 +114,20 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
             Only return maintenance windows that are of this type. Possible values are <code>past</code>, <code>future</code>, <code>ongoing</code>. If this parameter is omitted, all maintenance windows will be returned.
           </td>
         </tr>
+        <tr>
+          <td>
+            include
+          </td>
+          <td>
+            <a href="/documentation/rest/types#array">Array</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Include extra information in the response. Possible values are <code>teams</code> (for inline <a href="/documentation/rest/teams/">Teams</a>).
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -126,6 +140,7 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
     --data-urlencode "service_ids[]=<span class='curl_params-service_ids contenteditable' contenteditable='true'>PF9KMXH</span>" \
     --data-urlencode "teams=<span class='curl_params-teams contenteditable' contenteditable='true'>P4QLGMN,P6XL8LK</span>" \
     --data-urlencode "filter=<span class='curl_params-filter contenteditable' contenteditable='true'>ongoing</span>" \
+    --data-urlencode "include[]=<span class='curl_params-include contenteditable' contenteditable='true'>teams</span>" \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/maintenance_windows"</code>
 </pre>
   <p class="content-type-warning clearfix">
@@ -161,6 +176,13 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
           "name": "Mail Service 12345677",
           "url": "/services/PF9KMXH",
           "id": "PF9KMXH"
+        }
+      ],
+      "teams": [
+        {
+          "id": "P4QLGMN",
+          "name": "A Mob of Emus",
+          "description": "Marauding across Australia"
         }
       ]
     }
