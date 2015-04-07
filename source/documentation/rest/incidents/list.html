@@ -173,6 +173,20 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
         </tr>
         <tr>
           <td>
+            teams
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            A comma-separated list of team IDs, specifying teams whose maintenance windows will be returned.
+          </td>
+        </tr>
+        <tr>
+          <td>
             assigned_to_user
           </td>
           <td>
@@ -715,12 +729,13 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents"</code>
 </pre>
   <h4>
-    Fetch the 50 most recent incidents triggered within the last 3 months.
+    Fetch the 50 most recent incidents triggered within the last 3 months on team ID <code>P4QLGMN</code> or <code>P6XL8LK</code>.
   </h4>
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \
     --data-urlencode "since=<span class='curl_params-since contenteditable' contenteditable='true'>2011-02-01</span>" \
     --data-urlencode "until=<span class='curl_params-until contenteditable' contenteditable='true'>2011-05-01</span>" \
+    --data-urlencode "teams=<span class='curl_params-until contenteditable' contenteditable='true'>P4QLGMN,P6XL8LK</span>" \
     --data-urlencode "sort_by=<span class='curl_params-sort_by contenteditable' contenteditable='true'>created_on:desc</span>" \
     --data-urlencode "limit=50" \
     --data-urlencode "offset=0" \
