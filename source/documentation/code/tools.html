@@ -34,7 +34,7 @@ nav:
   {% for tool in tool_type %} {% if tool.tag == 'Tool' %}
     <tr>
       <td>
-        <a href="{{ tool.url }}"></a>{{ tool.name }}
+        <a href="{{ tool.url }}">{{ tool.name }}</a>
       </td>
       <td>
         {{ tool.type }}
@@ -70,7 +70,7 @@ nav:
   {% for tool in site.data.tools %} {% if tool.tag == 'Toy' %}
     <tr>
       <td>
-        <a href="{{ tool.url }}"></a>{{ tool.name }}
+        <a href="{{ tool.url }}">{{ tool.name }}</a>
       </td>
       <td>
         {{ tool.type }}
