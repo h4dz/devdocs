@@ -2,12 +2,84 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/users">Users</a></li><span class="divider">/</span><li>Contact Methods</li></ul>
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/documentation/rest/users">Users</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Contact Methods
+  </li>
+</ul>
 <div class='section'>
-<title></title>
-<h1 class="title">Contact Methods API</h1>
-<p>
-Contact methods describe the various channels (phone numbers, SMS numbers and email addresses) used to contact a user when an <a href="/documentation/rest/incidents/">incident</a> is assigned to the user.
-</p>
-<table class="table action_index"><caption>Access and manipulate the contact methods for a user.</caption><thead><th>Resource</th><th>Description</th></thead><tbody><tr><td><a href="/documentation/rest/users/contact_methods/list">GET users/:user_id/contact_methods</a></td><td>List existing contact methods for the specified user.</td></tr><tr><td><a href="/documentation/rest/users/contact_methods/show">GET users/:user_id/contact_methods/:id</a></td><td>Get details for a contact method.</td></tr><tr><td><a href="/documentation/rest/users/contact_methods/create">POST users/:user_id/contact_methods</a></td><td>Create a new contact method for the specified user.</td></tr><tr><td><a href="/documentation/rest/users/contact_methods/update">PUT users/:user_id/contact_methods/:id</a></td><td>Update an existing contact method.</td></tr><tr><td><a href="/documentation/rest/users/contact_methods/delete">DELETE users/:user_id/contact_methods/:id</a></td><td>Remove a contact method and any corresponding notification rules.</td></tr>
-</tbody></table></div>
+  <h1 class="title">
+    Contact Methods API
+  </h1>
+  <p>
+    Contact methods describe the various channels (phone numbers, SMS numbers and email addresses) used to contact a user when an <a href="/documentation/rest/incidents/">incident</a> is assigned to the user.
+  </p>
+  <table class="table action_index">
+    <caption>
+      Access and manipulate the contact methods for a user.
+    </caption>
+    <thead>
+      <tr>
+        <th>
+          Resource
+        </th>
+        <th>
+          Description
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a href="/documentation/rest/users/contact_methods/list">GET users/:user_id/contact_methods</a>
+        </td>
+        <td>
+          List existing contact methods for the specified user.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/documentation/rest/users/contact_methods/show">GET users/:user_id/contact_methods/:id</a>
+        </td>
+        <td>
+          Get details for a contact method.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/documentation/rest/users/contact_methods/create">POST users/:user_id/contact_methods</a>
+        </td>
+        <td>
+          Create a new contact method for the specified user.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/documentation/rest/users/contact_methods/update">PUT users/:user_id/contact_methods/:id</a>
+        </td>
+        <td>
+          Update an existing contact method.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/documentation/rest/users/contact_methods/delete">DELETE users/:user_id/contact_methods/:id</a>
+        </td>
+        <td>
+          Remove a contact method and any corresponding notification rules.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

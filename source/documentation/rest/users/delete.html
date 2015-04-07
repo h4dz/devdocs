@@ -2,20 +2,139 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/users">Users</a></li><span class="divider">/</span><li>Delete</li></ul>
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/documentation/rest/users">Users</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Delete
+  </li>
+</ul>
 <div class='section'>
-<h1 class="title">DELETE users/:id</h1><p>Remove an existing user.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>DELETE https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/users/<span class="url_param contenteditable" contenteditable="true">:id</span></pre></div><h3>Example</h3>
-<pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X DELETE \&#x000A;    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/users/<span class="sub_params_in_url-id id contenteditable" contenteditable="true">PIJ90N7</span>"</code></pre><p class="content-type-warning clearfix">Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code></p><div class="clearfix"></div>
-<h4>Response <span class="response-status">Status: 204 No Content <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums"></code></pre></div>
-<h3>Conflict Errors</h3>
-<p>
-A user deletion can fail due to the user being a dependency of an escalation policy or schedule,
-or due to having an incident assigned to them. This will be indicated by a message in the <code>errors</code>
-array of the Error object and an additional field <code>conflicts</code> comprising an array of conflicts.
-</p>
-<pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;error&quot;: {&#x000A;    &quot;errors&quot;: [&#x000A;      &quot;The user cannot be deleted as they are currently in use&quot;&#x000A;    ],&#x000A;    &quot;conflicts&quot;: [&#x000A;      {&#x000A;        &quot;name&quot;: &quot;Primary Rotation&quot;,&#x000A;        &quot;type&quot;: &quot;schedule&quot;,&#x000A;        &quot;url&quot;: &quot;/services/PHL1X87&quot;,&#x000A;        &quot;id&quot;: &quot;PHL1X87&quot;&#x000A;      }&#x000A;    ]&#x000A;  }&#x000A;}</code></pre>
-<h3>Conflict Fields</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Description</th></thead><tbody><tr><td>name</td><td><a href="/documentation/rest/types#string">String</a></td><td>The name of the resource preventing the user from being deleted.
-</td></tr><tr><td>type</td><td><a href="/documentation/rest/types#string">String</a></td><td>The type of the resource. Can be one of [<code>schedule</code>, <code>ecalation_policy</code>, <code>incident</code>].
-</td></tr><tr><td>url</td><td><a href="/documentation/rest/types#string">String</a></td><td>The http URL at which the resource is located.
-</td></tr><tr><td>id</td><td><a href="/documentation/rest/types#string">String</a></td><td>The id of the resource
-</td></tr></tbody></table></div></div>
+  <h1 class="title">
+    DELETE users/:id
+  </h1>
+  <p>
+    Remove an existing user.
+  </p>
+  <h3>
+    Resource URL
+  </h3>
+  <div class="prism action-url language-bash">
+    <pre>
+DELETE https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/users/<span class="url_param contenteditable" contenteditable="true">:id</span>
+</pre>
+  </div>
+  <h3>
+    Example
+  </h3>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X DELETE \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/users/<span class="sub_params_in_url-id id contenteditable" contenteditable="true">PIJ90N7</span>"</code>
+</pre>
+  <p class="content-type-warning clearfix">
+    Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code>
+  </p>
+  <div class="clearfix"></div>
+  <h4>
+    Response <span class="response-status">Status: 204 No Content <a href="/documentation/rest/errors#http_codes"></a></span>
+  </h4>
+  <div class="response"></div>
+  <h3>
+    Conflict Errors
+  </h3>
+  <p>
+    A user deletion can fail due to the user being a dependency of an escalation policy or schedule, or due to having an incident assigned to them. This will be indicated by a message in the <code>errors</code> array of the Error object and an additional field <code>conflicts</code> comprising an array of conflicts.
+  </p>
+  <pre>
+<code class="language-javascript prettyprint linenums">{
+  "error": {
+    "errors": [
+      "The user cannot be deleted as they are currently in use"
+    ],
+    "conflicts": [
+      {
+        "name": "Primary Rotation",
+        "type": "schedule",
+        "url": "/services/PHL1X87",
+        "id": "PHL1X87"
+      }
+    ]
+  }
+}</code>
+</pre>
+  <h3>
+    Conflict Fields
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            name
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            The name of the resource preventing the user from being deleted.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            type
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            The type of the resource. Can be one of [<code>schedule</code>, <code>ecalation_policy</code>, <code>incident</code>].
+          </td>
+        </tr>
+        <tr>
+          <td>
+            url
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            The http URL at which the resource is located.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            id
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            The id of the resource
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

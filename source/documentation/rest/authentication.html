@@ -9,12 +9,26 @@ nav:
   - title: REST API
     url: /documentation/rest/
 ---
-                    <h1 class="title">API Authentication</h1>
-                    <h2>API Token Authentication</h2>
-                    <p>Our REST APIs support token authentication. Only an account administrator can access or <a href="http://support.pagerduty.com/entries/23761081-Generating-an-API-Key">generate API key tokens</a>.</p>
-                    <p>Here's a sample curl request that is authenticated using the API key token.</p>
-                    <pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \&#x000A;    --data-urlencode "since=<span class='curl_params-since contenteditable' contenteditable='true'>2011-06-01</span>" \&#x000A;    --data-urlencode "until=<span class='curl_params-until contenteditable' contenteditable='true'>2011-06-20</span>" \&#x000A;    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/schedules/P4MHU96/entries"</code></pre>
-                    <div class='alert alert-block alert-info'>
-                      <h4>Important!</h4>
-                      All API requests must be made over <strong>HTTPS</strong>.Calls made over plain HTTP will be redirected to HTTPS.
-                    </div>
+<h1 class="title">
+  API Authentication
+</h1>
+<h2>
+  API Token Authentication
+</h2>
+<p>
+  Our REST APIs support token authentication. Only an account administrator can access or <a href="http://support.pagerduty.com/entries/23761081-Generating-an-API-Key">generate API key tokens</a>.
+</p>
+<p>
+  Here's a sample curl request that is authenticated using the API key token.
+</p>
+<pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \
+    --data-urlencode "since=<span class='curl_params-since contenteditable' contenteditable='true'>2011-06-01</span>" \
+    --data-urlencode "until=<span class='curl_params-until contenteditable' contenteditable='true'>2011-06-20</span>" \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/schedules/P4MHU96/entries"</code>
+</pre>
+<div class='alert alert-block alert-info'>
+  <h4>
+    Important!
+  </h4>All API requests must be made over <strong>HTTPS</strong>.Calls made over plain HTTP will be redirected to HTTPS.
+</div>

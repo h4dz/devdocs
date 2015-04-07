@@ -9,45 +9,70 @@ nav:
   - title: Code
     url: /documentation/code/
 ---
-                  <h1 class="title">PagerDuty API-based Tools</h1>
-                  <p>A number of our users have built tools on top of PagerDuty:</p>
-                  <table class='table table-striped'>
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Description</th>
-                      </tr>
-                    </thead>
-                {% assign tool_type = site.data.tools | sort: "type" %}
-                {% for tool in tool_type %}
-                  {% if tool.tag == 'Tool' %}
-                    <tr>
-                      <td><a href="{{ tool.url }}"</a>{{ tool.name }}</td>
-                      <td>{{ tool.type }}</td>
-                      <td>{{ tool.description }}</td>
-                    </tr>
-                  {% endif %}
-                {% endfor %}
-                  </table>
-                  <h2>Toys</h2>
-                  <p>And here are some more fun things that people have built with our API:</p>
-                  <table class='table table-striped'>
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Description</th>
-                      </tr>
-                    </thead>
-                {% for tool in site.data.tools %}
-                  {% if tool.tag == 'Toy' %}
-                    <tr>
-                      <td><a href="{{ tool.url }}"</a>{{ tool.name }}</td>
-                      <td>{{ tool.type }}</td>
-                      <td>{{ tool.description }}</td>
-                    </tr>
-                  {% endif %}
-                {% endfor %}
-                  </table>
-                  <p>Please review the <a href='/documentation/code/disclaimer'>Disclaimer</a> prior to downloading sample code.</p>
+<h1 class="title">
+  PagerDuty API-based Tools
+</h1>
+<p>
+  A number of our users have built tools on top of PagerDuty:
+</p>{% assign tool_type = site.data.tools | sort: "type" %} {% for tool in tool_type %} {% if tool.tag == 'Tool' %} {% endif %} {% endfor %}
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Type
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+  <tr>
+    <td>
+      <a href="{{%20tool.url%20}}"></a>{{ tool.name }}
+    </td>
+    <td>
+      {{ tool.type }}
+    </td>
+    <td>
+      {{ tool.description }}
+    </td>
+  </tr>
+</table>
+<h2>
+  Toys
+</h2>
+<p>
+  And here are some more fun things that people have built with our API:
+</p>{% for tool in site.data.tools %} {% if tool.tag == 'Toy' %} {% endif %} {% endfor %}
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Type
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+  <tr>
+    <td>
+      <a href="{{%20tool.url%20}}"></a>{{ tool.name }}
+    </td>
+    <td>
+      {{ tool.type }}
+    </td>
+    <td>
+      {{ tool.description }}
+    </td>
+  </tr>
+</table>
+<p>
+  Please review the <a href='/documentation/code/disclaimer'>Disclaimer</a> prior to downloading sample code.
+</p>

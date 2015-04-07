@@ -2,35 +2,67 @@
 title: PagerDuty Developer
 layout: main
 ---
-                  <ul class="breadcrumb">
-                    <li><a href="/documentation/rest">REST API</a></li>
-                    <span class="divider">/</span><li>Log Entries</li>
-                  </ul>
-                  <div class='section'>
-                    <h1 class="title">Log Entries API</h1>
-                    <table class="table action_index">
-                      <caption>PagerDuty keeps a log of all the events that happen to an incident. The following APIs provide fine-grained access to this incident log entry data to give you more insight into how your team or organization is handling your incidents. Log entry data includes details about the event(s) that triggered the incident, who was notified and when, how they were notified, and who acknowledged or resolved it, amongst a few other things.</caption>
-                      <thead>
-                        <th>Resource</th>
-                        <th>Description</th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><a href="/documentation/rest/log_entries/list">GET log_entries</a></td>
-                          <td>List all incident log entries across the entire account.</td>
-                        </tr>
-                        <tr>
-                          <td><a href="/documentation/rest/log_entries/user_log_entries">GET users/:user_id/log_entries</a></td>
-                          <td>List all incident log entries that describe interactions with a specific user.</td>
-                        </tr>
-                        <tr>
-                          <td><a href="/documentation/rest/log_entries/incident_log_entries">GET incidents/:incident_id/log_entries</a></td>
-                          <td>List all incident log entries for a specific incident.</td>
-                        </tr>
-                        <tr>
-                          <td><a href="/documentation/rest/log_entries/show">GET log_entries/:id</a></td>
-                          <td>Get details for a specific incident log entry. This method provides additional information you can use to get at raw event data.</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Log Entries
+  </li>
+</ul>
+<div class='section'>
+  <h1 class="title">
+    Log Entries API
+  </h1>
+  <table class="table action_index">
+    <caption>
+      PagerDuty keeps a log of all the events that happen to an incident. The following APIs provide fine-grained access to this incident log entry data to give you more insight into how your team or organization is handling your incidents. Log entry data includes details about the event(s) that triggered the incident, who was notified and when, how they were notified, and who acknowledged or resolved it, amongst a few other things.
+    </caption>
+    <thead>
+      <tr>
+        <th>
+          Resource
+        </th>
+        <th>
+          Description
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a href="/documentation/rest/log_entries/list">GET log_entries</a>
+        </td>
+        <td>
+          List all incident log entries across the entire account.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/documentation/rest/log_entries/user_log_entries">GET users/:user_id/log_entries</a>
+        </td>
+        <td>
+          List all incident log entries that describe interactions with a specific user.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/documentation/rest/log_entries/incident_log_entries">GET incidents/:incident_id/log_entries</a>
+        </td>
+        <td>
+          List all incident log entries for a specific incident.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/documentation/rest/log_entries/show">GET log_entries/:id</a>
+        </td>
+        <td>
+          Get details for a specific incident log entry. This method provides additional information you can use to get at raw event data.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

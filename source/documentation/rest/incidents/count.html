@@ -2,40 +2,229 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/incidents">Incidents</a></li><span class="divider">/</span><li>Count</li></ul>
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/documentation/rest/incidents">Incidents</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Count
+  </li>
+</ul>
 <div class='section'>
-<h1 class="title">GET incidents/count</h1><p>
-Use this query if you are simply looking for the count of incidents that match a given query.
-This should be used if you don't need access to the actual incident details.
-</p>
-<h3>Resource URL</h3><div class="prism action-url language-bash"><pre>GET https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/incidents/count</pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>since</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>No</td><td>The start of the date range over which you want to search.
-</td></tr><tr><td>until</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>No</td><td><p>
-The end of the date range over which you want to search.
-</p>
-<p>
-<strong>NOTE:</strong> If you leave off either <code>since</code> or <code>until</code>, a 30 day default
-range is applied to your open ended range. Not including the
-<code>since</code> parameter will set the date range to <code>until</code> - 30 days. Likewise, if you leave off <code>until</code>, it
-is set to <code>since</code> + 30 days. Defaults to the last 30 days if you leave off both. The size of the date range must be less than 180 days.
-</p>
-</td></tr><tr><td>date_range</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>When set to <code>all</code>, the <code>since</code> and <code>until</code> parameters and defaults are ignored. Use this to get all counts since the account was created.
-</td></tr><tr><td>status</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td><p>Only counts the incidents currently in the passed status(es). Valid status options are <code>triggered</code>, <code>acknowledged</code>, and <code>resolved</code>. More status codes may be introduced in the future.</p>
-<p>Separate multiple statuses with a comma.</p>
-</td></tr><tr><td>incident_key</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>Only counts the incidents with the passed de-duplication key. See the
-<a href="/documentation/integration/events/">PagerDuty Integration API</a>
-docs for further details.
-</td></tr><tr><td>service</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td><p>Only counts the incidents associated with the passed service(s). This is expecting one or more service IDs.</p>
-<p>Separate multiple ids with a comma.</p>
-</td></tr><tr><td>assigned_to_user</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td><p>Only counts the incidents currently assigned to the passed user(s). This is expecting one or more user IDs.</p>
-<p>Note: When using the <code>assigned_to_user</code> filter, you will only count incidents with statuses of <code>triggered</code> or <code>acknowledged</code>. This is because <code>resolved</code> incidents are not assigned to any user.</p>
-<p>Separate multiple ids with a comma.</p>
-</td></tr></tbody></table></div><h2>Examples</h2>
-<h4>Fetch the total number of resolved incidents triggered over the last month.</h4>
-<pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \&#x000A;    --data-urlencode "since=<span class='curl_params-since contenteditable' contenteditable='true'>2011-04-01</span>" \&#x000A;    --data-urlencode "until=<span class='curl_params-until contenteditable' contenteditable='true'>2011-05-01</span>" \&#x000A;    --data-urlencode "status=<span class='curl_params-status contenteditable' contenteditable='true'>resolved</span>" \&#x000A;    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents/count"</code></pre><p class="content-type-warning clearfix">Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code></p><div class="clearfix"></div>
-<h4>Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;total&quot;: 2&#x000A;}</code></pre></div>
-<h4>
-Fetch the total number of incidents that are still open on service ID <code>PWP4EBH</code> that were triggered within the last month.
-</h4>
-<pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \&#x000A;    --data-urlencode "since=<span class='curl_params-since contenteditable' contenteditable='true'>2011-04-01</span>" \&#x000A;    --data-urlencode "until=<span class='curl_params-until contenteditable' contenteditable='true'>2011-05-01</span>" \&#x000A;    --data-urlencode "status=<span class='curl_params-status contenteditable' contenteditable='true'>triggered,acknowledged</span>" \&#x000A;    --data-urlencode "service=<span class='curl_params-service contenteditable' contenteditable='true'>PWP4EBH</span>" \&#x000A;    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents/count"</code></pre>
-<h4>Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;total&quot;: 15&#x000A;}</code></pre></div>
+  <h1 class="title">
+    GET incidents/count
+  </h1>
+  <p>
+    Use this query if you are simply looking for the count of incidents that match a given query. This should be used if you don't need access to the actual incident details.
+  </p>
+  <h3>
+    Resource URL
+  </h3>
+  <div class="prism action-url language-bash">
+    <pre>
+GET https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/incidents/count
+</pre>
+  </div>
+  <h3>
+    Parameters
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            since
+          </td>
+          <td>
+            <a href="/documentation/rest/types#datetime">Date</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            The start of the date range over which you want to search.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            until
+          </td>
+          <td>
+            <a href="/documentation/rest/types#datetime">Date</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            <p>
+              The end of the date range over which you want to search.
+            </p>
+            <p>
+              <strong>NOTE:</strong> If you leave off either <code>since</code> or <code>until</code>, a 30 day default range is applied to your open ended range. Not including the <code>since</code> parameter will set the date range to <code>until</code> - 30 days. Likewise, if you leave off <code>until</code>, it is set to <code>since</code> + 30 days. Defaults to the last 30 days if you leave off both. The size of the date range must be less than 180 days.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            date_range
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            When set to <code>all</code>, the <code>since</code> and <code>until</code> parameters and defaults are ignored. Use this to get all counts since the account was created.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            status
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            <p>
+              Only counts the incidents currently in the passed status(es). Valid status options are <code>triggered</code>, <code>acknowledged</code>, and <code>resolved</code>. More status codes may be introduced in the future.
+            </p>
+            <p>
+              Separate multiple statuses with a comma.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            incident_key
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Only counts the incidents with the passed de-duplication key. See the <a href="/documentation/integration/events/">PagerDuty Integration API</a> docs for further details.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            service
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            <p>
+              Only counts the incidents associated with the passed service(s). This is expecting one or more service IDs.
+            </p>
+            <p>
+              Separate multiple ids with a comma.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            assigned_to_user
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            <p>
+              Only counts the incidents currently assigned to the passed user(s). This is expecting one or more user IDs.
+            </p>
+            <p>
+              Note: When using the <code>assigned_to_user</code> filter, you will only count incidents with statuses of <code>triggered</code> or <code>acknowledged</code>. This is because <code>resolved</code> incidents are not assigned to any user.
+            </p>
+            <p>
+              Separate multiple ids with a comma.
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h2>
+    Examples
+  </h2>
+  <h4>
+    Fetch the total number of resolved incidents triggered over the last month.
+  </h4>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \
+    --data-urlencode "since=<span class='curl_params-since contenteditable' contenteditable='true'>2011-04-01</span>" \
+    --data-urlencode "until=<span class='curl_params-until contenteditable' contenteditable='true'>2011-05-01</span>" \
+    --data-urlencode "status=<span class='curl_params-status contenteditable' contenteditable='true'>resolved</span>" \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents/count"</code>
+</pre>
+  <p class="content-type-warning clearfix">
+    Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code>
+  </p>
+  <div class="clearfix"></div>
+  <h4>
+    Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"></a></span>
+  </h4>
+  <div class="response">
+    <pre>
+<code class="language-javascript prettyprint linenums">{
+  "total": 2
+}</code>
+</pre>
+  </div>
+  <h4>
+    Fetch the total number of incidents that are still open on service ID <code>PWP4EBH</code> that were triggered within the last month.
+  </h4>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \
+    --data-urlencode "since=<span class='curl_params-since contenteditable' contenteditable='true'>2011-04-01</span>" \
+    --data-urlencode "until=<span class='curl_params-until contenteditable' contenteditable='true'>2011-05-01</span>" \
+    --data-urlencode "status=<span class='curl_params-status contenteditable' contenteditable='true'>triggered,acknowledged</span>" \
+    --data-urlencode "service=<span class='curl_params-service contenteditable' contenteditable='true'>PWP4EBH</span>" \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents/count"</code>
+</pre>
+  <h4>
+    Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"></a></span>
+  </h4>
+  <div class="response">
+    <pre>
+<code class="language-javascript prettyprint linenums">{
+  "total": 15
+}</code>
+</pre>
+  </div>
 </div>

@@ -2,14 +2,79 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/services">Services</a></li><span class="divider">/</span><li>Regenerate Key</li></ul>
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/documentation/rest/services">Services</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Regenerate Key
+  </li>
+</ul>
 <div class='section'>
-<div class='alert'>
-<strong>Warning!</strong>
-The service's previous key will be invalidated, and existing monitoring integrations will
-need to be modified to use the new key!
-</div>
-<h1 class="title">POST services/:id/regenerate_key</h1><p>Regenerate a new service key for an existing service.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>POST https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/services/<span class="url_param contenteditable" contenteditable="true">:id</span>/regenerate_key</pre></div><h3>Example</h3>
-<pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X POST \&#x000A;    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/services/<span class="sub_params_in_url-id id contenteditable" contenteditable="true">PBIS5NX</span>/regenerate_key"</code></pre><p class="content-type-warning clearfix">Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code></p><div class="clearfix"></div>
-<h4>Response <span class="response-status">Status: 201 Created <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;service&quot;: {&#x000A;    &quot;id&quot;: &quot;PBIS5NX&quot;,&#x000A;    &quot;name&quot;: &quot;sevname10&quot;,&#x000A;    &quot;service_url&quot;: &quot;/services/PBIS5NX&quot;,&#x000A;    &quot;service_key&quot;: &quot;7b68a2c011c20130a61638f6b11a5d17&quot;,&#x000A;    &quot;auto_resolve_timeout&quot;: 14400,&#x000A;    &quot;acknowledgement_timeout&quot;: 1800,&#x000A;    &quot;created_at&quot;: &quot;2012-11-15T21:23:07-05:00&quot;,&#x000A;    &quot;status&quot;: &quot;active&quot;,&#x000A;    &quot;last_incident_timestamp&quot;: null,&#x000A;    &quot;email_incident_creation&quot;: null,&#x000A;    &quot;incident_counts&quot;: {&#x000A;      &quot;triggered&quot;: 0,&#x000A;      &quot;acknowledged&quot;: 0,&#x000A;      &quot;resolved&quot;: 0,&#x000A;      &quot;total&quot;: 0&#x000A;    },&#x000A;    &quot;email_filter_mode&quot;: &quot;all-email&quot;,&#x000A;    &quot;type&quot;: &quot;generic_events_api&quot;,&#x000A;    &quot;description&quot;: &quot;service sevname10&quot;&#x000A;  }&#x000A;}</code></pre></div>
+  <div class='alert'>
+    <strong>Warning!</strong> The service's previous key will be invalidated, and existing monitoring integrations will need to be modified to use the new key!
+  </div>
+  <h1 class="title">
+    POST services/:id/regenerate_key
+  </h1>
+  <p>
+    Regenerate a new service key for an existing service.
+  </p>
+  <h3>
+    Resource URL
+  </h3>
+  <div class="prism action-url language-bash">
+    <pre>
+POST https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/services/<span class="url_param contenteditable" contenteditable="true">:id</span>/regenerate_key
+</pre>
+  </div>
+  <h3>
+    Example
+  </h3>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X POST \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/services/<span class="sub_params_in_url-id id contenteditable" contenteditable="true">PBIS5NX</span>/regenerate_key"</code>
+</pre>
+  <p class="content-type-warning clearfix">
+    Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code>
+  </p>
+  <div class="clearfix"></div>
+  <h4>
+    Response <span class="response-status">Status: 201 Created <a href="/documentation/rest/errors#http_codes"></a></span>
+  </h4>
+  <div class="response">
+    <pre>
+<code class="language-javascript prettyprint linenums">{
+  "service": {
+    "id": "PBIS5NX",
+    "name": "sevname10",
+    "service_url": "/services/PBIS5NX",
+    "service_key": "7b68a2c011c20130a61638f6b11a5d17",
+    "auto_resolve_timeout": 14400,
+    "acknowledgement_timeout": 1800,
+    "created_at": "2012-11-15T21:23:07-05:00",
+    "status": "active",
+    "last_incident_timestamp": null,
+    "email_incident_creation": null,
+    "incident_counts": {
+      "triggered": 0,
+      "acknowledged": 0,
+      "resolved": 0,
+      "total": 0
+    },
+    "email_filter_mode": "all-email",
+    "type": "generic_events_api",
+    "description": "service sevname10"
+  }
+}</code>
+</pre>
+  </div>
 </div>
