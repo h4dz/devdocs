@@ -28,12 +28,6 @@
   description: "A Dashing dashboard for PagerDuty Services"
   tag: Tool
 
-- name: Zoho reports
-  url: https://blog.pagerduty.com/2014/02/build-out-your-pagerduty-reports-with-zoho/
-  type: Reporting
-  description: "Zoho reports can import PagerDuty data and run SQL queries against it. This blog post shows how to generate reports from your incidents."
-  tag: Tool
-
 - name: Support scripts
   url: https://github.com/PagerDuty/public-support-scripts
   type: Reporting
