@@ -2,9 +2,65 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/services">Services</a></li><span class="divider">/</span><li>Email Filters</li></ul>
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/documentation/rest/services">Services</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Email Filters
+  </li>
+</ul>
 <div class='section'>
-<title></title>
-<h1 class="title">Email Filters API</h1>
-<table class="table action_index"><caption>Email Filters are a set of rules that are applied to triggering email's body, subject and from address. It only applies to <code>generic_email</code> kind of Services. The way multiple filters are combined depends on the <a href="/documentation/rest/services/list">email_filter_mode</a> attribute of the service.</caption><thead><th>Resource</th><th>Description</th></thead><tbody><tr><td><a href="/documentation/rest/services/email_filters/create">POST services/:service_id/email_filters</a></td><td>Create a new Email Filter for the specified service.</td></tr><tr><td><a href="/documentation/rest/services/email_filters/update">PUT services/:service_id/email_filters/:id</a></td><td>Update an existing Email Filter.</td></tr><tr><td><a href="/documentation/rest/services/email_filters/delete">DELETE services/:service_id/email_filters/:id</a></td><td>Delete an existing Email Filter.</td></tr>
-</tbody></table></div>
+  <h1 class="title">
+    Email Filters API
+  </h1>
+  <table class="table action_index">
+    <caption>
+      Email Filters are a set of rules that are applied to triggering email's body, subject and from address. It only applies to <code>generic_email</code> kind of Services. The way multiple filters are combined depends on the <a href="/documentation/rest/services/list">email_filter_mode</a> attribute of the service.
+    </caption>
+    <thead>
+      <tr>
+        <th>
+          Resource
+        </th>
+        <th>
+          Description
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a href="/documentation/rest/services/email_filters/create">POST services/:service_id/email_filters</a>
+        </td>
+        <td>
+          Create a new Email Filter for the specified service.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/documentation/rest/services/email_filters/update">PUT services/:service_id/email_filters/:id</a>
+        </td>
+        <td>
+          Update an existing Email Filter.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/documentation/rest/services/email_filters/delete">DELETE services/:service_id/email_filters/:id</a>
+        </td>
+        <td>
+          Delete an existing Email Filter.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

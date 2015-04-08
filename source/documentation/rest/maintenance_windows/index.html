@@ -2,10 +2,75 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li>Maintenance Windows</li></ul>
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Maintenance Windows
+  </li>
+</ul>
 <div class='section'>
-<title></title>
-<h1 class="title">Maintenance Windows API</h1>
-<table class="table action_index"><caption>Maintenance windows allow you to schedule service maintenance periods, during which no incidents will be created.</caption><thead><th>Resource</th><th>Description</th></thead><tbody><tr><td><a href="/documentation/rest/maintenance_windows/list">GET maintenance_windows</a></td><td>List existing maintenance windows, optionally filtered by service, or whether they are from the past, present or future.</td></tr>
-<tr><td><a href="/documentation/rest/maintenance_windows/show">GET maintenance_windows/:id</a></td><td>Get details about an existing maintenance window.</td></tr><tr><td><a href="/documentation/rest/maintenance_windows/create">POST maintenance_windows</a></td><td>Create a new maintenance window for the specified services. No new incidents will be created for a service that is currently in maintenance.</td></tr><tr><td><a href="/documentation/rest/maintenance_windows/update">PUT maintenance_windows/:id</a></td><td>Update an existing maintenance window.</td></tr><tr><td><a href="/documentation/rest/maintenance_windows/delete">DELETE maintenance_windows/:id</a></td><td>Cancel or delete an existing maintenance window.</td></tr>
-</tbody></table></div>
+  <h1 class="title">
+    Maintenance Windows API
+  </h1>
+  <table class="table action_index">
+    <caption>
+      Maintenance windows allow you to schedule service maintenance periods, during which no incidents will be created.
+    </caption>
+    <thead>
+      <tr>
+        <th>
+          Resource
+        </th>
+        <th>
+          Description
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a href="/documentation/rest/maintenance_windows/list">GET maintenance_windows</a>
+        </td>
+        <td>
+          List existing maintenance windows, optionally filtered by service, or whether they are from the past, present or future.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/documentation/rest/maintenance_windows/show">GET maintenance_windows/:id</a>
+        </td>
+        <td>
+          Get details about an existing maintenance window.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/documentation/rest/maintenance_windows/create">POST maintenance_windows</a>
+        </td>
+        <td>
+          Create a new maintenance window for the specified services. No new incidents will be created for a service that is currently in maintenance.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/documentation/rest/maintenance_windows/update">PUT maintenance_windows/:id</a>
+        </td>
+        <td>
+          Update an existing maintenance window.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/documentation/rest/maintenance_windows/delete">DELETE maintenance_windows/:id</a>
+        </td>
+        <td>
+          Cancel or delete an existing maintenance window.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

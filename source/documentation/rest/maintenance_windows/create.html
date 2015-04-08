@@ -2,17 +2,225 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/maintenance_windows">Maintenance Windows</a></li><span class="divider">/</span><li>Create</li></ul>
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/documentation/rest/maintenance_windows">Maintenance Windows</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Create
+  </li>
+</ul>
 <div class='section'>
-<h1 class="title">POST maintenance_windows</h1><p>Create a new maintenance window for the specified services. No new incidents will be created for a service that is currently in maintenance.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>POST https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/maintenance_windows</pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>requester_id</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>The user id of the user creating the maintenance window. This is only needed if you are using token based authentication.
-</td></tr><tr><td>maintenance_window</td><td><a href="/documentation/rest/types#object">Object</a></td><td>No</td><td>The maintenance window object. See maintenance window parameters for details.
-</td></tr></tbody></table></div><h3>Maintenance Window Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>start_time</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>Yes</td><td>This maintenance window's start time. This is when the services will stop creating incidents.
-If this date is in the past, it will be updated to be the current time.
-</td></tr><tr><td>end_time</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>Yes</td><td>This maintenance window's end time. This is when the services will start creating incidents again.
-This date must be in the future and after the <code>start_time</code>.
-</td></tr><tr><td>description</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>A description for this maintenance window.
-</td></tr><tr><td>service_ids</td><td><a href="/documentation/rest/types#array">Array</a></td><td>Yes</td><td>The ids of the services that are affected by this maintenance window.
-</td></tr></tbody></table></div><h3>Example</h3>
-<pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X POST \&#x000A;    -d '{    &#x000A;      "maintenance_window": {&#x000A;        "start_time": "<span class='curl_params-start_time contenteditable' contenteditable='true'>2012-06-16T13:00:00-04:00Z</span>",&#x000A;        "end_time": "<span class='curl_params-end_time contenteditable' contenteditable='true'>2012-06-16T14:00:00-04:00Z</span>",&#x000A;        "description": "<span class='curl_params-description contenteditable' contenteditable='true'>Upgrading to new software</span>",&#x000A;        "service_ids": [&#x000A;          "<span class='curl_params-service_ids0- contenteditable' contenteditable='true'>PF9KMXH</span>"&#x000A;        ]&#x000A;      },&#x000A;      "requester_id": "<span class='curl_params-requester_id contenteditable' contenteditable='true'>PP1565R</span>"&#x000A;    }' \&#x000A;    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/maintenance_windows"</code></pre><p class="content-type-warning clearfix">Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code></p><div class="clearfix"></div>
-<h4>Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;maintenance_window&quot;: {&#x000A;    &quot;id&quot;: &quot;P9UJCMM&quot;,&#x000A;    &quot;sequence_number&quot;: 1,&#x000A;    &quot;start_time&quot;: &quot;2012-06-16T13:00:00-04:00Z&quot;,&#x000A;    &quot;end_time&quot;: &quot;2012-06-16T14:00:00-04:00Z&quot;,&#x000A;    &quot;description&quot;: &quot;This service is in maintenance due to a scheduled ruby 1.9 migration&quot;,&#x000A;    &quot;created_by&quot;: {&#x000A;      &quot;id&quot;: &quot;PP1565R&quot;,&#x000A;      &quot;name&quot;: &quot;John Smith&quot;,&#x000A;      &quot;email&quot;: &quot;john@example.com&quot;,&#x000A;      &quot;time_zone&quot;: &quot;Eastern Time (US &amp; Canada)&quot;,&#x000A;      &quot;color&quot;: &quot;grey20&quot;,&#x000A;      &quot;role&quot;: &quot;user&quot;,&#x000A;      &quot;avatar_url&quot;: &quot;https://secure.gravatar.com/avatar/2e32280905f296791ed387cd0f61ec6b.png?d=mm&amp;r=PG&quot;,&#x000A;      &quot;user_url&quot;: &quot;/users/PP1565R&quot;,&#x000A;      &quot;invitation_sent&quot;: true&#x000A;    },&#x000A;    &quot;services&quot;: [&#x000A;      {&#x000A;        &quot;name&quot;: &quot;Mail Service 12345677&quot;,&#x000A;        &quot;url&quot;: &quot;/services/PF9KMXH&quot;,&#x000A;        &quot;id&quot;: &quot;PF9KMXH&quot;&#x000A;      }&#x000A;    ]&#x000A;  }&#x000A;}</code></pre></div>
+  <h1 class="title">
+    POST maintenance_windows
+  </h1>
+  <p>
+    Create a new maintenance window for the specified services. No new incidents will be created for a service that is currently in maintenance.
+  </p>
+  <h3>
+    Resource URL
+  </h3>
+  <div class="prism action-url language-bash">
+    <pre>
+POST https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/maintenance_windows
+</pre>
+  </div>
+  <h3>
+    Parameters
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            requester_id
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            The user id of the user creating the maintenance window. This is only needed if you are using token based authentication.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            maintenance_window
+          </td>
+          <td>
+            <a href="/documentation/rest/types#object">Object</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            The maintenance window object. See maintenance window parameters for details.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>
+    Maintenance Window Parameters
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            start_time
+          </td>
+          <td>
+            <a href="/documentation/rest/types#datetime">Date</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            This maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            end_time
+          </td>
+          <td>
+            <a href="/documentation/rest/types#datetime">Date</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            This maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the <code>start_time</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            description
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            A description for this maintenance window.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            service_ids
+          </td>
+          <td>
+            <a href="/documentation/rest/types#array">Array</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The ids of the services that are affected by this maintenance window.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>
+    Example
+  </h3>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X POST \
+    -d '{    
+      "maintenance_window": {
+        "start_time": "<span class='curl_params-start_time contenteditable' contenteditable='true'>2012-06-16T13:00:00-04:00Z</span>",
+        "end_time": "<span class='curl_params-end_time contenteditable' contenteditable='true'>2012-06-16T14:00:00-04:00Z</span>",
+        "description": "<span class='curl_params-description contenteditable' contenteditable='true'>Upgrading to new software</span>",
+        "service_ids": [
+          "<span class='curl_params-service_ids0- contenteditable' contenteditable='true'>PF9KMXH</span>"
+        ]
+      },
+      "requester_id": "<span class='curl_params-requester_id contenteditable' contenteditable='true'>PP1565R</span>"
+    }' \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/maintenance_windows"</code>
+</pre>
+  <p class="content-type-warning clearfix">
+    Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code>
+  </p>
+  <div class="clearfix"></div>
+  <h4>
+    Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"></a></span>
+  </h4>
+  <div class="response">
+    <pre>
+<code class="language-javascript prettyprint linenums">{
+  "maintenance_window": {
+    "id": "P9UJCMM",
+    "sequence_number": 1,
+    "start_time": "2012-06-16T13:00:00-04:00Z",
+    "end_time": "2012-06-16T14:00:00-04:00Z",
+    "description": "This service is in maintenance due to a scheduled ruby 1.9 migration",
+    "created_by": {
+      "id": "PP1565R",
+      "name": "John Smith",
+      "email": "john@example.com",
+      "time_zone": "Eastern Time (US &amp; Canada)",
+      "color": "grey20",
+      "role": "user",
+      "avatar_url": "https://secure.gravatar.com/avatar/2e32280905f296791ed387cd0f61ec6b.png?d=mm&amp;r=PG",
+      "user_url": "/users/PP1565R",
+      "invitation_sent": true
+    },
+    "services": [
+      {
+        "name": "Mail Service 12345677",
+        "url": "/services/PF9KMXH",
+        "id": "PF9KMXH"
+      }
+    ]
+  }
+}</code>
+</pre>
+  </div>
 </div>

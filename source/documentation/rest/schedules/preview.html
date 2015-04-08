@@ -2,60 +2,644 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/schedules">Schedules</a></li><span class="divider">/</span><li>Preview</li></ul>
-<div class='section'>
-<h1 class="title">POST schedules/preview</h1><p>
-Preview what a schedule would look like without saving it. This work the same as the
-<a href="/documentation/rest/schedules/update">update</a> or <a href="/documentation/rest/schedules/create">create</a> actions, except that
-the result is not persisted. Preview optionally takes two additional
-arguments, <code>since</code> and <code>until</code>, deliminating the span of the preview.
-</p>
-<h3>Resource URL</h3><div class="prism action-url language-bash"><pre>POST https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/schedules/preview</pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>since</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>No</td><td>The start of the date range over which you want to return on-call schedule entries and on-call schedule layers.
-If not specified, <code>since</code> defaults to the current time
-</td></tr><tr><td>until</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>No</td><td>The end of the date range over which you want to return schedule entries and on-call schedule layers.
-If not specificed, <code>until</code> defaults to one week from the current time.
-</td></tr><tr><td>overflow</td><td><a href="/documentation/rest/types#boolean">Boolean</a></td><td>No</td><td><p>
-Any on-call schedule entries that pass the date range bounds will be truncated at the
-bounds, unless the parameter <code>overflow=true</code> is passed. This parameter defaults to false.
-</p>
-<p>
-For instance, if your schedule is a rotation that changes daily at midnight UTC, and
-your date range is from <code>2011-06-01T10:00:00Z</code> to <code>2011-06-01T14:00:00Z</code>:
-</p>
-<ul>
-<li>
-If you <strong>don't</strong> pass the <code>overflow=true</code> parameter, you will get one schedule
-entry returned with a <code>start</code> of <code>2011-06-01T10:00:00Z</code> and <code>end</code>
-of <code>2011-06-01T14:00:00Z</code>.
-</li>
-<li>
-If you <strong>do</strong> pass the <code>overflow=true</code> parameter, you will get one schedule
-entry returned with a <code>start</code> of <code>2011-06-01T00:00:00Z</code> and <code>end</code>
-of <code>2011-06-02T00:00:00Z</code>.
-</li>
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/documentation/rest/schedules">Schedules</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Preview
+  </li>
 </ul>
-</td></tr>
-<tr><td>schedule</td><td><a href="/documentation/rest/types#object">Object</a></td><td>No</td><td>The schedule object. See schedule parameters for details.
-</td></tr></tbody></table></div><h3>Schedule Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>schedule_layers</td><td><a href="/documentation/rest/types#array">Array</a></td><td>Yes</td><td>A list of schedule layers. See the schedule layers parameters for details.
-</td></tr><tr><td>time_zone</td><td><a href="/documentation/rest/types#timezone">Time Zone</a></td><td>Yes</td><td>The time zone of the schedule.
-</td></tr><tr><td>name</td><td><a href="/documentation/rest/types#string">String</a></td><td>Yes</td><td>The name of the schedule
-</td></tr></tbody></table></div><h3>Schedule Layer Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>id</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>The unique identifier of the schedule layer. Include this if previewing an update to a layer that already exists. Omit this parameter when previewing a layer that doesn't yet exist.
-</td></tr><tr><td>start</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>Yes</td><td>The start time of this layer.
-</td></tr><tr><td>end</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>No</td><td>The end time of this layer. If null, the layer does not end.
-</td></tr><tr><td>users</td><td><a href="/documentation/rest/types#array">Array</a></td><td>Yes</td><td><p>
-The ordered list of users on this layer. Use the member order to indicate their order.
-</p>
-<pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;users&quot;: [&#x000A;    {&#x000A;      &quot;user&quot;: {&#x000A;        &quot;id&quot;: &quot;P2BI1SS&quot;&#x000A;      },&#x000A;      &quot;member_order&quot;: 1&#x000A;    }&#x000A;  ]&#x000A;}</code></pre>
-</td></tr><tr><td>restriction_type</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>Can either be <code>Daily</code> or <code>Weekly</code>. Specify the types of <code>restriction</code>.
-</td></tr><tr><td>restrictions</td><td><a href="/documentation/rest/types#array">Array</a></td><td>No</td><td><p>
-An array of restrictions for the layer. A restriction is a limit on which period of the
-day or week the schedule layer can accept events.
-</p>
-<pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;restrictions&quot;: [&#x000A;    {&#x000A;      &quot;duration_seconds&quot;: 43200,&#x000A;      &quot;start_time_of_day&quot;: &quot;00:00:00&quot;&#x000A;    }&#x000A;  ]&#x000A;}</code></pre>
-</td></tr><tr><td>rotation_virtual_start</td><td><a href="/documentation/rest/types#datetime">Date</a></td><td>Yes</td><td>The effective start time of the layer. This can be before the start time of the schedule.
-</td></tr><tr><td>priority</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>Yes</td><td>The priority of the layer. Layers with higher priority will override layers with a lower priority.
-</td></tr><tr><td>rotation_turn_length_seconds</td><td><a href="/documentation/rest/types#int">Integer</a></td><td>Yes</td><td>The duration of each on-call shift in seconds.
-</td></tr><tr><td>name</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>The name of the schedule layer.
-</td></tr></tbody></table></div>
-<h3>Example</h3><pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X POST \&#x000A;    -d '{    &#x000A;      "schedule": {&#x000A;        "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Tertiary</span>",&#x000A;        "time_zone": "<span class='curl_params-time_zone contenteditable' contenteditable='true'>Eastern Time (US &amp; Canada)</span>",&#x000A;        "schedule_layers": [&#x000A;          {&#x000A;            "restriction_type": "<span class='curl_params-restriction_type contenteditable' contenteditable='true'>Daily</span>",&#x000A;            "priority": 0,&#x000A;            "start": "<span class='curl_params-start contenteditable' contenteditable='true'>2012-01-01T00:00:00</span>",&#x000A;            "rotation_turn_length_seconds": 604800,&#x000A;            "rotation_virtual_start": "<span class='curl_params-rotation_virtual_start contenteditable' contenteditable='true'>2012-01-01T00:00:00</span>",&#x000A;            "users": [&#x000A;              {&#x000A;                "user": {&#x000A;                  "id": "<span class='curl_params-id contenteditable' contenteditable='true'>PPSFHH7</span>"&#x000A;                },&#x000A;                "member_order": 1&#x000A;              },&#x000A;              {&#x000A;                "user": {&#x000A;                  "id": "<span class='curl_params-id contenteditable' contenteditable='true'>PRDFNAL</span>"&#x000A;                },&#x000A;                "member_order": 2&#x000A;              }&#x000A;            ],&#x000A;            "end": null,&#x000A;            "restrictions": [&#x000A;              {&#x000A;                "duration_seconds": 43200,&#x000A;                "start_time_of_day": "<span class='curl_params-start_time_of_day contenteditable' contenteditable='true'>00:00:00</span>"&#x000A;              }&#x000A;            ],&#x000A;            "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Schedule Layer 1</span>"&#x000A;          },&#x000A;          {&#x000A;            "restriction_type": null,&#x000A;            "priority": 1,&#x000A;            "start": "<span class='curl_params-start contenteditable' contenteditable='true'>2012-01-01T00:00:00</span>",&#x000A;            "rotation_turn_length_seconds": 604800,&#x000A;            "rotation_virtual_start": "<span class='curl_params-rotation_virtual_start contenteditable' contenteditable='true'>2012-01-01T00:00:00</span>",&#x000A;            "users": [&#x000A;              {&#x000A;                "user": {&#x000A;                  "id": "<span class='curl_params-id contenteditable' contenteditable='true'>PT23IWX</span>"&#x000A;                },&#x000A;                "member_order": 1&#x000A;              }&#x000A;            ],&#x000A;            "end": null,&#x000A;            "restrictions": [&#x000A;    &#x000A;            ],&#x000A;            "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Schedule Layer 2</span>"&#x000A;          }&#x000A;        ]&#x000A;      }&#x000A;    }' \&#x000A;    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/schedules/preview"</code></pre><p class="content-type-warning clearfix">Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code></p><div class="clearfix"></div><h4>Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;schedule&quot;: {&#x000A;    &quot;id&quot;: null,&#x000A;    &quot;name&quot;: &quot;Tertiary&quot;,&#x000A;    &quot;time_zone&quot;: &quot;Eastern Time (US &amp; Canada)&quot;,&#x000A;    &quot;today&quot;: &quot;2013-03-26&quot;,&#x000A;    &quot;escalation_policies&quot;: [&#x000A;&#x000A;    ],&#x000A;    &quot;schedule_layers&quot;: [&#x000A;      {&#x000A;        &quot;name&quot;: &quot;Schedule Layer 1&quot;,&#x000A;        &quot;rendered_schedule_entries&quot;: [&#x000A;          {&#x000A;            &quot;start&quot;: &quot;2013-03-27T00:00:00-04:00&quot;,&#x000A;            &quot;end&quot;: &quot;2013-03-27T12:00:00-04:00&quot;,&#x000A;            &quot;user&quot;: {&#x000A;              &quot;id&quot;: &quot;PPSFHH7&quot;,&#x000A;              &quot;name&quot;: &quot;Bob Smith&quot;,&#x000A;              &quot;email&quot;: &quot;bob@acme.com&quot;,&#x000A;              &quot;color&quot;: &quot;red&quot;&#x000A;            },&#x000A;            &quot;id&quot;: null&#x000A;          },&#x000A;          {&#x000A;            &quot;start&quot;: &quot;2013-03-28T00:00:00-04:00&quot;,&#x000A;            &quot;end&quot;: &quot;2013-03-28T12:00:00-04:00&quot;,&#x000A;            &quot;user&quot;: {&#x000A;              &quot;id&quot;: &quot;PPSFHH7&quot;,&#x000A;              &quot;name&quot;: &quot;Bob Smith&quot;,&#x000A;              &quot;email&quot;: &quot;bob@acme.com&quot;,&#x000A;              &quot;color&quot;: &quot;red&quot;&#x000A;            },&#x000A;            &quot;id&quot;: null&#x000A;          },&#x000A;          {&#x000A;            &quot;start&quot;: &quot;2013-03-29T00:00:00-04:00&quot;,&#x000A;            &quot;end&quot;: &quot;2013-03-29T12:00:00-04:00&quot;,&#x000A;            &quot;user&quot;: {&#x000A;              &quot;id&quot;: &quot;PPSFHH7&quot;,&#x000A;              &quot;name&quot;: &quot;Bob Smith&quot;,&#x000A;              &quot;email&quot;: &quot;bob@acme.com&quot;,&#x000A;              &quot;color&quot;: &quot;red&quot;&#x000A;            },&#x000A;            &quot;id&quot;: null&#x000A;          },&#x000A;          {&#x000A;            &quot;start&quot;: &quot;2013-03-30T00:00:00-04:00&quot;,&#x000A;            &quot;end&quot;: &quot;2013-03-30T12:00:00-04:00&quot;,&#x000A;            &quot;user&quot;: {&#x000A;              &quot;id&quot;: &quot;PPSFHH7&quot;,&#x000A;              &quot;name&quot;: &quot;Bob Smith&quot;,&#x000A;              &quot;email&quot;: &quot;bob@acme.com&quot;,&#x000A;              &quot;color&quot;: &quot;red&quot;&#x000A;            },&#x000A;            &quot;id&quot;: null&#x000A;          },&#x000A;          {&#x000A;            &quot;start&quot;: &quot;2013-03-31T00:00:00-04:00&quot;,&#x000A;            &quot;end&quot;: &quot;2013-03-31T12:00:00-04:00&quot;,&#x000A;            &quot;user&quot;: {&#x000A;              &quot;id&quot;: &quot;PRDFNAL&quot;,&#x000A;              &quot;name&quot;: &quot;Sarah Jones&quot;,&#x000A;              &quot;email&quot;: &quot;sarah@acme.com&quot;,&#x000A;              &quot;color&quot;: &quot;green&quot;&#x000A;            },&#x000A;            &quot;id&quot;: null&#x000A;          },&#x000A;          {&#x000A;            &quot;start&quot;: &quot;2013-04-01T00:00:00-04:00&quot;,&#x000A;            &quot;end&quot;: &quot;2013-04-01T12:00:00-04:00&quot;,&#x000A;            &quot;user&quot;: {&#x000A;              &quot;id&quot;: &quot;PRDFNAL&quot;,&#x000A;              &quot;name&quot;: &quot;Sarah Jones&quot;,&#x000A;              &quot;email&quot;: &quot;sarah@acme.com&quot;,&#x000A;              &quot;color&quot;: &quot;green&quot;&#x000A;            },&#x000A;            &quot;id&quot;: null&#x000A;          },&#x000A;          {&#x000A;            &quot;start&quot;: &quot;2013-04-02T00:00:00-04:00&quot;,&#x000A;            &quot;end&quot;: &quot;2013-04-02T12:00:00-04:00&quot;,&#x000A;            &quot;user&quot;: {&#x000A;              &quot;id&quot;: &quot;PRDFNAL&quot;,&#x000A;              &quot;name&quot;: &quot;Sarah Jones&quot;,&#x000A;              &quot;email&quot;: &quot;sarah@acme.com&quot;,&#x000A;              &quot;color&quot;: &quot;green&quot;&#x000A;            },&#x000A;            &quot;id&quot;: null&#x000A;          }&#x000A;        ],&#x000A;        &quot;id&quot;: null,&#x000A;        &quot;priority&quot;: 0,&#x000A;        &quot;start&quot;: &quot;2013-03-26T20:42:15-04:00&quot;,&#x000A;        &quot;end&quot;: null,&#x000A;        &quot;restriction_type&quot;: &quot;Daily&quot;,&#x000A;        &quot;rotation_virtual_start&quot;: &quot;2012-01-01T00:00:00-05:00&quot;,&#x000A;        &quot;rotation_turn_length_seconds&quot;: 604800,&#x000A;        &quot;users&quot;: [&#x000A;          {&#x000A;            &quot;member_order&quot;: 1,&#x000A;            &quot;user&quot;: {&#x000A;              &quot;id&quot;: &quot;PPSFHH7&quot;,&#x000A;              &quot;name&quot;: &quot;Bob Smith&quot;,&#x000A;              &quot;email&quot;: &quot;bob@acme.com&quot;,&#x000A;              &quot;color&quot;: &quot;red&quot;&#x000A;            }&#x000A;          },&#x000A;          {&#x000A;            &quot;member_order&quot;: 2,&#x000A;            &quot;user&quot;: {&#x000A;              &quot;id&quot;: &quot;PRDFNAL&quot;,&#x000A;              &quot;name&quot;: &quot;Sarah Jones&quot;,&#x000A;              &quot;email&quot;: &quot;sarah@acme.com&quot;,&#x000A;              &quot;color&quot;: &quot;green&quot;&#x000A;            }&#x000A;          }&#x000A;        ],&#x000A;        &quot;restrictions&quot;: [&#x000A;          {&#x000A;            &quot;start_time_of_day&quot;: &quot;00:00:00&quot;,&#x000A;            &quot;duration_seconds&quot;: 43200&#x000A;          }&#x000A;        ],&#x000A;        &quot;rendered_coverage_percentage&quot;: 55.2&#x000A;      },&#x000A;      {&#x000A;        &quot;name&quot;: &quot;Schedule Layer 2&quot;,&#x000A;        &quot;rendered_schedule_entries&quot;: [&#x000A;          {&#x000A;            &quot;start&quot;: &quot;2013-03-26T20:42:16-04:00&quot;,&#x000A;            &quot;end&quot;: &quot;2013-04-02T20:42:16-04:00&quot;,&#x000A;            &quot;user&quot;: {&#x000A;              &quot;id&quot;: &quot;PT23IWX&quot;,&#x000A;              &quot;name&quot;: &quot;Tim Wright&quot;,&#x000A;              &quot;email&quot;: &quot;tim@acme.com&quot;,&#x000A;              &quot;color&quot;: &quot;purple&quot;&#x000A;            },&#x000A;            &quot;id&quot;: null&#x000A;          }&#x000A;        ],&#x000A;        &quot;id&quot;: null,&#x000A;        &quot;priority&quot;: 1,&#x000A;        &quot;start&quot;: &quot;2013-03-26T20:42:15-04:00&quot;,&#x000A;        &quot;end&quot;: null,&#x000A;        &quot;restriction_type&quot;: null,&#x000A;        &quot;rotation_virtual_start&quot;: &quot;2012-01-01T00:00:00-05:00&quot;,&#x000A;        &quot;rotation_turn_length_seconds&quot;: 604800,&#x000A;        &quot;users&quot;: [&#x000A;          {&#x000A;            &quot;member_order&quot;: 1,&#x000A;            &quot;user&quot;: {&#x000A;              &quot;id&quot;: &quot;PT23IWX&quot;,&#x000A;              &quot;name&quot;: &quot;Tim Wright&quot;,&#x000A;              &quot;email&quot;: &quot;tim@acme.com&quot;,&#x000A;              &quot;color&quot;: &quot;purple&quot;&#x000A;            }&#x000A;          }&#x000A;        ],&#x000A;        &quot;restrictions&quot;: [&#x000A;&#x000A;        ],&#x000A;        &quot;rendered_coverage_percentage&quot;: 100.0&#x000A;      }&#x000A;    ],&#x000A;    &quot;final_schedule&quot;: {&#x000A;      &quot;name&quot;: &quot;Final Schedule&quot;,&#x000A;      &quot;rendered_schedule_entries&quot;: [&#x000A;        {&#x000A;          &quot;start&quot;: &quot;2013-03-26T20:42:16-04:00&quot;,&#x000A;          &quot;end&quot;: &quot;2013-04-02T20:42:16-04:00&quot;,&#x000A;          &quot;user&quot;: {&#x000A;            &quot;id&quot;: &quot;PT23IWX&quot;,&#x000A;            &quot;name&quot;: &quot;Tim Wright&quot;,&#x000A;            &quot;email&quot;: &quot;tim@acme.com&quot;,&#x000A;            &quot;color&quot;: &quot;purple&quot;&#x000A;          },&#x000A;          &quot;id&quot;: null&#x000A;        }&#x000A;      ],&#x000A;      &quot;rendered_coverage_percentage&quot;: 100.0&#x000A;    }&#x000A;  }&#x000A;}</code></pre></div>
+<div class='section'>
+  <h1 class="title">
+    POST schedules/preview
+  </h1>
+  <p>
+    Preview what a schedule would look like without saving it. This work the same as the <a href="/documentation/rest/schedules/update">update</a> or <a href="/documentation/rest/schedules/create">create</a> actions, except that the result is not persisted. Preview optionally takes two additional arguments, <code>since</code> and <code>until</code>, deliminating the span of the preview.
+  </p>
+  <h3>
+    Resource URL
+  </h3>
+  <div class="prism action-url language-bash">
+    <pre>
+POST https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/schedules/preview
+</pre>
+  </div>
+  <h3>
+    Parameters
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            since
+          </td>
+          <td>
+            <a href="/documentation/rest/types#datetime">Date</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            The start of the date range over which you want to return on-call schedule entries and on-call schedule layers. If not specified, <code>since</code> defaults to the current time
+          </td>
+        </tr>
+        <tr>
+          <td>
+            until
+          </td>
+          <td>
+            <a href="/documentation/rest/types#datetime">Date</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            The end of the date range over which you want to return schedule entries and on-call schedule layers. If not specificed, <code>until</code> defaults to one week from the current time.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            overflow
+          </td>
+          <td>
+            <a href="/documentation/rest/types#boolean">Boolean</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            <p>
+              Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter <code>overflow=true</code> is passed. This parameter defaults to false.
+            </p>
+            <p>
+              For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from <code>2011-06-01T10:00:00Z</code> to <code>2011-06-01T14:00:00Z</code>:
+            </p>
+            <ul>
+              <li>If you <strong>don't</strong> pass the <code>overflow=true</code> parameter, you will get one schedule entry returned with a <code>start</code> of <code>2011-06-01T10:00:00Z</code> and <code>end</code> of <code>2011-06-01T14:00:00Z</code>.
+              </li>
+              <li>If you <strong>do</strong> pass the <code>overflow=true</code> parameter, you will get one schedule entry returned with a <code>start</code> of <code>2011-06-01T00:00:00Z</code> and <code>end</code> of <code>2011-06-02T00:00:00Z</code>.
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            schedule
+          </td>
+          <td>
+            <a href="/documentation/rest/types#object">Object</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            The schedule object. See schedule parameters for details.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>
+    Schedule Parameters
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            schedule_layers
+          </td>
+          <td>
+            <a href="/documentation/rest/types#array">Array</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            A list of schedule layers. See the schedule layers parameters for details.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            time_zone
+          </td>
+          <td>
+            <a href="/documentation/rest/types#timezone">Time Zone</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The time zone of the schedule.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            name
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The name of the schedule
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>
+    Schedule Layer Parameters
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            id
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            The unique identifier of the schedule layer. Include this if previewing an update to a layer that already exists. Omit this parameter when previewing a layer that doesn't yet exist.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            start
+          </td>
+          <td>
+            <a href="/documentation/rest/types#datetime">Date</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The start time of this layer.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            end
+          </td>
+          <td>
+            <a href="/documentation/rest/types#datetime">Date</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            The end time of this layer. If null, the layer does not end.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            users
+          </td>
+          <td>
+            <a href="/documentation/rest/types#array">Array</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            <p>
+              The ordered list of users on this layer. Use the member order to indicate their order.
+            </p>
+            <pre>
+<code class="language-javascript prettyprint linenums">{
+  "users": [
+    {
+      "user": {
+        "id": "P2BI1SS"
+      },
+      "member_order": 1
+    }
+  ]
+}</code>
+</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            restriction_type
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Can either be <code>Daily</code> or <code>Weekly</code>. Specify the types of <code>restriction</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            restrictions
+          </td>
+          <td>
+            <a href="/documentation/rest/types#array">Array</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            <p>
+              An array of restrictions for the layer. A restriction is a limit on which period of the day or week the schedule layer can accept events.
+            </p>
+            <pre>
+<code class="language-javascript prettyprint linenums">{
+  "restrictions": [
+    {
+      "duration_seconds": 43200,
+      "start_time_of_day": "00:00:00"
+    }
+  ]
+}</code>
+</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            rotation_virtual_start
+          </td>
+          <td>
+            <a href="/documentation/rest/types#datetime">Date</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The effective start time of the layer. This can be before the start time of the schedule.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            priority
+          </td>
+          <td>
+            <a href="/documentation/rest/types#int">Integer</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The priority of the layer. Layers with higher priority will override layers with a lower priority.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            rotation_turn_length_seconds
+          </td>
+          <td>
+            <a href="/documentation/rest/types#int">Integer</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The duration of each on-call shift in seconds.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            name
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            The name of the schedule layer.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>
+    Example
+  </h3>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X POST \
+    -d '{    
+      "schedule": {
+        "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Tertiary</span>",
+        "time_zone": "<span class='curl_params-time_zone contenteditable' contenteditable='true'>Eastern Time (US &amp; Canada)</span>",
+        "schedule_layers": [
+          {
+            "restriction_type": "<span class='curl_params-restriction_type contenteditable' contenteditable='true'>Daily</span>",
+            "priority": 0,
+            "start": "<span class='curl_params-start contenteditable' contenteditable='true'>2012-01-01T00:00:00</span>",
+            "rotation_turn_length_seconds": 604800,
+            "rotation_virtual_start": "<span class='curl_params-rotation_virtual_start contenteditable' contenteditable='true'>2012-01-01T00:00:00</span>",
+            "users": [
+              {
+                "user": {
+                  "id": "<span class='curl_params-id contenteditable' contenteditable='true'>PPSFHH7</span>"
+                },
+                "member_order": 1
+              },
+              {
+                "user": {
+                  "id": "<span class='curl_params-id contenteditable' contenteditable='true'>PRDFNAL</span>"
+                },
+                "member_order": 2
+              }
+            ],
+            "end": null,
+            "restrictions": [
+              {
+                "duration_seconds": 43200,
+                "start_time_of_day": "<span class='curl_params-start_time_of_day contenteditable' contenteditable='true'>00:00:00</span>"
+              }
+            ],
+            "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Schedule Layer 1</span>"
+          },
+          {
+            "restriction_type": null,
+            "priority": 1,
+            "start": "<span class='curl_params-start contenteditable' contenteditable='true'>2012-01-01T00:00:00</span>",
+            "rotation_turn_length_seconds": 604800,
+            "rotation_virtual_start": "<span class='curl_params-rotation_virtual_start contenteditable' contenteditable='true'>2012-01-01T00:00:00</span>",
+            "users": [
+              {
+                "user": {
+                  "id": "<span class='curl_params-id contenteditable' contenteditable='true'>PT23IWX</span>"
+                },
+                "member_order": 1
+              }
+            ],
+            "end": null,
+            "restrictions": [
+    
+            ],
+            "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Schedule Layer 2</span>"
+          }
+        ]
+      }
+    }' \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/schedules/preview"</code>
+</pre>
+  <p class="content-type-warning clearfix">
+    Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code>
+  </p>
+  <div class="clearfix"></div>
+  <h4>
+    Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"></a></span>
+  </h4>
+  <div class="response">
+    <pre>
+<code class="language-javascript prettyprint linenums">{
+  "schedule": {
+    "id": null,
+    "name": "Tertiary",
+    "time_zone": "Eastern Time (US &amp; Canada)",
+    "today": "2013-03-26",
+    "escalation_policies": [
+
+    ],
+    "schedule_layers": [
+      {
+        "name": "Schedule Layer 1",
+        "rendered_schedule_entries": [
+          {
+            "start": "2013-03-27T00:00:00-04:00",
+            "end": "2013-03-27T12:00:00-04:00",
+            "user": {
+              "id": "PPSFHH7",
+              "name": "Bob Smith",
+              "email": "bob@acme.com",
+              "color": "red"
+            },
+            "id": null
+          },
+          {
+            "start": "2013-03-28T00:00:00-04:00",
+            "end": "2013-03-28T12:00:00-04:00",
+            "user": {
+              "id": "PPSFHH7",
+              "name": "Bob Smith",
+              "email": "bob@acme.com",
+              "color": "red"
+            },
+            "id": null
+          },
+          {
+            "start": "2013-03-29T00:00:00-04:00",
+            "end": "2013-03-29T12:00:00-04:00",
+            "user": {
+              "id": "PPSFHH7",
+              "name": "Bob Smith",
+              "email": "bob@acme.com",
+              "color": "red"
+            },
+            "id": null
+          },
+          {
+            "start": "2013-03-30T00:00:00-04:00",
+            "end": "2013-03-30T12:00:00-04:00",
+            "user": {
+              "id": "PPSFHH7",
+              "name": "Bob Smith",
+              "email": "bob@acme.com",
+              "color": "red"
+            },
+            "id": null
+          },
+          {
+            "start": "2013-03-31T00:00:00-04:00",
+            "end": "2013-03-31T12:00:00-04:00",
+            "user": {
+              "id": "PRDFNAL",
+              "name": "Sarah Jones",
+              "email": "sarah@acme.com",
+              "color": "green"
+            },
+            "id": null
+          },
+          {
+            "start": "2013-04-01T00:00:00-04:00",
+            "end": "2013-04-01T12:00:00-04:00",
+            "user": {
+              "id": "PRDFNAL",
+              "name": "Sarah Jones",
+              "email": "sarah@acme.com",
+              "color": "green"
+            },
+            "id": null
+          },
+          {
+            "start": "2013-04-02T00:00:00-04:00",
+            "end": "2013-04-02T12:00:00-04:00",
+            "user": {
+              "id": "PRDFNAL",
+              "name": "Sarah Jones",
+              "email": "sarah@acme.com",
+              "color": "green"
+            },
+            "id": null
+          }
+        ],
+        "id": null,
+        "priority": 0,
+        "start": "2013-03-26T20:42:15-04:00",
+        "end": null,
+        "restriction_type": "Daily",
+        "rotation_virtual_start": "2012-01-01T00:00:00-05:00",
+        "rotation_turn_length_seconds": 604800,
+        "users": [
+          {
+            "member_order": 1,
+            "user": {
+              "id": "PPSFHH7",
+              "name": "Bob Smith",
+              "email": "bob@acme.com",
+              "color": "red"
+            }
+          },
+          {
+            "member_order": 2,
+            "user": {
+              "id": "PRDFNAL",
+              "name": "Sarah Jones",
+              "email": "sarah@acme.com",
+              "color": "green"
+            }
+          }
+        ],
+        "restrictions": [
+          {
+            "start_time_of_day": "00:00:00",
+            "duration_seconds": 43200
+          }
+        ],
+        "rendered_coverage_percentage": 55.2
+      },
+      {
+        "name": "Schedule Layer 2",
+        "rendered_schedule_entries": [
+          {
+            "start": "2013-03-26T20:42:16-04:00",
+            "end": "2013-04-02T20:42:16-04:00",
+            "user": {
+              "id": "PT23IWX",
+              "name": "Tim Wright",
+              "email": "tim@acme.com",
+              "color": "purple"
+            },
+            "id": null
+          }
+        ],
+        "id": null,
+        "priority": 1,
+        "start": "2013-03-26T20:42:15-04:00",
+        "end": null,
+        "restriction_type": null,
+        "rotation_virtual_start": "2012-01-01T00:00:00-05:00",
+        "rotation_turn_length_seconds": 604800,
+        "users": [
+          {
+            "member_order": 1,
+            "user": {
+              "id": "PT23IWX",
+              "name": "Tim Wright",
+              "email": "tim@acme.com",
+              "color": "purple"
+            }
+          }
+        ],
+        "restrictions": [
+
+        ],
+        "rendered_coverage_percentage": 100.0
+      }
+    ],
+    "final_schedule": {
+      "name": "Final Schedule",
+      "rendered_schedule_entries": [
+        {
+          "start": "2013-03-26T20:42:16-04:00",
+          "end": "2013-04-02T20:42:16-04:00",
+          "user": {
+            "id": "PT23IWX",
+            "name": "Tim Wright",
+            "email": "tim@acme.com",
+            "color": "purple"
+          },
+          "id": null
+        }
+      ],
+      "rendered_coverage_percentage": 100.0
+    }
+  }
+}</code>
+</pre>
+  </div>
 </div>

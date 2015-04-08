@@ -2,38 +2,217 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="/documentation/integration/events/">Integration</a></li><span class="divider">/</span><li><a href="/documentation/integration/events/">Events</a></li><span class="divider">/</span><li>Trigger</li></ul>
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/integration/events/">Integration</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/documentation/integration/events/">Events</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Trigger
+  </li>
+</ul>
 <div class='section'>
-<title></title>
-<h1 class="title">Trigger Events</h1>
-<p>Your monitoring tools should send PagerDuty a trigger event to report a new or ongoing problem. When PagerDuty receives a trigger event, it will either open a new incident, or add a new trigger log entry to an existing incident, depending on the provided <code>incident_key</code>.</p>
-<h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>service_key</td><td><a href="/documentation/rest/types#string">String</a></td><td>Yes</td><td>The GUID of one of your "Generic API" services. This is the "service key" listed on a Generic API's service detail page.
-</td></tr><tr><td>event_type</td><td><a href="/documentation/rest/types#string">String</a></td><td>Yes</td><td>Set this to "trigger".
-</td></tr><tr><td>description</td><td><a href="/documentation/rest/types#string">String</a></td><td>Yes</td><td>A short description of the problem that led to this trigger. This field (or a truncated version)
-will be used when generating phone calls, SMS messages and alert emails. It will also appear
-on the incidents tables in the PagerDuty UI. The maximum length is 1024 characters.
-</td></tr><tr><td>incident_key</td><td><a href="/documentation/rest/types#string">String</a></td><td>Yes</td><td>Identifies the incident to which this trigger event should be applied. If there's no open (i.e. unresolved) incident
-with this key, a new one will be created. If there's already an open incident with a matching key,
-this event will be appended to that incident's log. The event key provides an easy way to "de-dup"
-problem reports.
-</td></tr><tr><td>client</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>The name of the monitoring client that is triggering this event.
-</td></tr><tr><td>client_url</td><td><a href="/documentation/rest/types#string">String</a></td><td>No</td><td>The URL of the monitoring client that is triggering this event.
-</td></tr><tr><td>details</td><td><a href="/documentation/rest/types#object">Object</a></td><td>No</td><td>An arbitrary JSON object containing any data you'd like included in the incident log.
-</td></tr></tbody></table></div><h3>Example 1</h3>
-<p>
-This example shows how to make a request with a specific <code>incident_key</code>.
-Note that if an incident with this key already exists, this trigger message will simply be appended to it.
-If no incident with this key exists, a new one will be automatically created. When the <code>incident_key</code>
-is provided in the request, the same value will always be returned in the response.
-</p>
-<pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -X POST \&#x000A;    -d '{    &#x000A;      "service_key": "<span class='curl_params-service_key contenteditable' contenteditable='true'>e93facc04764012d7bfb002500d5d1a6</span>",&#x000A;      "incident_key": "<span class='curl_params-incident_key contenteditable' contenteditable='true'>srv01/HTTP</span>",&#x000A;      "event_type": "<span class='curl_params-event_type contenteditable' contenteditable='true'>trigger</span>",&#x000A;      "description": "<span class='curl_params-description contenteditable' contenteditable='true'>FAILURE for production/HTTP on machine srv01.acme.com</span>",&#x000A;      "client": "<span class='curl_params-client contenteditable' contenteditable='true'>Sample Monitoring Service</span>",&#x000A;      "client_url": "<span class='curl_params-client_url contenteditable' contenteditable='true'>https://monitoring.service.com</span>",&#x000A;      "details": {&#x000A;        "ping time": "<span class='curl_params-ping time contenteditable' contenteditable='true'>1500ms</span>",&#x000A;        "load avg": 0.75&#x000A;      }&#x000A;    }' \&#x000A;    "https://events.pagerduty.com/generic/2010-04-15/create_event.json"</code></pre>
-<h4>Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;status&quot;: &quot;success&quot;,&#x000A;  &quot;message&quot;: &quot;Event processed&quot;,&#x000A;  &quot;incident_key&quot;: &quot;srv01/HTTP&quot;&#x000A;}</code></pre></div>
-<h3>Example 2</h3>
-<p>
-This example shows how to make a request without an <code>incident_key</code>. In this case, PagerDuty will
-automatically assign a random and unique key and return it in the response object. You should store this
-key in case you want to send an acknowledge or resolve event to this incident in the future.
-</p>
-<pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -X POST \&#x000A;    -d '{    &#x000A;      "service_key": "<span class='curl_params-service_key contenteditable' contenteditable='true'>e93facc04764012d7bfb002500d5d1a6</span>",&#x000A;      "event_type": "<span class='curl_params-event_type contenteditable' contenteditable='true'>trigger</span>",&#x000A;      "description": "<span class='curl_params-description contenteditable' contenteditable='true'>FAILURE for production/HTTP on machine srv01.acme.com</span>",&#x000A;      "client": "<span class='curl_params-client contenteditable' contenteditable='true'>Sample Monitoring Service</span>",&#x000A;      "client_url": "<span class='curl_params-client_url contenteditable' contenteditable='true'>https://monitoring.service.com</span>",&#x000A;      "details": {&#x000A;        "ping time": "<span class='curl_params-ping time contenteditable' contenteditable='true'>1500ms</span>",&#x000A;        "load avg": 0.75&#x000A;      }&#x000A;    }' \&#x000A;    "https://events.pagerduty.com/generic/2010-04-15/create_event.json"</code></pre>
-<h4>Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;status&quot;: &quot;success&quot;,&#x000A;  &quot;message&quot;: &quot;Event processed&quot;,&#x000A;  &quot;incident_key&quot;: &quot;73af7a305bd7012d7c06002500d5d1a6&quot;&#x000A;}</code></pre></div>
+  <h1 class="title">
+    Trigger Events
+  </h1>
+  <p>
+    Your monitoring tools should send PagerDuty a trigger event to report a new or ongoing problem. When PagerDuty receives a trigger event, it will either open a new incident, or add a new trigger log entry to an existing incident, depending on the provided <code>incident_key</code>.
+  </p>
+  <h3>
+    Parameters
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            service_key
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The GUID of one of your "Generic API" services. This is the "service key" listed on a Generic API's service detail page.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            event_type
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            Set this to "trigger".
+          </td>
+        </tr>
+        <tr>
+          <td>
+            description
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            A short description of the problem that led to this trigger. This field (or a truncated version) will be used when generating phone calls, SMS messages and alert emails. It will also appear on the incidents tables in the PagerDuty UI. The maximum length is 1024 characters.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            incident_key
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            Identifies the incident to which this trigger event should be applied. If there's no open (i.e. unresolved) incident with this key, a new one will be created. If there's already an open incident with a matching key, this event will be appended to that incident's log. The event key provides an easy way to "de-dup" problem reports.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            client
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            The name of the monitoring client that is triggering this event.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            client_url
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            The URL of the monitoring client that is triggering this event.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            details
+          </td>
+          <td>
+            <a href="/documentation/rest/types#object">Object</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            An arbitrary JSON object containing any data you'd like included in the incident log.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>
+    Example 1
+  </h3>
+  <p>
+    This example shows how to make a request with a specific <code>incident_key</code>. Note that if an incident with this key already exists, this trigger message will simply be appended to it. If no incident with this key exists, a new one will be automatically created. When the <code>incident_key</code> is provided in the request, the same value will always be returned in the response.
+  </p>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -X POST \
+    -d '{    
+      "service_key": "<span class='curl_params-service_key contenteditable' contenteditable='true'>e93facc04764012d7bfb002500d5d1a6</span>",
+      "incident_key": "<span class='curl_params-incident_key contenteditable' contenteditable='true'>srv01/HTTP</span>",
+      "event_type": "<span class='curl_params-event_type contenteditable' contenteditable='true'>trigger</span>",
+      "description": "<span class='curl_params-description contenteditable' contenteditable='true'>FAILURE for production/HTTP on machine srv01.acme.com</span>",
+      "client": "<span class='curl_params-client contenteditable' contenteditable='true'>Sample Monitoring Service</span>",
+      "client_url": "<span class='curl_params-client_url contenteditable' contenteditable='true'>https://monitoring.service.com</span>",
+      "details": {
+        "ping time": "<span class='curl_params-ping time contenteditable' contenteditable='true'>1500ms</span>",
+        "load avg": 0.75
+      }
+    }' \
+    "https://events.pagerduty.com/generic/2010-04-15/create_event.json"</code>
+</pre>
+  <h4>
+    Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"></a></span>
+  </h4>
+  <div class="response">
+    <pre>
+<code class="language-javascript prettyprint linenums">{
+  "status": "success",
+  "message": "Event processed",
+  "incident_key": "srv01/HTTP"
+}</code>
+</pre>
+  </div>
+  <h3>
+    Example 2
+  </h3>
+  <p>
+    This example shows how to make a request without an <code>incident_key</code>. In this case, PagerDuty will automatically assign a random and unique key and return it in the response object. You should store this key in case you want to send an acknowledge or resolve event to this incident in the future.
+  </p>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -X POST \
+    -d '{    
+      "service_key": "<span class='curl_params-service_key contenteditable' contenteditable='true'>e93facc04764012d7bfb002500d5d1a6</span>",
+      "event_type": "<span class='curl_params-event_type contenteditable' contenteditable='true'>trigger</span>",
+      "description": "<span class='curl_params-description contenteditable' contenteditable='true'>FAILURE for production/HTTP on machine srv01.acme.com</span>",
+      "client": "<span class='curl_params-client contenteditable' contenteditable='true'>Sample Monitoring Service</span>",
+      "client_url": "<span class='curl_params-client_url contenteditable' contenteditable='true'>https://monitoring.service.com</span>",
+      "details": {
+        "ping time": "<span class='curl_params-ping time contenteditable' contenteditable='true'>1500ms</span>",
+        "load avg": 0.75
+      }
+    }' \
+    "https://events.pagerduty.com/generic/2010-04-15/create_event.json"</code>
+</pre>
+  <h4>
+    Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"></a></span>
+  </h4>
+  <div class="response">
+    <pre>
+<code class="language-javascript prettyprint linenums">{
+  "status": "success",
+  "message": "Event processed",
+  "incident_key": "73af7a305bd7012d7c06002500d5d1a6"
+}</code>
+</pre>
+  </div>
 </div>

@@ -1,0 +1,8 @@
+tidy-mark: false
+write-back: true
+show-body-only: true
+doctype: omit
+indent: true
+wrap: 0
+input-encoding: utf8
+output-encoding: utf8

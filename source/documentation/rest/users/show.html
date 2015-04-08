@@ -2,14 +2,118 @@
 title: PagerDuty Developer
 layout: main
 ---
-<ul class="breadcrumb"><li><a href="/documentation/rest">REST API</a></li><span class="divider">/</span><li><a href="/documentation/rest/users">Users</a></li><span class="divider">/</span><li>Show</li></ul>
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/documentation/rest/users">Users</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Show
+  </li>
+</ul>
 <div class='section'>
-<h1 class="title">GET users/:id</h1><p>Get information about an existing user.</p><h3>Resource URL</h3><div class="prism action-url language-bash"><pre>GET https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/users/<span class="url_param contenteditable" contenteditable="true">:id</span></pre></div><h3>Parameters</h3><div class="table-container"><table class="table table-striped"><thead><th>Name</th><th>Type</th><th>Required</th><th>Description</th></thead><tbody><tr><td>include</td><td><a href="/documentation/rest/types#array">Array</a></td><td>No</td><td>Array of additional details to include. This API accepts <code>contact_methods</code>,
-and <code>notification_rules</code>.
-</td></tr></tbody></table></div><h4>Examples</h4>
-<h4>Get a single user</h4>
-<pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \&#x000A;    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/users/<span class="sub_params_in_url-id id contenteditable" contenteditable="true">PIJ90N7</span>"</code></pre><p class="content-type-warning clearfix">Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code></p><div class="clearfix"></div>
-<h4>Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"><i class="icon-question-sign"></i></a></span></h4><div class="response"><pre><code class="language-javascript prettyprint linenums">{&#x000A;  &quot;user&quot;: {&#x000A;    &quot;time_zone&quot;: &quot;Eastern Time (US &amp; Canada)&quot;,&#x000A;    &quot;color&quot;: &quot;dark-slate-grey&quot;,&#x000A;    &quot;email&quot;: &quot;bart@example.com&quot;,&#x000A;    &quot;avatar_url&quot;: &quot;https://secure.gravatar.com/avatar/6e1b6fc29a03fc3c13756bd594e314f7.png?d=mm&amp;r=PG&quot;,&#x000A;    &quot;user_url&quot;: &quot;/users/PIJ90N7&quot;,&#x000A;    &quot;invitation_sent&quot;: true,&#x000A;    &quot;role&quot;: &quot;admin&quot;,&#x000A;    &quot;name&quot;: &quot;Bart Simpson&quot;,&#x000A;    &quot;id&quot;: &quot;PIJ90N7&quot;,&#x000A;    &quot;job_title&quot;: &quot;Developer&quot;&#x000A;  }&#x000A;}</code></pre></div>
-<h4>Get a single user with notification rules and contact methods</h4>
-<pre><code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \&#x000A;    --data-urlencode "include[]=<span class='curl_params-include contenteditable' contenteditable='true'>contact_methods</span>" \&#x000A;    --data-urlencode "include[]=<span class='curl_params-include contenteditable' contenteditable='true'>notification_rules</span>" \&#x000A;    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/users/:id"</code></pre>
+  <h1 class="title">
+    GET users/:id
+  </h1>
+  <p>
+    Get information about an existing user.
+  </p>
+  <h3>
+    Resource URL
+  </h3>
+  <div class="prism action-url language-bash">
+    <pre>
+GET https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/users/<span class="url_param contenteditable" contenteditable="true">:id</span>
+</pre>
+  </div>
+  <h3>
+    Parameters
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            include
+          </td>
+          <td>
+            <a href="/documentation/rest/types#array">Array</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Array of additional details to include. This API accepts <code>contact_methods</code>, and <code>notification_rules</code>.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h4>
+    Examples
+  </h4>
+  <h4>
+    Get a single user
+  </h4>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/users/<span class="sub_params_in_url-id id contenteditable" contenteditable="true">PIJ90N7</span>"</code>
+</pre>
+  <p class="content-type-warning clearfix">
+    Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code>
+  </p>
+  <div class="clearfix"></div>
+  <h4>
+    Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"></a></span>
+  </h4>
+  <div class="response">
+    <pre>
+<code class="language-javascript prettyprint linenums">{
+  "user": {
+    "time_zone": "Eastern Time (US &amp; Canada)",
+    "color": "dark-slate-grey",
+    "email": "bart@example.com",
+    "avatar_url": "https://secure.gravatar.com/avatar/6e1b6fc29a03fc3c13756bd594e314f7.png?d=mm&amp;r=PG",
+    "user_url": "/users/PIJ90N7",
+    "invitation_sent": true,
+    "role": "admin",
+    "name": "Bart Simpson",
+    "id": "PIJ90N7",
+    "job_title": "Developer"
+  }
+}</code>
+</pre>
+  </div>
+  <h4>
+    Get a single user with notification rules and contact methods
+  </h4>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \
+    --data-urlencode "include[]=<span class='curl_params-include contenteditable' contenteditable='true'>contact_methods</span>" \
+    --data-urlencode "include[]=<span class='curl_params-include contenteditable' contenteditable='true'>notification_rules</span>" \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/users/:id"</code>
+</pre>
 </div>

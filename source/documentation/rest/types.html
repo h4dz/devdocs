@@ -5,65 +5,115 @@ permalink: /documentation/rest/types/
 redirect_from:
   - /documentation/rest/types.html
 ---
-                  <ul class="breadcrumb">
-                    <li><a href="/documentation/rest">REST API</a></li>
-                    <span class="divider">/</span>
-                    <li>Types</li>
-                  </ul>
-                  <div class='section'>
-                    <title></title>
-                    <h1 class="title">Types</h1>
-                    <a name='datetime'></a>
-                    <h2>Date and Time</h2>
-                    <p>All dates and times should be represented in the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date/time format. The time element is optional.</p>
-                    <p>Example dates in <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format:</p>
-                    <div class="table-container">
-                      <table class="table table-striped">
-                        <thead>
-                          <th>Date and Time</th>
-                          <th>ISO 8601 Representation</th>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>May 6th, 2011 at 5pm UTC</td>
-                            <td>2011-05-06T17:00Z</td>
-                          </tr>
-                          <tr>
-                            <td>May 6th, 2011 at 3:30am PDT</td>
-                            <td>2011-05-06T03:30-07</td>
-                          </tr>
-                          <tr>
-                            <td>May 6th, 2011 at midnight (time is optional)</td>
-                            <td>2011-05-06</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <a name='boolean'></a>
-                    <h2>Boolean Values</h2>
-                    <p>The following values can be used to represent true and false. These values are not case sensitive.</p>
-                    <div class="table-container">
-                      <table class="table table-striped">
-                        <thead>
-                          <th>Value</th>
-                          <th>Acceptable String Representation</th>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>true</td>
-                            <td>1, true</td>
-                          </tr>
-                          <tr>
-                            <td>false</td>
-                            <td>0, false</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <a name='timezone'></a>
-                    <h2>Time Zones</h2>
-                    <p>One of the following strings:
-<pre class='language-bash'><code>Abu Dhabi
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Types
+  </li>
+</ul>
+<div class='section'>
+  <h1 class="title">
+    Types
+  </h1><a name='datetime' id="datetime"></a>
+  <h2>
+    Date and Time
+  </h2>
+  <p>
+    All dates and times should be represented in the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date/time format. The time element is optional.
+  </p>
+  <p>
+    Example dates in <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format:
+  </p>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Date and Time
+          </th>
+          <th>
+            ISO 8601 Representation
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            May 6th, 2011 at 5pm UTC
+          </td>
+          <td>
+            2011-05-06T17:00Z
+          </td>
+        </tr>
+        <tr>
+          <td>
+            May 6th, 2011 at 3:30am PDT
+          </td>
+          <td>
+            2011-05-06T03:30-07
+          </td>
+        </tr>
+        <tr>
+          <td>
+            May 6th, 2011 at midnight (time is optional)
+          </td>
+          <td>
+            2011-05-06
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div><a name='boolean' id="boolean"></a>
+  <h2>
+    Boolean Values
+  </h2>
+  <p>
+    The following values can be used to represent true and false. These values are not case sensitive.
+  </p>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Value
+          </th>
+          <th>
+            Acceptable String Representation
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            true
+          </td>
+          <td>
+            1, true
+          </td>
+        </tr>
+        <tr>
+          <td>
+            false
+          </td>
+          <td>
+            0, false
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div><a name='timezone' id="timezone"></a>
+  <h2>
+    Time Zones
+  </h2>
+  <p>
+    One of the following strings:
+  </p>
+  <pre class='language-bash'>
+<code>Abu Dhabi
 Adelaide
 Alaska
 Almaty
@@ -207,36 +257,65 @@ Wellington
 West Central Africa
 Yakutsk
 Yerevan
-Zagreb</code></pre></p>
-                    <a name='object'></a>
-                    <h2>Object</h2>
-                    <p>Object types are a JSON object.</p>
-                    <a name='array'></a>
-                    <h2>Array</h2>
-                    <p>Array types are used to represent a list of values.</p>
-                    <p>Example array values for the <code>include</code> parameter on a <code>GET</code> request:</p>
-                    <div class="table-container">
-                      <table class="table table-striped">
-                        <thead>
-                          <th>Values</th>
-                          <th>Query String Representation</th>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>contact_methods</td>
-                            <td><code>include[]=contact_methods</code></td>
-                          </tr>
-                          <tr>
-                            <td>contact_methods, notification_rules</td>
-                            <td><code>include[]=contact_methods&amp;include[]=notification_rules</code></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <a name='string'></a>
-                    <h2>String</h2>
-                    <p>String types are a sequence of UTF-8 characters.</p>
-                    <a name='int'></a>
-                    <h2>Integer</h2>
-                    <p>Integer types are a number without a fractional or decimal component.</p>
-                  </div>
+Zagreb</code>
+</pre><a name='object' id="object"></a>
+  <h2>
+    Object
+  </h2>
+  <p>
+    Object types are a JSON object.
+  </p><a name='array' id="array"></a>
+  <h2>
+    Array
+  </h2>
+  <p>
+    Array types are used to represent a list of values.
+  </p>
+  <p>
+    Example array values for the <code>include</code> parameter on a <code>GET</code> request:
+  </p>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Values
+          </th>
+          <th>
+            Query String Representation
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            contact_methods
+          </td>
+          <td>
+            <code>include[]=contact_methods</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            contact_methods, notification_rules
+          </td>
+          <td>
+            <code>include[]=contact_methods&amp;include[]=notification_rules</code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div><a name='string' id="string"></a>
+  <h2>
+    String
+  </h2>
+  <p>
+    String types are a sequence of UTF-8 characters.
+  </p><a name='int' id="int"></a>
+  <h2>
+    Integer
+  </h2>
+  <p>
+    Integer types are a number without a fractional or decimal component.
+  </p>
+</div>
