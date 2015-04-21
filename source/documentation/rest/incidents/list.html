@@ -314,6 +314,43 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
         </tr>
         <tr>
           <td>
+            pending_actions
+          </td>
+          <td>
+            <a href="/documentation/rest/types#array">Array</a>
+          </td>
+          <td>
+            <p>
+              The list of <i>pending_actions</i> on the incident. A <i>pending_actions</i> is an object containing all the pending_action objects for that incident at that current time. This list is empty if the status of the incident is <code>resolved</code>.
+            </p>
+            <p>
+              A pending_action object contains <i>type</i> of action. <i>type</i> can be <code>escalate</code>, <code>unacknowledge</code> or <code>resolve</code>.
+            </p>
+            <p>
+              Example: <code>pending_actions</code> field for an incident.
+            </p>
+            <pre>
+<code class="language-javascript prettyprint linenums">{
+  "pending_actions": [
+    {
+      "type": "escalate",
+      "at": "2014-01-01T08:00:00Z"
+    },
+    {
+      "type": "unacknowledge",
+      "at": "2014-01-01T08:00:00Z"
+    },
+    {
+      "type": "resolve",
+      "at": "2014-01-01T08:00:00Z"
+    }
+  ]
+}</code>
+</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>
             created_on
           </td>
           <td>
