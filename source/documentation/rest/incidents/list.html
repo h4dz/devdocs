@@ -321,10 +321,10 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
           </td>
           <td>
             <p>
-              The list of <i>pending_actions</i> on the incident. A <i>pending_actions</i> is an object containing all the pending_action objects for that incident at that current time. This list is empty if the status of the incident is <code>resolved</code>.
+              The list of <code>pending_actions</code> on the incident. A <code>pending_actions</code> is an object containing all the pending_action objects for that incident at that current time. This list is empty if the status of the incident is <code>resolved</code>.
             </p>
             <p>
-              A pending_action object contains <i>type</i> of action. <i>type</i> can be <code>escalate</code>, <code>unacknowledge</code> or <code>resolve</code>.
+              A pending_action object contains <code>type</code> of action. <code>type</code> can be <code>escalate</code>, <code>unacknowledge</code> or <code>resolve</code>.
             </p>
             <p>
               Example: <code>pending_actions</code> field for an incident.
@@ -338,11 +338,11 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
     },
     {
       "type": "unacknowledge",
-      "at": "2014-01-01T08:00:00Z"
+      "at": "2014-01-01T10:00:00Z"
     },
     {
       "type": "resolve",
-      "at": "2014-01-01T08:00:00Z"
+      "at": "2014-01-01T11:00:00Z"
     }
   ]
 }</code>
