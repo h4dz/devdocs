@@ -42,3 +42,13 @@
   url: https://github.com/brendanhay/pagerduty
   language: Haskell
   description: "A PagerDuty API client written in Haskell"
+
+- name: PagerDuty.net
+  url: https://www.nuget.org/packages/PagerDutyNet/
+  language: C#/.NET
+  description: "A wrapper for the pagerduty.com api"
+
+- name: PagerDuty API .NET Client
+  url: https://www.nuget.org/packages/PagerDutyAPI/
+  language: C#/.NET
+  description: "A client for the PagerDuty Event Integration API for .NET"
