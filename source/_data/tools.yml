@@ -153,3 +153,9 @@
   type: Alerting
   description: "An Android app that intercepts incoming SMS messages and alerts"
   tag: Tool
+
+- name: incidents.py
+  url: https://gist.github.com/chrisgagne/7ef074ed13ff999f52e4
+  type: Reporting
+  description: "Export descriptions and notes from PagerDuty into a CSV file."
+  tag: Tool
