@@ -726,6 +726,128 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
       </div>
     </div>
   </div>
+  <h2 id='contexts'>
+    Contexts
+  </h2>
+  <p>
+    The <code>contexts</code> object is a list of informational assets attached to the incident. 
+  </p>
+  <h3>
+    Link
+  </h3>
+  <p>
+    The "link" type is used to attach links to an incident.
+  </p>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            type
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The type of context being attached to the incident. This will be a "link" or "image". For more information, visit the documentation for <a href="/documentation/integration/events/trigger/">triggering events</a>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            href
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The link being attached to the incident.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            text
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Optional information pertaining to the incident.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>
+    Image
+  </h3>
+  <p>
+    The "image" type is used to attach images to an incident.
+  </p>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            type
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The type of context being attached to the incident. This will be a "link" or "image". For more information, visit the documentation for <a href="/documentation/integration/events/trigger/">triggering events</a>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            src
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The source of the image being attached to the incident.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            href
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Optional link for the image.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <h2 id='notify_format'>
     Notify Log Entries
   </h2>
@@ -890,7 +1012,24 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
     "channel": {
       "summary": "Martian's are attacking",
       "type": "web_trigger"
-    }
+    },
+    "contexts":[ 
+      {
+        "type": "link",
+        "href": "http://acme.pagerduty.com",
+      },{
+        "type": "link",
+        "href": "http://acme.pagerduty.com",
+        "text": "View the incident on PagerDuty"
+      },{
+        "type": "image",
+        "src": "https://chart.googleapis.com/chart?chs=600x400&chd=t:6,2,9,5,2,5,7,4,8,2,1&cht=lc&chds=a&chxt=y&chm=D,0033FF,0,0,5,1"
+      },{
+        "type": "image",
+        "src": "https://chart.googleapis.com/chart?chs=600x400&chd=t:6,2,9,5,2,5,7,4,8,2,1&cht=lc&chds=a&chxt=y&chm=D,0033FF,0,0,5,1",
+        "href": "https://google.com"
+      }
+    ]
   }
 }</code>
 </pre>
@@ -931,7 +1070,24 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
       "details": "Wait, I'm a computer. How the hell do I know? ",
       "summary": "Martian's are attacking",
       "type": "web_trigger"
-    }
+    },
+    "contexts":[ 
+      {
+        "type": "link",
+        "href": "http://acme.pagerduty.com",
+      },{
+        "type": "link",
+        "href": "http://acme.pagerduty.com",
+        "text": "View the incident on PagerDuty"
+      },{
+        "type": "image",
+        "src": "https://chart.googleapis.com/chart?chs=600x400&chd=t:6,2,9,5,2,5,7,4,8,2,1&cht=lc&chds=a&chxt=y&chm=D,0033FF,0,0,5,1"
+      },{
+        "type": "image",
+        "src": "https://chart.googleapis.com/chart?chs=600x400&chd=t:6,2,9,5,2,5,7,4,8,2,1&cht=lc&chds=a&chxt=y&chm=D,0033FF,0,0,5,1",
+        "href": "https://google.com"
+      }
+    ]
   }
 }</code>
 </pre>
