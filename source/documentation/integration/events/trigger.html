@@ -145,6 +145,142 @@ layout: main
             An arbitrary JSON object containing any data you'd like included in the incident log.
           </td>
         </tr>
+        <tr>
+          <td>
+            contexts
+          </td>
+          <td>
+            <a href="/documentation/rest/types#object">Object</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Contexts to be included with the incident trigger such as links to graphs or images. A "type" is required for each context submitted. For type "link", an "href" is required. You may optionally specify "text" with more information about the link. For type "image", "src" must be specified with the image src. You may optionally specify an "href" with this image.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <h2 id='contexts'>
+    Contexts
+  </h2>
+  <p>
+    The <code>contexts</code> object is a list of informational assets attached to the incident. 
+  </p>
+  <h3>
+    Link
+  </h3>
+  <p>
+    The "link" type is used to attach links to an incident.
+  </p>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            type
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The type of context being attached to the incident. This will be a "link" or "image". For more information, visit the documentation for <a href="/documentation/integration/events/trigger/">triggering events</a>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            href
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The link being attached to the incident.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            text
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Optional information pertaining to the incident.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>
+    Image
+  </h3>
+  <p>
+    The "image" type is used to attach images to an incident.
+  </p>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            type
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The type of context being attached to the incident. This will be a "link" or "image". For more information, visit the documentation for <a href="/documentation/integration/events/trigger/">triggering events</a>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            src
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The source of the image being attached to the incident.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            href
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Optional link for the image.
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -166,7 +302,24 @@ layout: main
       "details": {
         "ping time": "<span class='curl_params-ping time contenteditable' contenteditable='true'>1500ms</span>",
         "load avg": 0.75
-      }
+      },
+      "contexts":[ 
+        {
+          "type": "link",
+          "href": "http://acme.pagerduty.com",
+        },{
+          "type": "link",
+          "href": "http://acme.pagerduty.com",
+          "text": "View the incident on PagerDuty"
+        },{
+          "type": "image",
+          "src": "https://chart.googleapis.com/chart?chs=600x400&chd=t:6,2,9,5,2,5,7,4,8,2,1&cht=lc&chds=a&chxt=y&chm=D,0033FF,0,0,5,1"
+        },{
+          "type": "image",
+          "src": "https://chart.googleapis.com/chart?chs=600x400&chd=t:6,2,9,5,2,5,7,4,8,2,1&cht=lc&chds=a&chxt=y&chm=D,0033FF,0,0,5,1",
+          "href": "https://google.com"
+        }
+      ]
     }' \
     "https://events.pagerduty.com/generic/2010-04-15/create_event.json"</code>
 </pre>
@@ -199,7 +352,24 @@ layout: main
       "details": {
         "ping time": "<span class='curl_params-ping time contenteditable' contenteditable='true'>1500ms</span>",
         "load avg": 0.75
-      }
+      },
+      "contexts":[ 
+        {
+          "type": "link",
+          "href": "http://acme.pagerduty.com",
+        },{
+          "type": "link",
+          "href": "http://acme.pagerduty.com",
+          "text": "View the incident on PagerDuty"
+        },{
+          "type": "image",
+          "src": "https://chart.googleapis.com/chart?chs=600x400&chd=t:6,2,9,5,2,5,7,4,8,2,1&cht=lc&chds=a&chxt=y&chm=D,0033FF,0,0,5,1"
+        },{
+          "type": "image",
+          "src": "https://chart.googleapis.com/chart?chs=600x400&chd=t:6,2,9,5,2,5,7,4,8,2,1&cht=lc&chds=a&chxt=y&chm=D,0033FF,0,0,5,1",
+          "href": "https://google.com"
+        }
+      ]
     }' \
     "https://events.pagerduty.com/generic/2010-04-15/create_event.json"</code>
 </pre>
