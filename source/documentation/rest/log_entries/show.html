@@ -300,7 +300,7 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
             <a href="/documentation/rest/types#object">Object</a>
           </td>
           <td>
-            Contexts to be included with the incident trigger such as links to graphs or images. A "type" is required for each context submitted. For type "link", an "href" is required. You may optionally specify "text" with more information about the link. For type "image", "src" must be specified with the image src. You may optionally specify an "href" with this image.
+            Contexts to be included with the incident trigger such as links to graphs or images. A "type" is required for each context submitted. For type "link", an "href" is required. You may optionally specify "text" with more information about the link. For type "image", "src" must be specified with the image src. You may optionally specify an "href" or "alt" with this image.
           </td>
         </tr>
       </tbody>
@@ -854,6 +854,17 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
           </td>
           <td>
             Optional link for the image.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            alt
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            Optional alt text for the image.
           </td>
         </tr>
       </tbody>

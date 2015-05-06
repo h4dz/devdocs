@@ -156,7 +156,7 @@ layout: main
             No
           </td>
           <td>
-            Contexts to be included with the incident trigger such as links to graphs or images. A "type" is required for each context submitted. For type "link", an "href" is required. You may optionally specify "text" with more information about the link. For type "image", "src" must be specified with the image src. You may optionally specify an "href" with this image.
+            Contexts to be included with the incident trigger such as links to graphs or images. A "type" is required for each context submitted. For type "link", an "href" is required. You may optionally specify "text" with more information about the link. For type "image", "src" must be specified with the image src. You may optionally specify an "href" or an "alt" with this image.
           </td>
         </tr>
       </tbody>
@@ -198,7 +198,7 @@ layout: main
             Yes
           </td>
           <td>
-            The type of context being attached to the incident. This will be a "link" or "image". For more information, visit the documentation for <a href="/documentation/integration/events/trigger/">triggering events</a>.
+            The type of context being attached to the incident. This will be a "link" or "image".
           </td>
         </tr>
         <tr>
@@ -230,7 +230,7 @@ layout: main
     Image
   </h3>
   <p>
-    The "image" type is used to attach images to an incident.
+    The "image" type is used to attach images to an incident. Images must be served via HTTPS.
   </p>
   <div class="table-container">
     <table class="table table-striped">
@@ -256,7 +256,7 @@ layout: main
             Yes
           </td>
           <td>
-            The type of context being attached to the incident. This will be a "link" or "image". For more information, visit the documentation for <a href="/documentation/integration/events/trigger/">triggering events</a>.
+            The type of context being attached to the incident. This will be a "link" or "image".
           </td>
         </tr>
         <tr>
@@ -267,7 +267,7 @@ layout: main
             Yes
           </td>
           <td>
-            The source of the image being attached to the incident.
+            The source of the image being attached to the incident. This image must be served via HTTPS.
           </td>
         </tr>
         <tr>
