@@ -1,0 +1,6 @@
+- name: Riemann
+  url: http://riemann.io/
+  github: https://github.com/aphyr/riemann/
+  type: Monitoring
+  lang: Clojure
+  description: "Riemann is an event stream processor. Any time an event occurs on a system, an event can be submitted to Riemann and actions such as paging an admin can be performed."
