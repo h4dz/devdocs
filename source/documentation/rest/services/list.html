@@ -86,6 +86,48 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
             Time zone in which dates in the result will be rendered. Defaults to account default time zone.
           </td>
         </tr>
+        <tr>
+          <td>
+            query
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Filters the result, showing only the services whose name or service_key matches the query.
+          </td>
+        </tr>
+          <td>
+            sort_by
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Used to specify both the field you wish to sort the results on. If not specified, this defaults to name.
+            <ul>
+              <li>
+                <code>name</code> The name of the service
+              </li>
+              <li>
+                <code>id</code> The id of the service
+              </li>
+            </ul>
+            <p>
+              Example: to sort by the service name in alphabetical order, include the query parameter:
+            </p>
+            <pre>
+<code class="language-javascript prettyprint linenums">{
+  "sort_by": "name"
+}</code>
+</pre>
+          </td>
       </tbody>
     </table>
   </div>
