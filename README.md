@@ -30,7 +30,7 @@ All files are located in the `source/` directory. When you compile the site, ren
 
 ### Deployment
 
-This project is currently deployed to Heroku. You can deploy your own copy by using this button: 
+This project is currently deployed to Heroku app named pd-developer. You can deploy your own copy by using this button: 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/PagerDuty/devdocs)
 
