@@ -53,7 +53,7 @@
   tag: Tool
 
 - name: phoneduty (Heroku)
-  url: https://github.com/vend/phoneduty
+  url: https://github.com/mdcollins05/phoneduty
   type: Alerting
   description: "Twilio/PagerDuty integration to forward inbound calls to the currently on-call engineer"
   tag: Tool
