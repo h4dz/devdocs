@@ -34,10 +34,50 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
 </pre>
   </div>
   <h3>
+    Parameters
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            include
+          </td>
+          <td>
+            <a href="/documentation/rest/types#array">Array</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Include extra information in the response. Possible values are <code>teams</code> (for inline <a href="/documentation/rest/teams/">Teams</a>).
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>
     Example
   </h3>
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \
+    --data-urlencode "include[]=<span class='curl_params-include contenteditable' contenteditable='true'>teams</span>" \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/maintenance_windows/<span class="sub_params_in_url-id id contenteditable" contenteditable="true">P9UJCMM</span>"</code>
 </pre>
   <p class="content-type-warning clearfix">
@@ -73,7 +113,14 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
         "url": "/services/PF9KMXH",
         "id": "PF9KMXH"
       }
-    ]
+    ],
+    "teams": [
+      {
+        "id": "PIJ90N7",
+        "name": "A Murder of Crows",
+        "description": "Freaking out Edgar Allen Poe"
+      }
+    ],
   }
 }</code>
 </pre>

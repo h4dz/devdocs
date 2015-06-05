@@ -116,7 +116,7 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
             No
           </td>
           <td>
-            Used to restrict the properties of each incident returned to a set of pre-defined fields. If omitted, returned incidents have all fields present. See below for a list of possible fields.
+            Used to restrict the properties of each incident returned to a set of pre-defined fields. If omitted, returned incidents have the majority of fields present. See below for a list of possible fields.
           </td>
         </tr>
         <tr>
@@ -169,6 +169,20 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
             <p>
               Separate multiple ids with a comma.
             </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            teams
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            A comma-separated list of team IDs, specifying teams whose maintenance windows will be returned.
           </td>
         </tr>
         <tr>
@@ -390,7 +404,7 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
             <a href="/documentation/rest/types#object">Object</a>
           </td>
           <td>
-            The PagerDuty service that the incident belongs to. The service will contain fields of its own.
+            The PagerDuty <a href="/documentation/rest/services/">service</a> that the incident belongs to. The service will contain fields of its own.
           </td>
         </tr>
         <tr>
@@ -401,7 +415,23 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
             <a href="/documentation/rest/types#object">Object</a>
           </td>
           <td>
-            The escalation policy that the incident belongs to. The policy will contain fields of its own.
+            The <a href="/documentation/rest/escalation_policies/">escalation policy</a> that the incident belongs to. The policy will contain fields of its own.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            teams
+          </td>
+          <td>
+            <a href="/documentation/rest/types#array">Array</a>
+          </td>
+          <td>
+            <p>
+              The <a href="/documentation/rest/teams/">teams</a> involved in the incident’s lifecycle. The teams will contain fields of their own.
+            </p>
+            <p>
+              <strong>NOTE:</strong> You must explicitly include <code>teams</code> in the <code>fields</code> parameter in order to include it in the response.
+            </p>
           </td>
         </tr>
         <tr>
@@ -764,25 +794,27 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents"</code>
 </pre>
   <h4>
-    Fetch the 50 most recent incidents triggered within the last 3 months.
+    Fetch the 50 most recent incidents triggered within the last 3 months on team ID <code>P4QLGMN</code> or <code>P6XL8LK</code>.
   </h4>
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \
     --data-urlencode "since=<span class='curl_params-since contenteditable' contenteditable='true'>2011-02-01</span>" \
     --data-urlencode "until=<span class='curl_params-until contenteditable' contenteditable='true'>2011-05-01</span>" \
+    --data-urlencode "teams=<span class='curl_params-until contenteditable' contenteditable='true'>P4QLGMN,P6XL8LK</span>" \
     --data-urlencode "sort_by=<span class='curl_params-sort_by contenteditable' contenteditable='true'>created_on:desc</span>" \
     --data-urlencode "limit=50" \
     --data-urlencode "offset=0" \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents"</code>
 </pre>
   <h4>
-    Fetch the second page of 50 most recent incidents triggered within the last 3 months.
+    Fetch the second page of 50 most recent incidents triggered within the last 3 months and include their <code>teams</code> in the response.
   </h4>
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \
     --data-urlencode "since=<span class='curl_params-since contenteditable' contenteditable='true'>2011-02-01</span>" \
     --data-urlencode "until=<span class='curl_params-until contenteditable' contenteditable='true'>2011-05-01</span>" \
     --data-urlencode "sort_by=<span class='curl_params-sort_by contenteditable' contenteditable='true'>created_on:desc</span>" \
+    --data-urlencode "fields=<span class='curl_params-sort_by contenteditable' contenteditable='true'>teams</span>" \
     --data-urlencode "limit=50" \
     --data-urlencode "offset=50" \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents"</code>

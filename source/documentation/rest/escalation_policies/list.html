@@ -75,6 +75,34 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
             Filters the result, showing only the escalation policies whose names match the query.
           </td>
         </tr>
+        <tr>
+          <td>
+            teams
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            A comma-separated list of team IDs, specifying teams whose maintenance windows will be returned.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            include
+          </td>
+          <td>
+            <a href="/documentation/rest/types#array">Array</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Include extra information in the response. Possible values are <code>teams</code> (for inline <a href="/documentation/rest/teams">Teams</a>).
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -348,10 +376,12 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
     Example
   </h3>
   <h3>
-    Get all escalation policies
+    Get all escalation policies on the given teams
   </h3>
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \
+    --data-urlencode "teams=<span class='curl_params-until contenteditable' contenteditable='true'>P4QLGMN,P6XL8LK</span>" \
+    --data-urlencode "include[]=<span class='curl_params-until contenteditable' contenteditable='true'>teams</span>" \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/escalation_policies"</code>
 </pre>
   <p class="content-type-warning clearfix">
@@ -438,7 +468,14 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
         }
       ],
       "num_loops": 0,
-      "description": null
+      "description": null,
+      "teams": [
+        {
+          "id": "P4QLGMN",
+          "name": "A Mob of Emus",
+          "description": "Marauding across Australia"
+        }
+      ]
     },
     {
       "id": "PBZ3BZV",
@@ -471,7 +508,14 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
 
       ],
       "num_loops": 2,
-      "description": null
+      "description": null,
+      "teams": [
+        {
+          "id": "P4QLGMN",
+          "name": "A Mob of Emus",
+          "description": "Marauding across Australia"
+        }
+      ]
     }
   ],
   "limit": 25,
