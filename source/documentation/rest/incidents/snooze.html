@@ -1,0 +1,97 @@
+---
+title: PagerDuty Developer
+layout: main
+---
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/documentation/rest/incidents">Incidents</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Snooze
+  </li>
+</ul>
+<div class='section'>
+  <h1 class="title">
+    PUT incidents/:id/snooze
+  </h1>
+  <p>
+    Snooze an incident.
+  </p>
+  <h3>
+    Resource URL
+  </h3>
+  <div class="prism action-url language-bash">
+    <pre>
+PUT https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/incidents/<span class="url_param contenteditable" contenteditable="true">:id</span>/snooze
+</pre>
+  </div>
+  <p>
+    The status of this request will be 200 if the operation succeeds.
+  </p>
+  <h3>
+    Parameters
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            requester_id
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            The user id of the user making the request. This user's name will be added to the incident log entry. (This is only needed if using token-based authentication.)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            duration
+          </td>
+          <td>
+            <a href="/documentation/rest/types#integer">Integer</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            <p>
+              The number of seconds to snooze the incident for. After this number of seconds has elapsed, the incident will return to the "triggered" state.
+            </p>
+            <p>
+              <strong>NOTE:</strong> Other actions may change the state of the incident after calling this endpoint, preventing the incident from returning to the "triggered" state after the provided timeout. (i.e.: if the incident is resolved before its snooze timeout has elapsed, the incident will not re-enter the "triggered" state when it reaches its timeout.)
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
