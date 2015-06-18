@@ -1061,6 +1061,56 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
       </tbody>
     </table>
   </div>
+  <h2 id='acknowledge_format'>
+    Acknowledge Log Entries
+  </h2>
+  <p>
+    Acknowledge log entries correspond to acknowledgements performed by users. They include an extra attribute.
+  </p>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            acknowledgement_timeout
+          </td>
+          <td>
+            <a href="/documentation/rest/types#integer">Integer</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            <p>
+              Time for which the acknowledgement lasts, in seconds
+            </p>
+            <p>
+              Services can contain an <code>acknowledgement_timeout</code> parameter, which specifies the length of time acknowledgements should last for. Each time an incident is acknowledged, this timeout is copied into the acknowledgement log entry.
+            </p>
+            <p>
+              This parameter is optional, as older log entries may not contain it. It may also be <code>null</code>, as acknowledgements can be performed on incidents whose services have no <code>acknowledgement_timeout</code> set.
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <h2 id='snooze_format'>
     Snooze Log Entries
   </h2>
