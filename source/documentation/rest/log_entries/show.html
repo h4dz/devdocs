@@ -155,6 +155,14 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
         </tr>
         <tr>
           <td>
+            snooze
+          </td>
+          <td>
+            The incident was snoozed.
+          </td>
+        </tr>
+        <tr>
+          <td>
             annotate
           </td>
           <td>
@@ -737,6 +745,65 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
       </div>
     </div>
   </div>
+  <div class="expandable">
+    <div class="header toggle">
+      <h3>
+        Website Channel Type
+      </h3>
+    </div>
+    <div class="content">
+      <div class="table-container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>
+                Name
+              </th>
+              <th>
+                Type
+              </th>
+              <th>
+                Required
+              </th>
+              <th>
+                Description
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                type
+              </td>
+              <td>
+                <a href="/documentation/rest/types#string">String</a>
+              </td>
+              <td>
+                Yes
+              </td>
+              <td>
+                Will be <code>website</code>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                duration
+              </td>
+              <td>
+                <a href="/documentation/rest/types#integer">Integer</a>
+              </td>
+              <td>
+                No
+              </td>
+              <td>
+                For <code>snooze</code> log entries, this is the number of seconds that the incident was snoozed for.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
   <h2 id='contexts'>
     Contexts
   </h2>
@@ -989,6 +1056,100 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
           </td>
           <td>
             The address to which the notification was sent. I.e., an email address, phone number, or iPhone name
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h2 id='acknowledge_format'>
+    Acknowledge Log Entries
+  </h2>
+  <p>
+    Acknowledge log entries correspond to acknowledgements performed by users. They include an extra attribute.
+  </p>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            acknowledgement_timeout
+          </td>
+          <td>
+            <a href="/documentation/rest/types#integer">Integer</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            <p>
+              Time for which the acknowledgement lasts, in seconds
+            </p>
+            <p>
+              Services can contain an <code>acknowledgement_timeout</code> parameter, which specifies the length of time acknowledgements should last for. Each time an incident is acknowledged, this timeout is copied into the acknowledgement log entry.
+            </p>
+            <p>
+              This parameter is optional, as older log entries may not contain it. It may also be <code>null</code>, as acknowledgements can be performed on incidents whose services have no <code>acknowledgement_timeout</code> set.
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h2 id='snooze_format'>
+    Snooze Log Entries
+  </h2>
+  <p>
+    Snooze log entries correspond to snoozes performed by users. They include an extra attribute.
+  </p>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            changed_actions
+          </td>
+          <td>
+            <a href="/documentation/rest/types#array">Array</a>
+          </td>
+          <td>
+            <p>
+              The list of changed <code>pending_actions</code> on the incident.
+            </p>
+            <p>
+              Incidents contain a <code>pending_actions</code> array that specifies which actions are scheduled to occur to the incident, and when. This attribute indiciates which <code>pending_actions</code> have changed due to this log entry's <code>snooze</code> operation.
+            </p>
+            <p>
+              Snoozing an incident can result in delaying that incident's unacknowledgement and auto-resolve timeout, if applicable. This data can be used to determine the new timeouts that applied immediately after the <code>snooze</code> method was called.
+            </p>
           </td>
         </tr>
       </tbody>
