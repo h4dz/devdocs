@@ -155,7 +155,7 @@
   tag: Tool
 
 - name: incidents.py
-  url: https://gist.github.com/chrisgagne/7ef074ed13ff999f52e4
+  url: https://gist.github.com/chrisgagne/100159a100fd78e45858
   type: Reporting
   description: "Export descriptions and notes from PagerDuty into a CSV file."
   tag: Tool
