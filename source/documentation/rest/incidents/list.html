@@ -320,10 +320,32 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
               <li>
                 <code>resolved</code> The incident is no longer in alarm and has been resolved (manually or automatically).
               </li>
-              <li style="list-style: none">
-                <strong>NOTE:</strong> We anticipate the need for introducing new status codes in the future. Please build your client code to handle unknown status codes gracefully.
+            </ul>
+            <p>
+              <strong>NOTE:</strong> We anticipate the need for introducing new status codes in the future. Please build your client code to handle unknown status codes gracefully.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            urgency
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            The current urgency of the incident. Valid urgencies are:
+            <ul>
+              <li>
+                <code>high</code> High-urgency incidents escalate according to escalation policies and alert users via their high-urgency notification rules.
+              </li>
+              <li>
+                <code>low</code> Low-urgency incidents do not escalate, and alert users via their low-urgency notification rules.
               </li>
             </ul>
+            <p>
+              <strong>NOTE:</strong> Some pricing plans may not have access to the <code>urgency</code> parameter and related features. If the <code>urgency</code> field is omitted from an API response, the incident behaves as a <code>high</code>-urgency incident.
+            </p>
           </td>
         </tr>
         <tr>
