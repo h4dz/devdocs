@@ -209,6 +209,20 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
         </tr>
         <tr>
           <td>
+            urgency
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Comma-separated list of the urgencies of the incidents to be returned. Defaults to <code>high,low</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>
             time_zone
           </td>
           <td>
@@ -671,7 +685,8 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
       },
       "trigger_details_html_url": "https://acme.pagerduty.com/incidents/P2A6J96/log_entries/P2NQP6P",
       "last_status_change_on": "2012-09-11T22:49:21Z",
-      "last_status_change_by": null
+      "last_status_change_by": null,
+      "urgency": "high"
     },
     {
       "incident_number": 3,
@@ -757,7 +772,8 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
         "name": "James",
         "email": "james@acme.com",
         "html_url": "https://acme.pagerduty.com/users/PMI6007"
-      }
+      },
+      "urgency": "high"
     }
   ],
   "limit": 100,
@@ -833,6 +849,17 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
     --data-urlencode "until=<span class='curl_params-until contenteditable' contenteditable='true'>2011-05-01</span>" \
     --data-urlencode "teams=<span class='curl_params-until contenteditable' contenteditable='true'>P4QLGMN,P6XL8LK</span>" \
     --data-urlencode "sort_by=<span class='curl_params-sort_by contenteditable' contenteditable='true'>created_on:desc</span>" \
+    --data-urlencode "limit=50" \
+    --data-urlencode "offset=0" \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents"</code>
+</pre>
+  <h4>
+    Fetch the 50 most recent low-urgency incidents.
+  </h4>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \
+    --data-urlencode "sort_by=<span class='curl_params-sort_by contenteditable' contenteditable='true'>created_on:desc</span>" \
+    --data-urlencode "urgency=low" \
     --data-urlencode "limit=50" \
     --data-urlencode "offset=0" \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents"</code>
