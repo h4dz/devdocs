@@ -9,7 +9,7 @@ branches:
 
 script:
 - bundle exec jekyll build
-- bundle exec htmlproof ./public/ --href_ignore "#"
+- bundle exec htmlproof ./public/ --href-ignore "#"
 
 env:
   global:
