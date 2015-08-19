@@ -235,13 +235,16 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
             Used to specify both the field you wish to sort the results on, as well as the direction (ascending/descending) of the results.
             <ul>
               <li>
-                <code>incident_number</code> The number of your incident.
+                <code>incident_number</code> The number of the incident.
               </li>
               <li>
                 <code>created_on</code> The date/time the incident was triggered.
               </li>
               <li>
                 <code>resolved_on</code> The date/time the incident was resolved.
+              </li>
+              <li>
+                <code>urgency</code> The urgency of the incident. (Low-urgency incidents are ordered before high-urgency incidents.)
               </li>
             </ul>
             <p>
@@ -256,15 +259,19 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
               </li>
             </ul>
             <p>
-              The sort_by field and direction should be separated by a colon.
+              The <code>sort_by</code> field and direction should be separated by a colon. Multiple fields can be included, separated by a comma.
             </p>
             <p>
               Example: to sort by the most-recently-created incidents, include the query parameter:
             </p>
             <pre>
-<code class="language-javascript prettyprint linenums">{
-  "sort_by": "created_on:desc"
-}</code>
+<code class="language-javascript prettyprint linenums">?sort_by=created_on:desc</code>
+</pre>
+            <p>
+              Example: to sort incidents by urgency (showing low-urgency incidents first) and secondarily sort by <code>incident_number</code>, include the query parameter:
+            </p>
+            <pre>
+<code class="language-javascript prettyprint linenums">?sort_by=urgency:asc,incident_number:desc</code>
 </pre>
           </td>
         </tr>
