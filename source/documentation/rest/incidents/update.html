@@ -209,8 +209,72 @@ PUT https://<span class="base_url contenteditable persist" contenteditable="true
     {
       "id": "P31FZLG",
       "status": "resolved",
-      "incident_number": 2,
-      "url": "https://acme.pageduty.com/incidents/P31FZLG",
+      "incident_number": 130,
+      "created_on": "2015-08-19T18:39:20Z",
+      "pending_actions": [],
+      "html_url": "https://acme.pagerduty.com/incidents/P8O0ACG",
+      "incident_key": "049f50dbc633490ba0441e1973286012",
+      "service": {
+        "id": "P8JF6TJ",
+        "name": "Generic Email",
+        "html_url": "https://acme.pagerduty.com/services/P8JF6TJ",
+        "deleted_at": null,
+        "description": "A service for all of our generic emails."
+      },
+      "escalation_policy": {
+        "id": "PYE98C1",
+        "name": "Escalate all the things",
+        "deleted_at": null
+      },
+      "assigned_to_user": null,
+      "trigger_summary_data": {
+        "subject": "Just an email from 富士山 and 𝄞𝕥𝟶 𠂊"
+      },
+      "trigger_details_html_url": "https://acme.pagerduty.com/incidents/P8O0ACG/log_entries/Q3DD7PPY3Z73W7",
+      "trigger_type": "web_trigger",
+      "last_status_change_on": "2015-08-19T18:42:28Z",
+      "last_status_change_by": {
+        "id": "PPSFHH7",
+        "name": "Jane Doe",
+        "email": "jane@acme.com",
+        "html_url": "https://acme.pagerduty.com/users/PPSFHH7"
+      },
+      "number_of_escalations": 0,
+      "resolved_by_user": {
+        "id": "PPSFHH7",
+        "name": "Jane Doe",
+        "email": "jane@acme.com",
+        "html_url": "https://acme.pagerduty.com/users/PPSFHH7"
+      },
+      "assigned_to": [],
+      "urgency": "low"
+    }
+  ]
+}</code>
+</pre>
+  </div>
+  <h3>
+    Example 2: No successful operations performed
+  </h3>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X PUT \
+    -d '{"requester_id":"<span class='curl_params-requester_id contenteditable' contenteditable='true'>PPSFHH7</span>","incidents":[{"id":"<span class='curl_params-id contenteditable' contenteditable='true'>P31FZLG</span>","status":"<span class='curl_params-status contenteditable' contenteditable='true'>resolved</span>"}]}' \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents"</code>
+</pre>
+  <p class="content-type-warning clearfix">
+    Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code>
+  </p>
+  <div class="clearfix"></div>
+  <h4>
+    Response <span class="response-status">Status: 400 Bad Request <a href="/documentation/rest/errors#http_codes"></a></span>
+  </h4>
+  <div class="response">
+    <pre>
+<code class="language-javascript prettyprint linenums">{
+  "incidents": [
+    {
+      "id": "P31FZLG",
+      "status": "resolved",
       "error": {
         "message": "Incident Already Resolved",
         "code": 1001
@@ -221,7 +285,7 @@ PUT https://<span class="base_url contenteditable persist" contenteditable="true
 </pre>
   </div>
   <h3>
-    Example 2: Invalid ID
+    Example 3: Invalid ID
   </h3>
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X PUT \
