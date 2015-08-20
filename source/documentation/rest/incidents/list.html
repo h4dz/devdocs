@@ -209,6 +209,20 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
         </tr>
         <tr>
           <td>
+            urgency
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Comma-separated list of the urgencies of the incidents to be returned. Defaults to <code>high,low</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>
             time_zone
           </td>
           <td>
@@ -235,13 +249,16 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
             Used to specify both the field you wish to sort the results on, as well as the direction (ascending/descending) of the results.
             <ul>
               <li>
-                <code>incident_number</code> The number of your incident.
+                <code>incident_number</code> The number of the incident.
               </li>
               <li>
                 <code>created_on</code> The date/time the incident was triggered.
               </li>
               <li>
                 <code>resolved_on</code> The date/time the incident was resolved.
+              </li>
+              <li>
+                <code>urgency</code> The urgency of the incident. (Low-urgency incidents are ordered before high-urgency incidents.)
               </li>
             </ul>
             <p>
@@ -256,15 +273,19 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
               </li>
             </ul>
             <p>
-              The sort_by field and direction should be separated by a colon.
+              The <code>sort_by</code> field and direction should be separated by a colon. Multiple fields can be included, separated by a comma.
             </p>
             <p>
               Example: to sort by the most-recently-created incidents, include the query parameter:
             </p>
             <pre>
-<code class="language-javascript prettyprint linenums">{
-  "sort_by": "created_on:desc"
-}</code>
+<code class="language-javascript prettyprint linenums">?sort_by=created_on:desc</code>
+</pre>
+            <p>
+              Example: to sort incidents by urgency (showing low-urgency incidents first) and secondarily sort by <code>incident_number</code>, include the query parameter:
+            </p>
+            <pre>
+<code class="language-javascript prettyprint linenums">?sort_by=urgency:asc,incident_number:desc</code>
 </pre>
           </td>
         </tr>
@@ -320,10 +341,32 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
               <li>
                 <code>resolved</code> The incident is no longer in alarm and has been resolved (manually or automatically).
               </li>
-              <li style="list-style: none">
-                <strong>NOTE:</strong> We anticipate the need for introducing new status codes in the future. Please build your client code to handle unknown status codes gracefully.
+            </ul>
+            <p>
+              <strong>NOTE:</strong> We anticipate the need for introducing new status codes in the future. Please build your client code to handle unknown status codes gracefully.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            urgency
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            The current urgency of the incident. Valid urgencies are:
+            <ul>
+              <li>
+                <code>high</code> High-urgency incidents escalate according to escalation policies and alert users via their high-urgency notification rules.
+              </li>
+              <li>
+                <code>low</code> Low-urgency incidents do not escalate, and alert users via their low-urgency notification rules.
               </li>
             </ul>
+            <p>
+              <strong>NOTE:</strong> Some pricing plans may not have access to the <code>urgency</code> parameter and related features. If the <code>urgency</code> field is omitted from an API response, the incident behaves as a <code>high</code>-urgency incident.
+            </p>
           </td>
         </tr>
         <tr>
@@ -642,7 +685,8 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
       },
       "trigger_details_html_url": "https://acme.pagerduty.com/incidents/P2A6J96/log_entries/P2NQP6P",
       "last_status_change_on": "2012-09-11T22:49:21Z",
-      "last_status_change_by": null
+      "last_status_change_by": null,
+      "urgency": "high"
     },
     {
       "incident_number": 3,
@@ -728,7 +772,8 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
         "name": "James",
         "email": "james@acme.com",
         "html_url": "https://acme.pagerduty.com/users/PMI6007"
-      }
+      },
+      "urgency": "high"
     }
   ],
   "limit": 100,
@@ -804,6 +849,17 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
     --data-urlencode "until=<span class='curl_params-until contenteditable' contenteditable='true'>2011-05-01</span>" \
     --data-urlencode "teams=<span class='curl_params-until contenteditable' contenteditable='true'>P4QLGMN,P6XL8LK</span>" \
     --data-urlencode "sort_by=<span class='curl_params-sort_by contenteditable' contenteditable='true'>created_on:desc</span>" \
+    --data-urlencode "limit=50" \
+    --data-urlencode "offset=0" \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents"</code>
+</pre>
+  <h4>
+    Fetch the 50 most recent low-urgency incidents.
+  </h4>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \
+    --data-urlencode "sort_by=<span class='curl_params-sort_by contenteditable' contenteditable='true'>created_on:desc</span>" \
+    --data-urlencode "urgency=low" \
     --data-urlencode "limit=50" \
     --data-urlencode "offset=0" \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents"</code>
