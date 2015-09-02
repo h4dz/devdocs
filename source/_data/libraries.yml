@@ -52,3 +52,8 @@
   url: https://www.nuget.org/packages/PagerDutyAPI/
   language: C#/.NET
   description: "A client for the PagerDuty Event Integration API for .NET"
+
+- name: PagerDutyBundle
+  url: https://github.com/lafourchette/PagerDutyBundle
+  language: PHP
+  description: "Trigger PagerDuty events easily from your Symfony2 application."
