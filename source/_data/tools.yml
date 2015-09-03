@@ -159,3 +159,9 @@
   type: Reporting
   description: "Export descriptions and notes from PagerDuty into a CSV file."
   tag: Tool
+
+- name: Pigeonhole
+  url: https://github.com/bulletproofnetworks/pigeonhole
+  type: Reporting
+  description: "Pigeonhole takes data from PagerDuty and generates graphs based on this data over a configurable time period."
+  tag: Tool
