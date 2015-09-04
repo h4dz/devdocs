@@ -18,20 +18,40 @@ permalink: /documentation/howto/manually-trigger-an-incident/
 PDJS = new PDJSobj()
 
 trigger = function () {
-    // Trigger via the REST API
+    // Trigger via the rest API
     PDJS.trigger({
-        // Enter your service key 
-        service_key: "YOUR_SERVICE_KEY_HERE",
-        description: "This is only a test.",
-        // A random incident key
-        incident_key: "manual_incident_" + Math.random(),
-        details: {
-            page: "This is only a test."
-        },
-        // Capture anything sent back to us
-        success: function (json) {
-            console.log(json)
+        curl -H "Content-type: application/json" -X POST \
+    -d '{    
+      "service_key": "YOUR_SERVICE_KEY_HERE",
+      "incident_key": "srv01/HTTP",
+      "event_type": "trigger",
+      "description": "FAILURE for production/HTTP on machine srv01.acme.com",
+      "client": "Sample Monitoring Service",
+      "client_url": "https://monitoring.service.com",
+      "details": {
+        "ping time": "1500ms",
+        "load avg": 0.75
+      },
+      "contexts":[ 
+        {
+          "type": "link",
+          "href": "http://acme.pagerduty.com"
+        },{
+          "type": "link",
+          "href": "http://acme.pagerduty.com",
+          "text": "View the incident on PagerDuty"
+        },{
+          "type": "image",
+          "src": "https://chart.googleapis.com/chart?chs=600x400&chd=t:6,2,9,5,2,5,7,4,8,2,1&cht=lc&chds=a&chxt=y&chm=D,0033FF,0,0,5,1"
+        },{
+          "type": "image",
+          "src": "https://chart.googleapis.com/chart?chs=600x400&chd=t:6,2,9,5,2,5,7,4,8,2,1&cht=lc&chds=a&chxt=y&chm=D,0033FF,0,0,5,1",
+          "href": "https://google.com"
         }
+      ]
+    }' \
+    "https://events.pagerduty.com/generic/2010-04-15/create_event.json"
+
     })
 }</code>
 </pre>
@@ -39,4 +59,4 @@ trigger = function () {
 <p>The <strong>incident_key</strong> field may be any string, but it's a good idea to randomize this as much as possible.</p>
 <p>Submitting multiple incidents for the same <strong>incident_key</strong> will result in the incident being triggered again. This event will be attached to the existing incident with this key and will alert via the service's escalation policy. Using an <strong>incident_key</strong> from a closed incident will result in a new incident being created.</p>
 
-<p>To play with sample code, you can enter a service key on <a href="http://jsfiddle.net/PagerDuty/azh132ch/1/">JSFiddle</a> to manually trigger an incident. Open your browser's JavaScript console to view the API's response.</p>
+<p>To play with sample code, you can enter a service key on <a href="http://jsfiddle.net/PagerDuty/azh132ch/8/">JSFiddle</a> to manually trigger an incident. Open your browser's JavaScript console to view the API's response.</p>
