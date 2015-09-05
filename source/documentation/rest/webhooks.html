@@ -268,10 +268,40 @@ redirect_from:
 }</code>
 </pre>
   </div>
-  <h4>
+  <h3>
     Troubleshooting
-  </h4>
+  </h3>
   <p>
     If you have any issues debugging your webhooks, you can use <a href="http://requestb.in/">RequestBin</a> to debug them.
   </p>
+  <h3>
+    Endpoints
+  </h3>
+  <p>
+    We publish all DNS entries for our webhook endpoints. You can view them via <code>dig webhooks.pagerduty.com</code>. Please note that this example response may not reflect the most current endpoints.
+  </p>
+    <div class="response">
+<pre>
+<code class="language-bash prettyprint linenums">
+; <<>> DiG 9.8.3-P1 <<>> webhooks.pagerduty.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 53517
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;webhooks.pagerduty.com.    IN  A
+
+;; ANSWER SECTION:
+webhooks.pagerduty.com. 300 IN  A 54.189.168.180
+webhooks.pagerduty.com. 300 IN  A 54.188.21.146
+webhooks.pagerduty.com. 300 IN  A 104.42.123.77
+webhooks.pagerduty.com. 300 IN  A 54.177.29.131
+
+;; Query time: 4668 msec
+;; SERVER: 75.75.75.75#53(75.75.75.75)
+;; WHEN: Fri Sep  4 16:56:20 2015
+;; MSG SIZE  rcvd: 104</code>
+</pre>
+  </div>
 </div>
