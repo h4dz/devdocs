@@ -378,10 +378,10 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
           </td>
           <td>
             <p>
-              The list of <code>pending_actions</code> on the incident. A <code>pending_actions</code> is an array containing all the pending_action objects for the incident at the current time. This list is empty if the status of the incident is <code>resolved</code>.
+              The list of <code>pending_actions</code> on the incident. The <code>pending_actions</code> array contains all of the <code>pending_action</code> objects for the incident at the current time. This list is empty if the status of the incident is <code>resolved</code>.
             </p>
             <p>
-              A pending_action object contains a <code>type</code> of action. <code>type</code> can be <code>escalate</code>, <code>unacknowledge</code> or <code>resolve</code>. A pending_action object contains <code>at</code>, the time at which the action will take place.
+              A pending_action object contains a <code>type</code> of action. <code>type</code> can be <code>escalate</code>, <code>unacknowledge</code>, <code>resolve</code> or <code>urgency_change</code>. A pending_action object contains <code>at</code>, the time at which the action will take place.
             </p>
             <p>
               Example: <code>pending_actions</code> field for an incident.
@@ -400,6 +400,11 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
     {
       "type": "resolve",
       "at": "2014-01-01T11:00:00Z"
+    },
+    {
+      "type": "urgency_change",
+      "at": "2014-01-01T10:30:00Z",
+      "to": "high"
     }
   ]
 }</code>
