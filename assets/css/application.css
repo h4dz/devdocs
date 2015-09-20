@@ -184,16 +184,16 @@ td, th {
 
 @font-face {
     font-family: 'Colfax';
-    src: url(/assets/ColfaxWebMedium-42eb77db2919f002c1e7a951f46afd73.eot);
-    src: url(/assets/ColfaxWebMedium.eot?#iefix) format("embedded-opentype"), url(https://www.pagerduty.com/wp-content/themes/pagerduty2014_git_sass/assets/fonts/colfaxwebmedium.woff) format("woff"), url(/assets/ColfaxWebMedium-238b9d46f3a71a80178fa460f2c514bf.ttf) format("truetype"), url(/assets/ColfaxWebMedium.svg#colfaxwebmedium) format("svg");
+    src: url(/devdocs/assets/ColfaxWebMedium-42eb77db2919f002c1e7a951f46afd73.eot);
+    src: url(/devdocs/assets/ColfaxWebMedium.eot?#iefix) format("embedded-opentype"), url(https://www.pagerduty.com/wp-content/themes/pagerduty2014_git_sass/devdocs/assets/fonts/colfaxwebmedium.woff) format("woff"), url(/devdocs/assets/ColfaxWebMedium-238b9d46f3a71a80178fa460f2c514bf.ttf) format("truetype"), url(/devdocs/assets/ColfaxWebMedium.svg#colfaxwebmedium) format("svg");
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Colfax';
-    src: url(/assets/ColfaxWebRegular-21c1c901ef6dd0cd3a677f46430262a6.eot);
-    src: url(/assets/ColfaxWebRegular.eot?#iefix) format("embedded-opentype"), url(https://www.pagerduty.com/wp-content/themes/pagerduty2014_git_sass/assets/fonts/colfaxwebregular.woff) format("woff"), url(/assets/ColfaxWebRegular-1802a3b324e007112616c4bf48577406.ttf) format("truetype"), url(/assets/ColfaxWebRegular.svg#colfaxwebregular) format("svg");
+    src: url(/devdocs/assets/ColfaxWebRegular-21c1c901ef6dd0cd3a677f46430262a6.eot);
+    src: url(/devdocs/assets/ColfaxWebRegular.eot?#iefix) format("embedded-opentype"), url(https://www.pagerduty.com/wp-content/themes/pagerduty2014_git_sass/devdocs/assets/fonts/colfaxwebregular.woff) format("woff"), url(/devdocs/assets/ColfaxWebRegular-1802a3b324e007112616c4bf48577406.ttf) format("truetype"), url(/devdocs/assets/ColfaxWebRegular.svg#colfaxwebregular) format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -472,8 +472,8 @@ pre.line-numbers>code {
 }
 @font-face {
     font-family: 'FontAwesome';
-    src: url(/assets/fonts/fontawesome-webfont.eot);
-    src: url(/assets/fonts/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/fontawesome-webfont.woff) format("woff"), url(/assets/fonts/fontawesome-webfont.ttf) format("truetype"), url(/assets/fonts/fontawesome-webfont.svg#fontawesomeregular) format("svg");
+    src: url(/devdocs/assets/fonts/fontawesome-webfont.eot);
+    src: url(/devdocs/assets/fonts/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(/devdocs/assets/fonts/fontawesome-webfont.woff) format("woff"), url(/devdocs/assets/fonts/fontawesome-webfont.ttf) format("truetype"), url(/devdocs/assets/fonts/fontawesome-webfont.svg#fontawesomeregular) format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -1634,7 +1634,7 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
     float: left;
     width: 250px;
     height: 40px;
-    background: url("/assets/images/logos/logo.png") center center no-repeat;
+    background: url("/devdocs/assets/images/logos/logo.png") center center no-repeat;
     overflow: hidden;
     text-indent: -9999px;
 }
@@ -1643,7 +1643,7 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
     display: none;
 }
 }.svg .brand {
-    background-image: url("/assets/images/logos/logo.svg");
+    background-image: url("/devdocs/assets/images/logos/logo.svg");
 }
 .menu-link {
     float: left;
@@ -1885,7 +1885,7 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
     line-height: 25.2px;
     color: #fff;
     padding-bottom: 20px;
-    background: #fefefe url("/assets/images/block-largetile.png") repeat center bottom;
+    background: #fefefe url("/devdocs/assets/images/block-largetile.png") repeat center bottom;
 }
 .get-started h1 {
     color: #47ba04;

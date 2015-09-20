@@ -10,8 +10,8 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     <![endif]-->
-    <link href="/assets/css/application.css" media="all" rel="stylesheet" type="text/css" />
-    <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    <link href="/devdocs/assets/css/application.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/devdocs/assets/images/favicon.png" rel="shortcut icon" type="image/vnd.microsoft.icon" />
     </meta>
     </meta>
     </meta>
@@ -101,7 +101,7 @@
                 <div class='main-content'>
 
 
-                
+
 
                 <div class='section'>
 
@@ -269,7 +269,7 @@
     Contexts
   </h2>
   <p>
-    The <code>contexts</code> object is a list of informational assets attached to the incident. 
+    The <code>contexts</code> object is a list of informational assets attached to the incident.
   </p>
   <h3>
     Link
@@ -406,7 +406,7 @@
   </p>
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -X POST \
-    -d '{    
+    -d '{
       "service_key": "<span class='curl_params-service_key contenteditable' contenteditable='true'>e93facc04764012d7bfb002500d5d1a6</span>",
       "incident_key": "<span class='curl_params-incident_key contenteditable' contenteditable='true'>srv01/HTTP</span>",
       "event_type": "<span class='curl_params-event_type contenteditable' contenteditable='true'>trigger</span>",
@@ -417,7 +417,7 @@
         "ping time": "<span class='curl_params-ping time contenteditable' contenteditable='true'>1500ms</span>",
         "load avg": 0.75
       },
-      "contexts":[ 
+      "contexts":[
         {
           "type": "link",
           "href": "http://acme.pagerduty.com"
@@ -457,7 +457,7 @@
   </p>
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -X POST \
-    -d '{    
+    -d '{
       "service_key": "<span class='curl_params-service_key contenteditable' contenteditable='true'>e93facc04764012d7bfb002500d5d1a6</span>",
       "event_type": "<span class='curl_params-event_type contenteditable' contenteditable='true'>trigger</span>",
       "description": "<span class='curl_params-description contenteditable' contenteditable='true'>FAILURE for production/HTTP on machine srv01.acme.com</span>",
@@ -467,7 +467,7 @@
         "ping time": "<span class='curl_params-ping time contenteditable' contenteditable='true'>1500ms</span>",
         "load avg": 0.75
       },
-      "contexts":[ 
+      "contexts":[
         {
           "type": "link",
           "href": "http://acme.pagerduty.com"
@@ -526,6 +526,6 @@
         </ul>
       </footer>
     </div>
-    <script src="/assets/js/application.js" type="text/javascript"></script>
+    <script src="/devdocs/assets/js/application.js" type="text/javascript"></script>
   </body>
 </html>
