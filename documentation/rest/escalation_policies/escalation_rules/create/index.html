@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=Edge,chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <title>PagerDuty Developer</title>
+    <meta content="authenticity_token" name="csrf-param" />
+    <meta content="oxYj0Pt6xnWuhkOW178Dtqz0Vf1i9jFMYSWaBRK6rwc=" name="csrf-token" />
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <link href="/assets/css/application.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    </meta>
+    </meta>
+    </meta>
+    <!-- Add GA back here. -->
+  </head>
+  <body>
+    <div class='viewport'>
+      <div class='wrapper'>
+        <div class='navbar navbar-inverse'>
+          <div class='navbar-inner'>
+            <div class='container-fluid'>
+              <div class='row'>
+                <div class='col3 side-menu'>
+                  <a class='menu-link' href='#'>
+                    <i class='icon icon-reorder'></i>
+                  </a>
+                  <h1><a class='brand' href='/'>PagerDuty</a></h1>
+                </div>
+                <div class='col9 main-header'>
+                  <!-- <h2>Documentation</h2> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='container'>
+          <div class='content'>
+            <div class='row'>
+              <div class='col3'>
+                <div class='sidebar-menu'>
+                  <div class='sidebar-nav'>
+                    <h3>REST API Documentation</h3>
+                    <ul class='nav nav-list'>
+                      <li class="nav-header "><a href="/documentation/rest">General Information</a></li>
+                      <li><a href="/documentation/rest/authentication">Authentication</a></li>
+                      <li><a href="/documentation/rest/errors">Errors</a></li>
+                      <li><a href="/documentation/rest/types">Types</a></li>
+                      <li><a href="/documentation/rest/pagination">Pagination</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/alerts">Alerts</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/escalation_policies">Escalation Policies</a></li>
+                      <li><a href="/documentation/rest/escalation_policies/escalation_rules">Escalation Rules</a></li>
+                      <li><a href="/documentation/rest/escalation_policies/on_call">On-Call</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/incidents">Incidents</a></li>
+                      <li><a href="/documentation/rest/incidents/notes">Notes</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/log_entries">Log Entries</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/maintenance_windows">Maintenance Windows</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/reports">Reports</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/schedules">Schedules</a></li>
+                      <li><a href="/documentation/rest/schedules/overrides">Overrides</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/services">Services</a></li>
+                      <li><a href="/documentation/rest/services/email_filters">Email Filters</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/users">Users</a></li>
+                      <li><a href="/documentation/rest/users/contact_methods">Contact Methods</a></li>
+                      <li><a href="/documentation/rest/users/notification_rules">Notification Rules</a></li>
+                      <li><a href="/documentation/rest/users/on_call">On-Call</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/teams">Teams</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/webhooks">Webhooks</a></li>
+                    </ul>
+                  </div>
+                  <div class='sidebar-nav'>
+                    <h3>Integration</h3>
+                    <ul class='nav nav-list'>
+                      <li class="nav-header "><a href="/documentation/integration/events">Integration API</a></li>
+                      <li><a href="/documentation/integration/events/trigger">Trigger</a></li>
+                      <li><a href="/documentation/integration/events/acknowledge">Acknowledge</a></li>
+                      <li><a href="/documentation/integration/events/resolve">Resolve</a></li>
+                    </ul>
+                  </div>
+                  <div class='sidebar-nav'>
+                    <h3>Code</h3>
+                    <ul class='nav nav-list'><li class="nav-header "><a href="/documentation/code">Code samples</a></li>
+                      <li><a href="/documentation/code/libraries">Libraries</a></li>
+                      <li><a href="/documentation/code/tools">Tools</a></li>
+                      <li><a href="/documentation/code/disclaimer">Disclaimer</a></li>
+                    </ul>
+                  </div>
+                  <div class='sidebar-nav'>
+                    <h3>How To</h3>
+                    <ul class='nav nav-list'>
+                      <li><a href="/documentation/howto/integration-tutorial">Integration Tutorial</a></li>
+                      <li><a href="/documentation/howto/manually-trigger-an-incident/">Manual Incident Triggers</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class='col9'>
+                <div class='main-content'>
+
+
+                
+
+                <div class='section'>
+
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/documentation/rest/escalation_policies">Escalation Policies</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/documentation/rest/escalation_policies/escalation_rules">Escalation Rules</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Create
+  </li>
+</ul>
+<div class='section'>
+  <h1 class="title">
+    POST escalation_policies/:escalation_policy_id/escalation_rules
+  </h1>
+  <p>
+    Creates a new escalation rule for an escalation policy and appends it to the end of the existing escalation rules.
+  </p>
+  <h3>
+    Resource URL
+  </h3>
+  <div class="prism action-url language-bash">
+    <pre>
+POST https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/escalation_policies/<span class="url_param contenteditable" contenteditable="true">:escalation_policy_id</span>/escalation_rules
+</pre>
+  </div>
+  <h3>
+    Parameters
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            escalation_delay_in_minutes
+          </td>
+          <td>
+            <a href="/documentation/rest/types#int">Integer</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The escalation timeout in minutes. If an incident is not acknowledged within this timeout then it will escalate onto the next escalation rule.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            rule_object
+          </td>
+          <td>
+            <a href="/documentation/rest/types#object">Object</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            An object containing the <code>schedule</code> or <code>user</code> id and type.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>
+    Rule Object Parameters
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            type
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            A string of either <code>schedule</code> or <code>user</code>,
+          </td>
+        </tr>
+        <tr>
+          <td>
+            id
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The id of the <code>schedule</code> or <code>user</code> assigned to this rule.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>
+    Escalation Rule Parameters
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            escalation_delay_in_minutes
+          </td>
+          <td>
+            <a href="/documentation/rest/types#int">Integer</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The escalation timeout in minutes. Must be at least <code>5</code> if the rule has multiple targets, and at least <code>1</code> if not. If an incident is not acknowledged within this timeout then it will escalate onto the next escalation rule.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            rule_object
+          </td>
+          <td>
+            <a href="/documentation/rest/types#object">Object</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            <div>
+              <strong>This field is deprecated. See <i>targets</i> instead</strong>
+            </div>A single target. Ignored if <code>targets</code> is provided.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            targets
+          </td>
+          <td>
+            <a href="/documentation/rest/types#array">Array</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The array of the targets an incident should be assigned to upon reaching this rule. Parameters detailed below.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>
+    Target Parameters
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            type
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            A string of either <code>schedule</code> or <code>user</code>,
+          </td>
+        </tr>
+        <tr>
+          <td>
+            id
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            Yes
+          </td>
+          <td>
+            The id of the <code>schedule</code> or <code>user</code> assigned to this rule.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>
+    Example
+  </h3>
+  <h3>
+    Create an escalation rule
+  </h3>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X POST \
+    -d '{"escalation_rule":{"escalation_delay_in_minutes":10,"targets":[{"type":"<span class='curl_params-type contenteditable' contenteditable='true'>user</span>","id":"<span class='curl_params-id contenteditable' contenteditable='true'>PPSFHH7</span>"}]}}' \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/escalation_policies/<span class="sub_params_in_url-escalation_policy_id escalation_policy_id contenteditable" contenteditable="true">PBZ3BZV</span>/escalation_rules"</code>
+</pre>
+  <p class="content-type-warning clearfix">
+    Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code>
+  </p>
+  <div class="clearfix"></div>
+  <h4>
+    Response <span class="response-status">Status: 201 Created <a href="/documentation/rest/errors#http_codes"></a></span>
+  </h4>
+  <div class="response">
+    <pre>
+<code class="language-javascript prettyprint linenums">{
+  "escalation_rule": {
+    "id": "PNTPYK0",
+    "escalation_delay_in_minutes": 10,
+    "rule_object": {
+      "id": "PPSFHH7",
+      "name": "Bob Smith",
+      "type": "user",
+      "email": "bob@acme.com",
+      "time_zone": "Eastern Time (US &amp; Canada)",
+      "color": "red"
+    },
+    "targets": [
+      {
+        "id": "PPSFHH7",
+        "name": "Bob Smith",
+        "type": "user",
+        "email": "bob@acme.com",
+        "time_zone": "Eastern Time (US &amp; Canada)",
+        "color": "red"
+      }
+    ]
+  }
+}</code>
+</pre>
+  </div>
+</div>
+
+
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class='footer'>
+        <ul>
+          <li><a href='http://www.pagerduty.com'><i class='icon-home'></i> PagerDuty Home </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='http://www.pagerduty.com/docs'><i class='icon-book'></i> Integration Guides </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='http://support.pagerduty.com'><i class='icon-bullhorn'></i> Support </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='mailto:support@pagerduty.com'><i class='icon-envelope-alt'></i> Contact Us </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='https://twitter.com/pagerduty'><i class='icon-twitter'></i>Twitter </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='https://github.com/PagerDuty'><i class='icon-github'></i> Github </a></li>
+          <li class='spacer'>/</li>
+        </ul>
+      </footer>
+    </div>
+    <script src="/assets/js/application.js" type="text/javascript"></script>
+  </body>
+</html>

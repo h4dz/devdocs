@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=Edge,chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <title>Types</title>
+    <meta content="authenticity_token" name="csrf-param" />
+    <meta content="oxYj0Pt6xnWuhkOW178Dtqz0Vf1i9jFMYSWaBRK6rwc=" name="csrf-token" />
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <link href="/assets/css/application.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    </meta>
+    </meta>
+    </meta>
+    <!-- Add GA back here. -->
+  </head>
+  <body>
+    <div class='viewport'>
+      <div class='wrapper'>
+        <div class='navbar navbar-inverse'>
+          <div class='navbar-inner'>
+            <div class='container-fluid'>
+              <div class='row'>
+                <div class='col3 side-menu'>
+                  <a class='menu-link' href='#'>
+                    <i class='icon icon-reorder'></i>
+                  </a>
+                  <h1><a class='brand' href='/'>PagerDuty</a></h1>
+                </div>
+                <div class='col9 main-header'>
+                  <!-- <h2>Documentation</h2> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='container'>
+          <div class='content'>
+            <div class='row'>
+              <div class='col3'>
+                <div class='sidebar-menu'>
+                  <div class='sidebar-nav'>
+                    <h3>REST API Documentation</h3>
+                    <ul class='nav nav-list'>
+                      <li class="nav-header "><a href="/documentation/rest">General Information</a></li>
+                      <li><a href="/documentation/rest/authentication">Authentication</a></li>
+                      <li><a href="/documentation/rest/errors">Errors</a></li>
+                      <li><a href="/documentation/rest/types">Types</a></li>
+                      <li><a href="/documentation/rest/pagination">Pagination</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/alerts">Alerts</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/escalation_policies">Escalation Policies</a></li>
+                      <li><a href="/documentation/rest/escalation_policies/escalation_rules">Escalation Rules</a></li>
+                      <li><a href="/documentation/rest/escalation_policies/on_call">On-Call</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/incidents">Incidents</a></li>
+                      <li><a href="/documentation/rest/incidents/notes">Notes</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/log_entries">Log Entries</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/maintenance_windows">Maintenance Windows</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/reports">Reports</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/schedules">Schedules</a></li>
+                      <li><a href="/documentation/rest/schedules/overrides">Overrides</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/services">Services</a></li>
+                      <li><a href="/documentation/rest/services/email_filters">Email Filters</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/users">Users</a></li>
+                      <li><a href="/documentation/rest/users/contact_methods">Contact Methods</a></li>
+                      <li><a href="/documentation/rest/users/notification_rules">Notification Rules</a></li>
+                      <li><a href="/documentation/rest/users/on_call">On-Call</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/teams">Teams</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/webhooks">Webhooks</a></li>
+                    </ul>
+                  </div>
+                  <div class='sidebar-nav'>
+                    <h3>Integration</h3>
+                    <ul class='nav nav-list'>
+                      <li class="nav-header "><a href="/documentation/integration/events">Integration API</a></li>
+                      <li><a href="/documentation/integration/events/trigger">Trigger</a></li>
+                      <li><a href="/documentation/integration/events/acknowledge">Acknowledge</a></li>
+                      <li><a href="/documentation/integration/events/resolve">Resolve</a></li>
+                    </ul>
+                  </div>
+                  <div class='sidebar-nav'>
+                    <h3>Code</h3>
+                    <ul class='nav nav-list'><li class="nav-header "><a href="/documentation/code">Code samples</a></li>
+                      <li><a href="/documentation/code/libraries">Libraries</a></li>
+                      <li><a href="/documentation/code/tools">Tools</a></li>
+                      <li><a href="/documentation/code/disclaimer">Disclaimer</a></li>
+                    </ul>
+                  </div>
+                  <div class='sidebar-nav'>
+                    <h3>How To</h3>
+                    <ul class='nav nav-list'>
+                      <li><a href="/documentation/howto/integration-tutorial">Integration Tutorial</a></li>
+                      <li><a href="/documentation/howto/manually-trigger-an-incident/">Manual Incident Triggers</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class='col9'>
+                <div class='main-content'>
+
+
+                
+
+                <div class='section'>
+
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>Types
+  </li>
+</ul>
+<div class='section'>
+  <h1 class="title">
+    Types
+  </h1><a name='datetime' id="datetime"></a>
+  <h2>
+    Date and Time
+  </h2>
+  <p>
+    All dates and times should be represented in the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date/time format. The time element is optional.
+  </p>
+  <p>
+    Example dates in <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format:
+  </p>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Date and Time
+          </th>
+          <th>
+            ISO 8601 Representation
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            May 6th, 2011 at 5pm UTC
+          </td>
+          <td>
+            2011-05-06T17:00Z
+          </td>
+        </tr>
+        <tr>
+          <td>
+            May 6th, 2011 at 3:30am PDT
+          </td>
+          <td>
+            2011-05-06T03:30-07
+          </td>
+        </tr>
+        <tr>
+          <td>
+            May 6th, 2011 at midnight (time is optional)
+          </td>
+          <td>
+            2011-05-06
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div><a name='boolean' id="boolean"></a>
+  <h2>
+    Boolean Values
+  </h2>
+  <p>
+    The following values can be used to represent true and false. These values are not case sensitive.
+  </p>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Value
+          </th>
+          <th>
+            Acceptable String Representation
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            true
+          </td>
+          <td>
+            1, true
+          </td>
+        </tr>
+        <tr>
+          <td>
+            false
+          </td>
+          <td>
+            0, false
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div><a name='timezone' id="timezone"></a>
+  <h2>
+    Time Zones
+  </h2>
+  <p>
+    One of the following strings:
+  </p>
+  <pre class='language-bash'>
+<code>Abu Dhabi
+Adelaide
+Alaska
+Almaty
+American Samoa
+Amsterdam
+Arizona
+Astana
+Athens
+Atlantic Time (Canada)
+Auckland
+Azores
+Baghdad
+Baku
+Bangkok
+Beijing
+Belgrade
+Berlin
+Bern
+Bogota
+Brasilia
+Bratislava
+Brisbane
+Brussels
+Bucharest
+Budapest
+Buenos Aires
+Cairo
+Canberra
+Cape Verde Is.
+Caracas
+Casablanca
+Central America
+Central Time (US &amp; Canada)
+Chennai
+Chihuahua
+Chongqing
+Copenhagen
+Cuiaba
+Darwin
+Dhaka
+Dublin
+Eastern Time (US &amp; Canada)
+Edinburgh
+Ekaterinburg
+Fiji
+Georgetown
+Greenland
+Guadalajara
+Guam
+Hanoi
+Harare
+Hawaii
+Helsinki
+Hobart
+Hong Kong
+Indiana (East)
+International Date Line West
+Irkutsk
+Islamabad
+Istanbul
+Jakarta
+Jerusalem
+Kabul
+Kamchatka
+Karachi
+Kathmandu
+Kolkata
+Krasnoyarsk
+Kuala Lumpur
+Kuwait
+Kyiv
+La Paz
+Lima
+Lisbon
+Ljubljana
+London
+Madrid
+Magadan
+Marshall Is.
+Mazatlan
+Melbourne
+Mexico City
+Mid-Atlantic
+Midway Island
+Minsk
+Monrovia
+Monterrey
+Moscow
+Mountain Time (US &amp; Canada)
+Mumbai
+Muscat
+Nairobi
+New Caledonia
+New Delhi
+Newfoundland
+Novosibirsk
+Nuku'alofa
+Osaka
+Pacific Time (US &amp; Canada)
+Paris
+Perth
+Port Moresby
+Prague
+Pretoria
+Quito
+Rangoon
+Riga
+Riyadh
+Rome
+Samoa
+Santiago
+Sapporo
+Sarajevo
+Saskatchewan
+Seoul
+Singapore
+Skopje
+Sofia
+Solomon Is.
+Sri Jayawardenepura
+St. Petersburg
+Stockholm
+Sydney
+Taipei
+Tallinn
+Tashkent
+Tbilisi
+Tehran
+Tijuana
+Tokelau Is.
+Tokyo
+UTC
+Ulaan Bataar
+Urumqi
+Vienna
+Vilnius
+Vladivostok
+Volgograd
+Warsaw
+Wellington
+West Central Africa
+Yakutsk
+Yerevan
+Zagreb</code>
+</pre><a name='object' id="object"></a>
+  <h2>
+    Object
+  </h2>
+  <p>
+    Object types are a JSON object.
+  </p><a name='array' id="array"></a>
+  <h2>
+    Array
+  </h2>
+  <p>
+    Array types are used to represent a list of values.
+  </p>
+  <p>
+    Example array values for the <code>include</code> parameter on a <code>GET</code> request:
+  </p>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Values
+          </th>
+          <th>
+            Query String Representation
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            contact_methods
+          </td>
+          <td>
+            <code>include[]=contact_methods</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            contact_methods, notification_rules
+          </td>
+          <td>
+            <code>include[]=contact_methods&amp;include[]=notification_rules</code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div><a name='string' id="string"></a>
+  <h2>
+    String
+  </h2>
+  <p>
+    String types are a sequence of UTF-8 characters.
+  </p><a name='int' id="int"></a>
+  <h2>
+    Integer
+  </h2>
+  <p>
+    Integer types are a number without a fractional or decimal component.
+  </p>
+</div>
+
+
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class='footer'>
+        <ul>
+          <li><a href='http://www.pagerduty.com'><i class='icon-home'></i> PagerDuty Home </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='http://www.pagerduty.com/docs'><i class='icon-book'></i> Integration Guides </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='http://support.pagerduty.com'><i class='icon-bullhorn'></i> Support </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='mailto:support@pagerduty.com'><i class='icon-envelope-alt'></i> Contact Us </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='https://twitter.com/pagerduty'><i class='icon-twitter'></i>Twitter </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='https://github.com/PagerDuty'><i class='icon-github'></i> Github </a></li>
+          <li class='spacer'>/</li>
+        </ul>
+      </footer>
+    </div>
+    <script src="/assets/js/application.js" type="text/javascript"></script>
+  </body>
+</html>

@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=Edge,chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <title>PagerDuty Developer</title>
+    <meta content="authenticity_token" name="csrf-param" />
+    <meta content="oxYj0Pt6xnWuhkOW178Dtqz0Vf1i9jFMYSWaBRK6rwc=" name="csrf-token" />
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <link href="/assets/css/application.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    </meta>
+    </meta>
+    </meta>
+    <!-- Add GA back here. -->
+  </head>
+  <body>
+    <div class='viewport'>
+      <div class='wrapper'>
+        <div class='navbar navbar-inverse'>
+          <div class='navbar-inner'>
+            <div class='container-fluid'>
+              <div class='row'>
+                <div class='col3 side-menu'>
+                  <a class='menu-link' href='#'>
+                    <i class='icon icon-reorder'></i>
+                  </a>
+                  <h1><a class='brand' href='/'>PagerDuty</a></h1>
+                </div>
+                <div class='col9 main-header'>
+                  <!-- <h2>Documentation</h2> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='container'>
+          <div class='content'>
+            <div class='row'>
+              <div class='col3'>
+                <div class='sidebar-menu'>
+                  <div class='sidebar-nav'>
+                    <h3>REST API Documentation</h3>
+                    <ul class='nav nav-list'>
+                      <li class="nav-header "><a href="/documentation/rest">General Information</a></li>
+                      <li><a href="/documentation/rest/authentication">Authentication</a></li>
+                      <li><a href="/documentation/rest/errors">Errors</a></li>
+                      <li><a href="/documentation/rest/types">Types</a></li>
+                      <li><a href="/documentation/rest/pagination">Pagination</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/alerts">Alerts</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/escalation_policies">Escalation Policies</a></li>
+                      <li><a href="/documentation/rest/escalation_policies/escalation_rules">Escalation Rules</a></li>
+                      <li><a href="/documentation/rest/escalation_policies/on_call">On-Call</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/incidents">Incidents</a></li>
+                      <li><a href="/documentation/rest/incidents/notes">Notes</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/log_entries">Log Entries</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/maintenance_windows">Maintenance Windows</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/reports">Reports</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/schedules">Schedules</a></li>
+                      <li><a href="/documentation/rest/schedules/overrides">Overrides</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/services">Services</a></li>
+                      <li><a href="/documentation/rest/services/email_filters">Email Filters</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/users">Users</a></li>
+                      <li><a href="/documentation/rest/users/contact_methods">Contact Methods</a></li>
+                      <li><a href="/documentation/rest/users/notification_rules">Notification Rules</a></li>
+                      <li><a href="/documentation/rest/users/on_call">On-Call</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/teams">Teams</a></li>
+                      <li class="nav-header "><a href="/documentation/rest/webhooks">Webhooks</a></li>
+                    </ul>
+                  </div>
+                  <div class='sidebar-nav'>
+                    <h3>Integration</h3>
+                    <ul class='nav nav-list'>
+                      <li class="nav-header "><a href="/documentation/integration/events">Integration API</a></li>
+                      <li><a href="/documentation/integration/events/trigger">Trigger</a></li>
+                      <li><a href="/documentation/integration/events/acknowledge">Acknowledge</a></li>
+                      <li><a href="/documentation/integration/events/resolve">Resolve</a></li>
+                    </ul>
+                  </div>
+                  <div class='sidebar-nav'>
+                    <h3>Code</h3>
+                    <ul class='nav nav-list'><li class="nav-header "><a href="/documentation/code">Code samples</a></li>
+                      <li><a href="/documentation/code/libraries">Libraries</a></li>
+                      <li><a href="/documentation/code/tools">Tools</a></li>
+                      <li><a href="/documentation/code/disclaimer">Disclaimer</a></li>
+                    </ul>
+                  </div>
+                  <div class='sidebar-nav'>
+                    <h3>How To</h3>
+                    <ul class='nav nav-list'>
+                      <li><a href="/documentation/howto/integration-tutorial">Integration Tutorial</a></li>
+                      <li><a href="/documentation/howto/manually-trigger-an-incident/">Manual Incident Triggers</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class='col9'>
+                <div class='main-content'>
+
+
+                
+
+                <div class='section'>
+
+<ul class="breadcrumb">
+  <li>
+    <a href="/documentation/rest">REST API</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/documentation/rest/services">Services</a>
+  </li>
+  <li style="list-style: none">
+    <span class="divider">/</span>
+  </li>
+  <li>List
+  </li>
+</ul>
+<div class='section'>
+  <h1 class="title">
+    GET services
+  </h1>
+  <p>
+    List existing services.
+  </p>
+  <h3>
+    Resource URL
+  </h3>
+  <div class="prism action-url language-bash">
+    <pre>
+GET https://<span class="base_url contenteditable persist" contenteditable="true">&lt;subdomain&gt;</span>.pagerduty.com/api/v1/services
+</pre>
+  </div>
+  <h3>
+    Parameters
+  </h3>
+  <div class="alert alert-warning">
+    This action is paginated. See the <a href="/documentation/rest/pagination">pagination documentation</a> for details.
+  </div>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Required
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            teams
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            A comma-separated list of team IDs, specifying teams whose maintenance windows will be returned.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            include
+          </td>
+          <td>
+            <a href="/documentation/rest/types#array">Array</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Include extra information in the response. Possible values are <code>escalation_policy</code> (for inline <a href="/documentation/rest/escalation_policies">Escalation Policies</a>), <code>email_filters</code> (for inline <a href="/documentation/rest/services/email_filters">Email Filters</a>), and <code>teams</code> (for inline <a href="/documentation/rest/teams">Teams</a>).
+          </td>
+        </tr>
+        <tr>
+          <td>
+            time_zone
+          </td>
+          <td>
+            <a href="/documentation/rest/types#timezone">Time Zone</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Time zone in which dates in the result will be rendered. Defaults to account default time zone.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            query
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Filters the result, showing only the services whose name or service_key matches the query.
+          </td>
+        </tr>
+          <td>
+            sort_by
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            No
+          </td>
+          <td>
+            Used to specify both the field you wish to sort the results on. If not specified, this defaults to name.
+            <ul>
+              <li>
+                <code>name</code> The name of the service
+              </li>
+              <li>
+                <code>id</code> The id of the service
+              </li>
+            </ul>
+            <p>
+              Example: to sort by the service name in alphabetical order, include the query parameter:
+            </p>
+            <pre>
+<code class="language-javascript prettyprint linenums">{
+  "sort_by": "name"
+}</code>
+</pre>
+          </td>
+      </tbody>
+    </table>
+  </div>
+  <h3>
+    Response Fields
+  </h3>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            id
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            A unique identifier for this service.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            name
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            The name of the service.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            description
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            The description of the service
+          </td>
+        </tr>
+        <tr>
+          <td>
+            service_url
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            Relative URL that corresponds to this service. Can be appended to https://&lt;subdomain&gt;.pagerduty.com to view service information.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            service_key
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            For Email services, the service_key is the associated email address for the service. For all other service types, this is the unique key used for API calls.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            auto_resolve_timeout
+          </td>
+          <td>
+            <a href="/documentation/rest/types#int">Integer</a>
+          </td>
+          <td>
+            Time in seconds that an incident is automatically resolved if left open for that long. Value is "null" is the feature is disabled.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            acknowledgement_timeout
+          </td>
+          <td>
+            <a href="/documentation/rest/types#int">Integer</a>
+          </td>
+          <td>
+            Time in seconds that an incident changes to the Triggered State after being Acknowledged. Value is "null" is the feature is disabled.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            created_at
+          </td>
+          <td>
+            <a href="/documentation/rest/types#datetime">Date</a>
+          </td>
+          <td>
+            The date/time when this service was created
+          </td>
+        </tr>
+        <tr>
+          <td>
+            status
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            The current state of the Service. Valid statuses are:
+            <ul>
+              <li>
+                <code>active</code> The service is enabled and has no open incidents.
+              </li>
+              <li>
+                <code>warning</code> The service is enabled and has one or more acknowledged incidents.
+              </li>
+              <li>
+                <code>critical</code> The service is enabled and has one or more triggered incidents.
+              </li>
+              <li>
+                <code>maintenance</code> The service is under maintenance, no new incidents will be triggered during maintenance mode.
+              </li>
+              <li>
+                <code>disabled</code> The service is disabled and will not have any new triggered incidents.
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            last_incident_timestamp
+          </td>
+          <td>
+            <a href="/documentation/rest/types#datetime">Date</a>
+          </td>
+          <td>
+            The date/time when the most recent incident was created for this service.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            email_incident_creation
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            If the service is a Generic Email service, this describes what kind of emails create an incident.
+            <ul>
+              <li>
+                <code>on_new_email</code> Open a new incident for each trigger email.
+              </li>
+              <li>
+                <code>on_new_email_subject</code> Open a new incident for each new trigger email subject.
+              </li>
+              <li>
+                <code>only_if_no_open_incidents</code> Open a new incident only if an open incident does not already exist.
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            incident_counts
+          </td>
+          <td>
+            <a href="/documentation/rest/types#object">Object</a>
+          </td>
+          <td>
+            An object with the number of incidents corresponding to these states: <code>triggered</code> <code>acknowledged</code> <code>resolved</code> <code>total</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            email_filter_mode
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            If the service is a Generic Email service, this describes which types of email will generate an incident. Valid values are:
+            <ul>
+              <li>
+                <code>all-email</code> Accept all incoming email
+              </li>
+              <li>
+                <code>or-rules-email</code> Accept email only if it matches ONE OR MORE rules below
+              </li>
+              <li>
+                <code>and-rules-email</code> Accept email only if it matches ALL of the rules below
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            type
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            The service type. Valid values are:
+            <ul>
+              <li>
+                <code>cloudkick</code>
+              </li>
+              <li>
+                <code>generic_email</code>
+              </li>
+              <li>
+                <code>generic_events_api</code>
+              </li>
+              <li>
+                <code>keynote</code>
+              </li>
+              <li>
+                <code>nagios</code>
+              </li>
+              <li>
+                <code>pingdom</code>
+              </li>
+              <li>
+                <code>server_density</code>
+              </li>
+              <li>
+                <code>sql_monitor</code>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            escalation_policy
+          </td>
+          <td>
+            <a href="/documentation/rest/types#object">Object</a>
+          </td>
+          <td>
+            An object containing the ID and name of the escalation policy used by this service. Only present if <code>escalation_policy</code> is passed as an argument.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            email_filters
+          </td>
+          <td>
+            <a href="/documentation/rest/types#object">Object</a>
+          </td>
+          <td>
+            An object containing inline <a href="/documentation/rest/services/email_filters">Email Filters</a>. Only present if <code>email_filters</code> is passed as an argument. Note that only <code>generic_email</code> services have Email Filters.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            severity_filter
+          </td>
+          <td>
+            <a href="/documentation/rest/types#string">String</a>
+          </td>
+          <td>
+            Specifies what severity levels will create a new open incident.
+            <p>
+              For Keynote it can be one of:
+            </p>
+            <ul>
+              <li>
+                <code>critical</code> Incidents are created when an alarm enters the Critical state
+              </li>
+              <li>
+                <code>critical_or_warning</code> Incidents are created when an alarm enters the Critical OR Warning states
+              </li>
+            </ul>For SQL Monitor it can be one of:
+            <ul>
+              <li>
+                <code>on_any</code> Incidents are created for alerts of any severity
+              </li>
+              <li>
+                <code>on_high</code> Incidents are created for alerts with high severity
+              </li>
+              <li>
+                <code>on_medium_high</code> Incidents are created for with high or medium severity
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>
+    Example 1:
+  </h3>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \
+    --data-urlencode "teams=<span class='curl_params-teams contenteditable' contenteditable='true'>P4QLGMN,P6XL8LK</span>" \
+    --data-urlencode "include[]=<span class='curl_params-include contenteditable' contenteditable='true'>escalation_policy</span>" \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/services"</code>
+</pre>
+  <p class="content-type-warning clearfix">
+    Note: <code>Content-type</code> of the request <strong>must</strong> be <code>application/json</code>
+  </p>
+  <div class="clearfix"></div>
+  <h4>
+    Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"></a></span>
+  </h4>
+  <div class="response">
+    <pre>
+<code class="language-javascript prettyprint linenums">{
+  "services": [
+    {
+      "id": "PYKZNA9",
+      "name": "a",
+      "service_url": "/services/PYKZNA9",
+      "service_key": "a@acme.pagerduty.com",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-14T17:22:56-05:00",
+      "status": "active",
+      "last_incident_timestamp": null,
+      "email_incident_creation": "on_new_email_subject",
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "all-email",
+      "type": "generic_email",
+      "description": "service a"
+    },
+    {
+      "id": "PO2C8W6",
+      "name": "aa",
+      "service_url": "/services/PO2C8W6",
+      "service_key": "aa@acme.pagerduty.com",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-15T18:43:56-05:00",
+      "status": "active",
+      "last_incident_timestamp": null,
+      "email_incident_creation": "on_new_email_subject",
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "all-email",
+      "type": "generic_email",
+      "description": "service as"
+    },
+    {
+      "id": "PSQVSNY",
+      "name": "adsfadsfads",
+      "service_url": "/services/PSQVSNY",
+      "service_key": "adsfadsfads@acme.pagerduty.com",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-12T22:33:51-05:00",
+      "status": "active",
+      "last_incident_timestamp": null,
+      "email_incident_creation": "on_new_email_subject",
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "all-email",
+      "type": "generic_email",
+      "description": "service adsfadsfads"
+    },
+    {
+      "id": "PVOO9KJ",
+      "name": "aff",
+      "service_url": "/services/PVOO9KJ",
+      "service_key": "aff@acme.pagerduty.com",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-14T18:12:31-05:00",
+      "status": "active",
+      "last_incident_timestamp": null,
+      "email_incident_creation": "on_new_email_subject",
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "all-email",
+      "type": "generic_email",
+      "description": "service aff"
+    },
+    {
+      "id": "PEYSGVF",
+      "name": "cloud",
+      "service_url": "/services/PEYSGVF",
+      "service_key": "2b4310400d360130777138f6b11a5d17",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-02T00:22:31-04:00",
+      "status": "critical",
+      "last_incident_timestamp": "2012-11-08T19:22:07-05:00",
+      "email_incident_creation": null,
+      "incident_counts": {
+        "triggered": 1,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 1
+      },
+      "email_filter_mode": "all-email",
+      "type": "cloudkick",
+      "description": "service cloud"
+    },
+    {
+      "id": "PF9KMXH",
+      "name": "defa",
+      "service_url": "/services/PF9KMXH",
+      "service_key": "amazing2@acme.pagerduty.com",
+      "auto_resolve_timeout": null,
+      "acknowledgement_timeout": null,
+      "created_at": "2012-08-15T20:15:52-04:00",
+      "status": "active",
+      "last_incident_timestamp": "2012-09-12T17:57:06-04:00",
+      "email_incident_creation": "on_new_email_subject",
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 4,
+        "total": 4
+      },
+      "email_filter_mode": "or-rules-email",
+      "type": "generic_email",
+      "description": "service defa"
+    },
+    {
+      "id": "P573W8X",
+      "name": "djaljdlds",
+      "service_url": "/services/P573W8X",
+      "service_key": "djaljdlds@acme.pagerduty.com",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-09T18:48:14-05:00",
+      "status": "active",
+      "last_incident_timestamp": null,
+      "email_incident_creation": "on_new_email_subject",
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "or-rules-email",
+      "type": "generic_email",
+      "description": "service djaljdlds"
+    },
+    {
+      "id": "PQ47DCP",
+      "name": "dservicer",
+      "service_url": "/services/PQ47DCP",
+      "service_key": "450c73c00f350130777538f6b11a5d17",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-02T00:34:55-04:00",
+      "status": "active",
+      "last_incident_timestamp": null,
+      "email_incident_creation": null,
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "all-email",
+      "type": "server_density",
+      "description": "service dservicer"
+    },
+    {
+      "id": "PHW8B63",
+      "name": "f",
+      "service_url": "/services/PHW8B63",
+      "service_key": "f@acme.pagerduty.com",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-05T17:34:34-05:00",
+      "status": "disabled",
+      "last_incident_timestamp": null,
+      "email_incident_creation": "on_new_email_subject",
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "or-rules-email",
+      "type": "generic_email",
+      "description": "service f"
+    },
+    {
+      "id": "PAM4FGS",
+      "name": "keynoted",
+      "service_url": "/services/PAM4FGS",
+      "service_key": "keynoted@acme.pagerduty.com",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-02T00:26:52-04:00",
+      "status": "active",
+      "last_incident_timestamp": null,
+      "email_incident_creation": "on_new_email_subject",
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "all-email",
+      "type": "keynote",
+      "severity_filter": "critical_or_warning",
+      "description": "service keynoted"
+    },
+    {
+      "id": "P9UJCMM",
+      "name": "le monitor",
+      "service_url": "/services/P9UJCMM",
+      "service_key": "le-monitor@acme.pagerduty.com",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-02T00:35:18-04:00",
+      "status": "active",
+      "last_incident_timestamp": null,
+      "email_incident_creation": "on_new_email_subject",
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "or-rules-email",
+      "type": "sql_monitor",
+      "severity_filter": "on_medium_high",
+      "description": "service le monitor"
+    },
+    {
+      "id": "PBAZLIU",
+      "name": "MyApi",
+      "service_url": "/services/PBAZLIU",
+      "service_key": "28198a20cae6012f5c6c38f6b11a5d17",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-08-17T18:09:37-04:00",
+      "status": "active",
+      "last_incident_timestamp": "2011-04-21T04:26:37-04:00",
+      "email_incident_creation": null,
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 4,
+        "total": 4
+      },
+      "email_filter_mode": "all-email",
+      "type": "generic_events_api",
+      "description": "service MyApi"
+    },
+    {
+      "id": "PXPGF42",
+      "name": "nagiosed",
+      "service_url": "/services/PXPGF42",
+      "service_key": "4f7a977006d401305df938f6b11a5d17",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-02T00:33:01-04:00",
+      "status": "active",
+      "last_incident_timestamp": null,
+      "email_incident_creation": null,
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "all-email",
+      "type": "nagios",
+      "description": "service nagiosed"
+    },
+    {
+      "id": "PDJKATD",
+      "name": "nagnag",
+      "service_url": "/services/PDJKATD",
+      "service_key": "b2977ea00f5e01307d2338f6b11a5d17",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-05T18:34:53-05:00",
+      "status": "active",
+      "last_incident_timestamp": null,
+      "email_incident_creation": null,
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "all-email",
+      "type": "nagios",
+      "description": "service nagnag"
+    },
+    {
+      "id": "P29NBY9",
+      "name": "serverd",
+      "service_url": "/services/P29NBY9",
+      "service_key": "0b2f05b00f6201307d2538f6b11a5d17",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-02T20:56:39-04:00",
+      "status": "active",
+      "last_incident_timestamp": null,
+      "email_incident_creation": null,
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "all-email",
+      "type": "server_density",
+      "description": "service served"
+    },
+    {
+      "id": "PT20YPA",
+      "name": "sevname",
+      "service_url": "/services/PT20YPA",
+      "service_key": "sevname@acme.pagerduty.com",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-09T01:03:10-05:00",
+      "status": "active",
+      "last_incident_timestamp": null,
+      "email_incident_creation": "on_new_email_subject",
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "all-email",
+      "type": "generic_email",
+      "description": "service sevname"
+    },
+    {
+      "id": "P7TR7GG",
+      "name": "sevname1011",
+      "service_url": "/services/P7TR7GG",
+      "service_key": "726602c011bf0130a60d38f6b11a5d17",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-15T21:01:24-05:00",
+      "status": "active",
+      "last_incident_timestamp": null,
+      "email_incident_creation": null,
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "all-email",
+      "type": "generic_events_api",
+      "description": "service sevname1011"
+    },
+    {
+      "id": "PQFCJER",
+      "name": "Thingy",
+      "service_url": "/services/PQFCJER",
+      "service_key": "thingy@acme.pagerduty.com",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2011-01-08T00:22:24-05:00",
+      "status": "active",
+      "last_incident_timestamp": null,
+      "email_incident_creation": "on_new_email_subject",
+      "incident_counts": {
+        "triggered": 0,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 0
+      },
+      "email_filter_mode": "all-email",
+      "type": "generic_email",
+      "description": "service Thingy"
+    }
+  ],
+  "limit": 25,
+  "offset": 0,
+  "total": 18
+}</code>
+</pre>
+  </div>
+  <h3>
+    Example 2: Including Email Filters and Teams
+  </h3>
+  <pre>
+<code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X GET -G \
+    --data-urlencode "include[]=<span class='curl_params-include contenteditable' contenteditable='true'>email_filters</span>" \
+    --data-urlencode "include[]=<span class='curl_params-include contenteditable' contenteditable='true'>teams</span>" \
+    "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/services"</code>
+</pre>
+  <h4>
+    Response <span class="response-status">Status: 200 OK <a href="/documentation/rest/errors#http_codes"></a></span>
+  </h4>
+  <div class="response">
+    <pre>
+<code class="language-javascript prettyprint linenums">{
+  "services": [
+    {
+      "id": "PYKZNA9",
+      "name": "a",
+      "service_url": "/services/PYKZNA9",
+      "service_key": "a@acme.pagerduty.com",
+      "auto_resolve_timeout": 14400,
+      "acknowledgement_timeout": 1800,
+      "created_at": "2012-11-14T17:22:56-05:00",
+      "status": "critical",
+      "last_incident_timestamp": "2012-11-16T22:51:17-05:00",
+      "email_incident_creation": "on_new_email_subject",
+      "incident_counts": {
+        "triggered": 1,
+        "acknowledged": 0,
+        "resolved": 0,
+        "total": 1
+      },
+      "email_filter_mode": "all-email",
+      "type": "generic_email",
+      "email_filters": [
+        {
+          "subject_mode": "always",
+          "subject_regex": null,
+          "body_mode": "always",
+          "body_regex": null,
+          "from_email_mode": "match",
+          "from_email_regex": "[rR]yan",
+          "id": "PCWKOPZ"
+        }
+      ],
+      "teams": [
+        {
+          "id": "P4QLGMN",
+          "name": "A Mob of Emus",
+          "description": "Marauding across Australia"
+        }
+      ]
+    }
+  ],
+  "limit": 25,
+  "offset": 0,
+  "total": 1
+}</code>
+</pre>
+  </div>
+</div>
+
+
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class='footer'>
+        <ul>
+          <li><a href='http://www.pagerduty.com'><i class='icon-home'></i> PagerDuty Home </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='http://www.pagerduty.com/docs'><i class='icon-book'></i> Integration Guides </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='http://support.pagerduty.com'><i class='icon-bullhorn'></i> Support </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='mailto:support@pagerduty.com'><i class='icon-envelope-alt'></i> Contact Us </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='https://twitter.com/pagerduty'><i class='icon-twitter'></i>Twitter </a></li>
+          <li class='spacer'>/</li>
+          <li><a href='https://github.com/PagerDuty'><i class='icon-github'></i> Github </a></li>
+          <li class='spacer'>/</li>
+        </ul>
+      </footer>
+    </div>
+    <script src="/assets/js/application.js" type="text/javascript"></script>
+  </body>
+</html>
