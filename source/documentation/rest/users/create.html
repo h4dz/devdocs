@@ -147,13 +147,15 @@ POST https://<span class="base_url contenteditable persist" contenteditable="tru
   </h3>
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X POST \
-    -d '{    
-      "role": "<span class='curl_params-role contenteditable' contenteditable='true'>admin</span>",
-      "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Bart Simpson</span>",
-      "email": "<span class='curl_params-email contenteditable' contenteditable='true'>bart@example.com</span>",
-      "requester_id": "<span class='curl_params-requester_id contenteditable' contenteditable='true'>PP1565R</span>",
-      "job_title": "<span class='curl_params-job_title contenteditable' contenteditable='true'>Developer</span>"
-    }' \
+    -d '{
+          "user": {
+            "role": "<span class='curl_params-role contenteditable' contenteditable='true'>admin</span>",
+            "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Bart Simpson</span>",
+            "email": "<span class='curl_params-email contenteditable' contenteditable='true'>bart@example.com</span>",
+            "requester_id": "<span class='curl_params-requester_id contenteditable' contenteditable='true'>PP1565R</span>",
+            "job_title": "<span class='curl_params-job_title contenteditable' contenteditable='true'>Developer</span>"
+          }
+        }' \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/users"</code>
 </pre>
   <p class="content-type-warning clearfix">

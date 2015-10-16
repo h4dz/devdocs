@@ -117,7 +117,13 @@ POST https://<span class="base_url contenteditable persist" contenteditable="tru
   </h3>
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X POST \
-    -d '{"override":{"user_id":"<span class='curl_params-user_id contenteditable' contenteditable='true'>PHLG109</span>","start":"<span class='curl_params-start contenteditable' contenteditable='true'>2012-07-01</span>","end":"<span class='curl_params-end contenteditable' contenteditable='true'>2012-07-02</span>"}}' \
+    -d '{
+          "override": {
+            "user_id": "<span class='curl_params-user_id contenteditable' contenteditable='true'>PHLG109</span>",
+            "start": "<span class='curl_params-start contenteditable' contenteditable='true'>2012-07-01</span>",
+            "end": "<span class='curl_params-end contenteditable' contenteditable='true'>2012-07-02</span>"
+          }
+        }' \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/schedules/<span class="sub_params_in_url-schedule_id schedule_id contenteditable" contenteditable="true">PIJ90N7</span>/overrides"</code>
 </pre>
   <p class="content-type-warning clearfix">
