@@ -349,77 +349,77 @@ POST https://<span class="base_url contenteditable persist" contenteditable="tru
 <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X POST \
     -d '{    
-      "since": "<span class='curl_params-since contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
-      "overflow": 1,
-      "until": "<span class='curl_params-until contenteditable' contenteditable='true'>2012-08-19T00:00:00</span>",
-      "schedule": {
-        "schedule_layers": [
-          {
-            "start": "<span class='curl_params-start contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
-            "users": [
+          "since": "<span class='curl_params-since contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
+          "overflow": 1,
+          "until": "<span class='curl_params-until contenteditable' contenteditable='true'>2012-08-19T00:00:00</span>",
+          "schedule": {
+            "schedule_layers": [
               {
-                "user": {
-                  "id": "<span class='curl_params-id contenteditable' contenteditable='true'>P2BI1SS</span>"
-                },
-                "member_order": 1
+                "start": "<span class='curl_params-start contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
+                "users": [
+                  {
+                    "user": {
+                      "id": "<span class='curl_params-id contenteditable' contenteditable='true'>P2BI1SS</span>"
+                    },
+                    "member_order": 1
+                  },
+                  {
+                    "user": {
+                      "id": "<span class='curl_params-id contenteditable' contenteditable='true'>PX3ILJ6</span>"
+                    },
+                    "member_order": 2
+                  }
+                ],
+                "restriction_type": null,
+                "rotation_virtual_start": "<span class='curl_params-rotation_virtual_start contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
+                "priority": 0,
+                "rotation_turn_length_seconds": 604800,
+                "end": null,
+                "restrictions": [
+
+                ],
+                "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Schedule Layer 1</span>"
               },
               {
-                "user": {
-                  "id": "<span class='curl_params-id contenteditable' contenteditable='true'>PX3ILJ6</span>"
-                },
-                "member_order": 2
+                "start": "<span class='curl_params-start contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
+                "users": [
+                  {
+                    "user": {
+                      "id": "<span class='curl_params-id contenteditable' contenteditable='true'>PAD6MYW</span>"
+                    },
+                    "member_order": 1
+                  },
+                  {
+                    "user": {
+                      "id": "<span class='curl_params-id contenteditable' contenteditable='true'>PU6348I</span>"
+                    },
+                    "member_order": 2
+                  },
+                  {
+                    "user": {
+                      "id": "<span class='curl_params-id contenteditable' contenteditable='true'>P6O624F</span>"
+                    },
+                    "member_order": 3
+                  }
+                ],
+                "restriction_type": "<span class='curl_params-restriction_type contenteditable' contenteditable='true'>Daily</span>",
+                "rotation_virtual_start": "<span class='curl_params-rotation_virtual_start contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
+                "rotation_turn_length_seconds": 86400,
+                "priority": 1,
+                "restrictions": [
+                  {
+                    "duration_seconds": 43200,
+                    "start_time_of_day": "<span class='curl_params-start_time_of_day contenteditable' contenteditable='true'>00:00:00</span>"
+                  }
+                ],
+                "end": null,
+                "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Schedule Layer 2</span>"
               }
             ],
-            "restriction_type": null,
-            "rotation_virtual_start": "<span class='curl_params-rotation_virtual_start contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
-            "priority": 0,
-            "rotation_turn_length_seconds": 604800,
-            "end": null,
-            "restrictions": [
-    
-            ],
-            "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Schedule Layer 1</span>"
-          },
-          {
-            "start": "<span class='curl_params-start contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
-            "users": [
-              {
-                "user": {
-                  "id": "<span class='curl_params-id contenteditable' contenteditable='true'>PAD6MYW</span>"
-                },
-                "member_order": 1
-              },
-              {
-                "user": {
-                  "id": "<span class='curl_params-id contenteditable' contenteditable='true'>PU6348I</span>"
-                },
-                "member_order": 2
-              },
-              {
-                "user": {
-                  "id": "<span class='curl_params-id contenteditable' contenteditable='true'>P6O624F</span>"
-                },
-                "member_order": 3
-              }
-            ],
-            "restriction_type": "<span class='curl_params-restriction_type contenteditable' contenteditable='true'>Daily</span>",
-            "rotation_virtual_start": "<span class='curl_params-rotation_virtual_start contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
-            "rotation_turn_length_seconds": 86400,
-            "priority": 1,
-            "restrictions": [
-              {
-                "duration_seconds": 43200,
-                "start_time_of_day": "<span class='curl_params-start_time_of_day contenteditable' contenteditable='true'>00:00:00</span>"
-              }
-            ],
-            "end": null,
-            "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Schedule Layer 2</span>"
+            "time_zone": "<span class='curl_params-time_zone contenteditable' contenteditable='true'>Eastern Time (US &amp; Canada)</span>",
+            "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Primary On-Call Schedule</span>"
           }
-        ],
-        "time_zone": "<span class='curl_params-time_zone contenteditable' contenteditable='true'>Eastern Time (US &amp; Canada)</span>",
-        "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Primary On-Call Schedule</span>"
-      }
-    }' \
+        }' \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/schedules"</code>
 </pre>
 <p class="content-type-warning clearfix">

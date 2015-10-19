@@ -119,7 +119,16 @@ PUT https://<span class="base_url contenteditable persist" contenteditable="true
   </h3>
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X PUT \
-    -d '{"start_time":"<span class='curl_params-start_time contenteditable' contenteditable='true'>2012-06-16T13:00:00-04:00Z</span>","end_time":"<span class='curl_params-end_time contenteditable' contenteditable='true'>2012-06-16T14:00:00-04:00Z</span>","description":"<span class='curl_params-description contenteditable' contenteditable='true'>Description goes here</span>","service_ids":["<span class='curl_params-service_ids0- contenteditable' contenteditable='true'>PF9KMXH</span>"]}' \
+    -d '{
+          "maintenance_window": {
+            "start_time": "<span class='curl_params-start_time contenteditable' contenteditable='true'>2012-06-16T13:00:00-04:00Z</span>",
+            "end_time": "<span class='curl_params-end_time contenteditable' contenteditable='true'>2012-06-16T14:00:00-04:00Z</span>",
+            "description": "<span class='curl_params-description contenteditable' contenteditable='true'>Description goes here</span>",
+            "service_ids": [
+              "<span class='curl_params-service_ids0- contenteditable' contenteditable='true'>PF9KMXH</span>"
+            ]
+          }
+        }' \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/maintenance_windows/<span class="sub_params_in_url-id id contenteditable" contenteditable="true">P9UJCMM</span>"</code>
 </pre>
   <p class="content-type-warning clearfix">

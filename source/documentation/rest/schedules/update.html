@@ -352,39 +352,39 @@ PUT https://<span class="base_url contenteditable persist" contenteditable="true
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X PUT \
     -d '{    
-      "since": "<span class='curl_params-since contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
-      "until": "<span class='curl_params-until contenteditable' contenteditable='true'>2012-08-19T00:00:00</span>",
-      "overflow": 1,
-      "schedule": {
-        "time_zone": "<span class='curl_params-time_zone contenteditable' contenteditable='true'>UTC</span>",
-        "name": "<span class='curl_params-name contenteditable' contenteditable='true'>new name</span>",
-        "schedule_layers": [
-          {
-            "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Schedule Layer 1</span>",
-            "id": "<span class='curl_params-id contenteditable' contenteditable='true'>P07F6S3</span>",
-            "start": "<span class='curl_params-start contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
-            "rotation_virtual_start": "<span class='curl_params-rotation_virtual_start contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
-            "priority": 0,
-            "rotation_turn_length_seconds": 604800,
-            "users": [
+          "since": "<span class='curl_params-since contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
+          "until": "<span class='curl_params-until contenteditable' contenteditable='true'>2012-08-19T00:00:00</span>",
+          "overflow": 1,
+          "schedule": {
+            "time_zone": "<span class='curl_params-time_zone contenteditable' contenteditable='true'>UTC</span>",
+            "name": "<span class='curl_params-name contenteditable' contenteditable='true'>new name</span>",
+            "schedule_layers": [
               {
-                "user": {
-                  "id": "<span class='curl_params-id contenteditable' contenteditable='true'>PPI9KUT</span>"
-                },
-                "member_order": 1
-              }
-            ],
-            "restriction_type": "<span class='curl_params-restriction_type contenteditable' contenteditable='true'>Daily</span>",
-            "restrictions": [
-              {
-                "duration_seconds": "<span class='curl_params-duration_seconds contenteditable' contenteditable='true'>43200</span>",
-                "start_time_of_day": "<span class='curl_params-start_time_of_day contenteditable' contenteditable='true'>00:00:00</span>"
+                "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Schedule Layer 1</span>",
+                "id": "<span class='curl_params-id contenteditable' contenteditable='true'>P07F6S3</span>",
+                "start": "<span class='curl_params-start contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
+                "rotation_virtual_start": "<span class='curl_params-rotation_virtual_start contenteditable' contenteditable='true'>2012-08-05T00:00:00</span>",
+                "priority": 0,
+                "rotation_turn_length_seconds": 604800,
+                "users": [
+                  {
+                    "user": {
+                      "id": "<span class='curl_params-id contenteditable' contenteditable='true'>PPI9KUT</span>"
+                    },
+                    "member_order": 1
+                  }
+                ],
+                "restriction_type": "<span class='curl_params-restriction_type contenteditable' contenteditable='true'>Daily</span>",
+                "restrictions": [
+                  {
+                    "duration_seconds": "<span class='curl_params-duration_seconds contenteditable' contenteditable='true'>43200</span>",
+                    "start_time_of_day": "<span class='curl_params-start_time_of_day contenteditable' contenteditable='true'>00:00:00</span>"
+                  }
+                ]
               }
             ]
           }
-        ]
-      }
-    }' \
+        }' \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/schedules/:id"</code>
 </pre>
   <p class="content-type-warning clearfix">

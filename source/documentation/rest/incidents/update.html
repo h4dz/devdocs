@@ -258,7 +258,15 @@ PUT https://<span class="base_url contenteditable persist" contenteditable="true
   </h3>
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X PUT \
-    -d '{"requester_id":"<span class='curl_params-requester_id contenteditable' contenteditable='true'>PPSFHH7</span>","incidents":[{"id":"<span class='curl_params-id contenteditable' contenteditable='true'>P31FZLG</span>","status":"<span class='curl_params-status contenteditable' contenteditable='true'>resolved</span>"}]}' \
+    -d '{
+          "requester_id": "<span class='curl_params-requester_id contenteditable' contenteditable='true'>PPSFHH7</span>",
+          "incidents": [
+            {
+              "id": "<span class='curl_params-id contenteditable' contenteditable='true'>P31FZLG</span>",
+              "status": "<span class='curl_params-status contenteditable' contenteditable='true'>resolved</span>"
+            }
+          ]
+        }' \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents"</code>
 </pre>
   <p class="content-type-warning clearfix">
@@ -290,18 +298,18 @@ PUT https://<span class="base_url contenteditable persist" contenteditable="true
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X PUT \
     -d '{    
-      "requester_id": "<span class='curl_params-requester_id contenteditable' contenteditable='true'>PPSFHH7</span>",
-      "incidents": [
-        {
-          "id": "<span class='curl_params-id contenteditable' contenteditable='true'>P31FZLG</span>",
-          "status": "<span class='curl_params-status contenteditable' contenteditable='true'>resolved</span>"
-        },
-        {
-          "id": "<span class='curl_params-id contenteditable' contenteditable='true'>badid</span>",
-          "status": "<span class='curl_params-status contenteditable' contenteditable='true'>resolved</span>"
-        }
-      ]
-    }' \
+          "requester_id": "<span class='curl_params-requester_id contenteditable' contenteditable='true'>PPSFHH7</span>",
+          "incidents": [
+            {
+              "id": "<span class='curl_params-id contenteditable' contenteditable='true'>P31FZLG</span>",
+              "status": "<span class='curl_params-status contenteditable' contenteditable='true'>resolved</span>"
+            },
+            {
+              "id": "<span class='curl_params-id contenteditable' contenteditable='true'>badid</span>",
+              "status": "<span class='curl_params-status contenteditable' contenteditable='true'>resolved</span>"
+            }
+          ]
+        }' \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/incidents"</code>
 </pre>
   <h4>

@@ -133,7 +133,14 @@ PUT https://<span class="base_url contenteditable persist" contenteditable="true
   </h3>
   <pre>
 <code class="prettyprint language-bash curl">curl -H "Content-type: application/json" -H "Authorization: Token token=<span class="base_auth_token contenteditable persist" contenteditable="true">E7px6VVr3PVHZPJq51oa</span>" -X PUT \
-    -d '{"user":{"role":"<span class='curl_params-role contenteditable' contenteditable='true'>admin</span>","name":"<span class='curl_params-name contenteditable' contenteditable='true'>Bart Simpson</span>","email":"<span class='curl_params-email contenteditable' contenteditable='true'>bart@example.com</span>","job_title":"<span class='curl_params-job_title contenteditable' contenteditable='true'>Developer</span>"}}' \
+    -d '{
+          "user": {
+            "role": "<span class='curl_params-role contenteditable' contenteditable='true'>admin</span>",
+            "name": "<span class='curl_params-name contenteditable' contenteditable='true'>Bart Simpson</span>",
+            "email": "<span class='curl_params-email contenteditable' contenteditable='true'>bart@example.com</span>",
+            "job_title": "<span class='curl_params-job_title contenteditable' contenteditable='true'>Developer</span>"}
+          }
+        }' \
     "https://<span class="base_url contenteditable persist" contenteditable="true">acme</span>.pagerduty.com/api/v1/users/<span class="sub_params_in_url-id id contenteditable" contenteditable="true">PIJ90N7</span>"</code>
 </pre>
   <p class="content-type-warning clearfix">
