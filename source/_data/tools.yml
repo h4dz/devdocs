@@ -171,3 +171,9 @@
   type: Alerting
   description: "A Google Chrome extension to show PagerDuty notifications using Chrome's notification API."
   tag: Tool
+
+- name: pd-trigger
+  url: https://github.com/enigma-io/pd-trigger
+  type: Alerting
+  description: "A lightweight, portable, and robust PagerDuty trigger utility."
+  tag: Tool
