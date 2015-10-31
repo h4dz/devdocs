@@ -165,3 +165,9 @@
   type: Reporting
   description: "Pigeonhole takes data from PagerDuty and generates graphs based on this data over a configurable time period."
   tag: Tool
+
+- name: PagerDuty Chrome Notifier
+  url: https://github.com/PagerDuty/chrome-notifier
+  type: Alerting
+  description: "A Google Chrome extension to show PagerDuty notifications using Chrome's notification API."
+  tag: Tool
