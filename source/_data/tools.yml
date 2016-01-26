@@ -106,6 +106,12 @@
   description: "Illegit Snapchat integration for PagerDuty"
   tag: Toy
 
+- name: Roman Pillar of Justice
+  url: https://github.com/pjskennedy/RomanPillarOfJustice
+  type: Fun
+  description: "Bombard coworkers with foam darts via PagerDuty or Slack"
+  tag: Toy
+
 - name: pagerduty-graphite
   url: https://github.com/agent462/pagerduty-graphite
   type: Integration
