@@ -94,7 +94,7 @@ POST https://<span class="base_url contenteditable persist" contenteditable="tru
             Yes
           </td>
           <td>
-            The type of service to create. Can be one of <code>generic_email</code>, <code>generic_events_api</code>, <code>keynote</code>, <code>nagios</code>, <code>pingdom</code> or <code>sql_monitor</code>.
+            The type of service to create. Can be one of <code>generic_email</code>, <code>generic_events_api</code>, <code>integration</code>, <code>keynote</code>, <code>nagios</code>, <code>pingdom</code> or <code>sql_monitor</code>.
           </td>
         </tr>
         <tr>
@@ -109,7 +109,7 @@ POST https://<span class="base_url contenteditable persist" contenteditable="tru
           </td>
           <td>
             <p>
-              PagerDuty's internal vendor identifier for this service. For more information about a specific vendor, please contact PagerDuty Support.
+              PagerDuty's internal vendor identifier for this service. Will only be accepted if the service <code>type</code> is <code>integration</code>. For more information about a specific vendor, please contact PagerDuty Support.
             </p>
           </td>
         </tr>
