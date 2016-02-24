@@ -2,7 +2,7 @@
     "name": "PagerDuty Developer Docs",
     "description": "The official documentation for PagerDuty's developer platform.",
     "repository": "https://github.com/PagerDuty/devdocs",
-    "logo": "https://developer.pagerduty.com/assets/logos/logo.png",
+    "logo": "https://developer.pagerduty.com/assets/images/logos/logo.png",
     "keywords": [
         "pagerduty",
         "jekyll",

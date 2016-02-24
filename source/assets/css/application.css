@@ -226,7 +226,7 @@ h2 {
     font-size: 28px;
     line-height: 42px;
     margin: 18px 0 8px;
-    color: #47ba04;
+    color: #25C151;
 }
 
 h3 {
@@ -271,7 +271,7 @@ a {
         font-size: 20px;
         line-height: 30.0px;
         margin: 18px 0 8px;
-        color: #47ba04;
+        color: #25C151;
     }
 
 	h3 {
@@ -1544,7 +1544,7 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
     background: #ffdd73;
 }
 .pro-tip {
-    background: #47ba04;
+    background: #25C151;
     color: #fff;
 }
 .table {
@@ -1746,11 +1746,11 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
     padding: 6px 20px 6px 30px;
 }
 .sidebar-menu ul>li.on {
-    background-image: -webkit-linear-gradient(top,  #47ba04 0%,  #43b004 100%);
-    background-image: -o-linear-gradient(top,  #47ba04 0%,  #43b004 100%);
-    background-image: linear-gradient(to bottom,  #47ba04 0%,  #43b004 100%);
+    background-image: -webkit-linear-gradient(top,  #25C151 0%,  #43b004 100%);
+    background-image: -o-linear-gradient(top,  #25C151 0%,  #43b004 100%);
+    background-image: linear-gradient(to bottom,  #25C151 0%,  #43b004 100%);
     background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF47BA04',  endColorstr='#FF43B004',  GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF25C151',  endColorstr='#FF43B004',  GradientType=0);
     color: #fff;
 }
 .sidebar-menu ul>li.on a {
@@ -1759,11 +1759,11 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
 .sidebar-menu ul>li.nav-header {
     font-weight: bold;
     font-size: 18.0px;
-    color: #47ba04;
+    color: #25C151;
 }
 .sidebar-menu ul>li.nav-header a {
     padding: 6px 20px;
-    color: #3da103;
+    color: #25C151;
 }
 .sidebar-menu ul>li.nav-header a:hover {
     color: #348803;
@@ -1888,7 +1888,7 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
     background: #fefefe url("/assets/images/block-largetile.png") repeat center bottom;
 }
 .get-started h1 {
-    color: #47ba04;
+    color: #25C151;
     margin: 10px 0 0;
 }
 .get-started h2, .get-started h3, .get-started h4, .get-started h5, .get-started h6 {
@@ -1905,7 +1905,7 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
     border: none;
 }
 .get-started a {
-    color: #47ba04;
+    color: #25C151;
 }
 .get-started-cta {
     font-size: 18.0px;
