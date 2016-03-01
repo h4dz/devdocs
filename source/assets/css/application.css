@@ -1927,3 +1927,58 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
     padding: 0px 30px 10px;
     border: none;
 }
+
+.api-v20-hero {
+    width:100%;
+    background-image: url('/assets/images/header.png');
+    background-size: cover;
+    background-position: top center;
+    padding: 60px 0px;
+    font-family: "Colfax","Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-align: center;
+}
+.api-v20-hero h1 {
+    max-width: 340px;
+    margin: auto;
+    font-weight: normal;
+    color: #FFF;
+    font-size:2.8em;
+    line-height: 1.3em;
+}
+.api-v20-hero a.pgd-button {
+    margin-top: 15px;
+    font-family: "Colfax","Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 38px !important;
+    height: 38px !important;
+}
+a.pgd-button, a.pgd-button:visited {
+    font-weight: normal;
+    display: inline-block;
+    position: relative;
+    outline: 0;
+    font-style: normal;
+    font-weight: 800;
+    font-family: inherit;
+    padding: 0 35px;
+    font-size: 13px;
+    line-height: 48px;
+    height: 48px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 2px solid #25c151;
+    background-color: #25c151;
+    color: #FFF;
+    -webkit-transition: color .2s ease-out,background-color .2s ease-out,border-color .2s ease-out;
+    transition: color .2s ease-out,background-color .2s ease-out,border-color .2s ease-out;
+    -webkit-box-sizing: initial;
+    -moz-box-sizing: initial;
+    box-sizing: initial;
+}
+a.pgd-button:hover, a.pgd-button:active  {
+    background-color: #21AB48;
+    border-color: #21AB48;
+}
