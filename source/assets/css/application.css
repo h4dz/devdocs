@@ -1978,6 +1978,19 @@ a.pgd-button, a.pgd-button:visited {
     -moz-box-sizing: initial;
     box-sizing: initial;
 }
+
+.main-header a.top-nav {
+    float: right;
+    line-height: 42px;
+    height: 42px;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: normal;
+    border: 0px;
+    padding: 0 18px;
+    font-size: 15px;
+}
+
 a.pgd-button:hover, a.pgd-button:active  {
     background-color: #21AB48;
     border-color: #21AB48;
