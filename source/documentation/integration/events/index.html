@@ -30,7 +30,7 @@ redirect_from:
     The API was designed to allow you to easily integrate a monitoring system with a Service in PagerDuty. Monitoring systems generally send out events when problems are detected and when these problems have been resolved (fixed). Some more advanced systems also understand the concept of acknowledgements: problems can be acknowledged by an engineer to signal he or she is working on fixing the issue.
   </p>
   <p>
-    Since monitoring systems emit events, the API is based around accepting events. Incoming events (sent via the API) are routed to a PagerDuty service and processed. They may result in a new incident being created, or an existing incident being acknowledged or resolved.
+    Since monitoring systems emit events, the API is based around accepting events. Incoming events (sent via the API) are routed to a PagerDuty service via an API Integration and processed. They may result in a new incident being created, or an existing incident being acknowledged or resolved.
   </p>
   <p>
     The same event-based API can also be used to integrate a PagerDuty service with ticketing systems and various other software tools.
@@ -42,18 +42,11 @@ redirect_from:
     Getting Started
   </h2>
   <p>
-    The event integration API can be used with any "Generic API" service in PagerDuty. If you don't already have a "Generic API" service, you should create one:
+    The event integration API can be used with any "Generic API" integration in PagerDuty. If you don't already have a service with a "Generic API" integration, you should create one by <a href="https://support.pagerduty.com/hc/en-us/articles/202830340-Creating-a-Generic-API-Integration">following the steps in our "Creating a Generic API Integration" guide.</a>
   </p>
-  <ol>
-    <li>In your account, under the Services tab, click "Add New Service".
-    </li>
-    <li>Enter a name for the service and select an escalation policy. Then, select "Generic API" for the Service Type.
-    </li>
-    <li>Click the "Add Service" button.
-    </li>
-    <li>Once the service is created, you'll be taken to the service page. On this page, you'll see the "Service key", which is needed to access the API
-    </li>
-  </ol>
+  <p>
+    Once the integration has been created, make a note of its "Integration Key". You'll use this value, which is unique to the integration, as the <code>service_key</code> that's submitted to the Events API.
+  </p>
   <h2>
     Making a Request
   </h2>
