@@ -149,7 +149,7 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
             No
           </td>
           <td>
-            Returns only the incidents with the passed de-duplication key. See the <a href="/documentation/integration/events">PagerDuty Integration API</a> docs for further details.
+            Returns only the incidents with the passed de-duplication key. See the <a href="/documentation/integration/events">PagerDuty Events API</a> docs for further details.
           </td>
         </tr>
         <tr>
@@ -441,7 +441,7 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
             <a href="/documentation/rest/types#string">String</a>
           </td>
           <td>
-            The incident's de-duplication key. See the <a href="/documentation/integration/events">PagerDuty Integration API</a> docs for further details.
+            The incident's de-duplication key. See the <a href="/documentation/integration/events">PagerDuty Events API</a> docs for further details.
           </td>
         </tr>
         <tr>
@@ -549,10 +549,10 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
           </td>
           <td>
             <p>
-              The list of <i>acknowledgements</i> of the incident. An <i>acknowledgement</i> is an object containing the acknowleding object (either a user or the integration API) as well as the date/time the incident was acknowledged. This field is only present if the status of the incident is <code>acknowledged</code>. This field is sorted in ascending order by acknowledgement time.
+              The list of <i>acknowledgements</i> of the incident. An <i>acknowledgement</i> is an object containing the acknowleding object (either a user or the Events API) as well as the date/time the incident was acknowledged. This field is only present if the status of the incident is <code>acknowledged</code>. This field is sorted in ascending order by acknowledgement time.
             </p>
             <p>
-              Example: <code>acknowledgers</code> field for an incident first acknowledged by a user, then by the integration API.
+              Example: <code>acknowledgers</code> field for an incident first acknowledged by a user, then by the Events API.
             </p>
             <pre>
 <code class="language-javascript prettyprint linenums">{
@@ -586,7 +586,7 @@ GET https://<span class="base_url contenteditable persist" contenteditable="true
             <a href="/documentation/rest/types#object">Object</a>
           </td>
           <td>
-            The user who is responsible for the incident's last status change. If the incident is in the acknowledged or resolved status, this will be the user that took the first acknowledged or resolved action. If the incident was automatically resolved (say through the Event Integration API), or if the incident is in the triggered state, this will be null. User fields are the same as in the assigned_to_user field above.
+            The user who is responsible for the incident's last status change. If the incident is in the acknowledged or resolved status, this will be the user that took the first acknowledged or resolved action. If the incident was automatically resolved (say through the Events API), or if the incident is in the triggered state, this will be null. User fields are the same as in the assigned_to_user field above.
           </td>
         </tr>
         <tr>
