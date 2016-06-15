@@ -51,7 +51,7 @@
 - name: PagerDuty API .NET Client
   url: https://www.nuget.org/packages/PagerDutyAPI/
   language: C#/.NET
-  description: "A client for the PagerDuty Event Integration API for .NET"
+  description: "A client for the PagerDuty Events API for .NET"
 
 - name: PagerDutyBundle
   url: https://github.com/lafourchette/PagerDutyBundle
