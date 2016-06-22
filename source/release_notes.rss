@@ -4,6 +4,12 @@
     <title>PagerDuty API Release Notes</title>
     <link>http://developer.pagerduty.com/release_notes.rss</link>
     <description>Keep up to date on all the goings on of PagerDuty's API</description>
+     <item>
+      <title>PagerDuty APIv2 Generally Available</title>
+      <link>https://developer.pagerduty.com/release_notes#june-22-2016</link>
+      <pubDate>Wed, 22 Jun 2016 00:00:00 +0000</pubDate>
+      <guid>https://developer.pagerduty.com/release_notes#june-22-2016</guid>
+    </item>
     <item>
       <title>Added job_title to User endpoint</title>
       <link>https://developer.pagerduty.com/release_notes#october-3-2014</link>

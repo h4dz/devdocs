@@ -1,8 +1,8 @@
 # Site settings
-title: PagerDuty Developer Documentation
+title: PagerDuty Developer Documentation v1
 email: developers@pagerduty.com
-description: The official site for PagerDuty API documentation.
-url: "https://developer.pagerduty.com"
+description: The official site for PagerDuty API v1 documentation.
+url: "https://v1.developer.pagerduty.com/"
 social:
   - twitter: https://www.twitter.com/PagerDuty
   - github: https://github.com/PagerDuty
