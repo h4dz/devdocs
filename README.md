@@ -1,8 +1,12 @@
-# PagerDuty Developer Documentation
+# PagerDuty Version 1 Developer Documentation
 
 [![Build Status](https://travis-ci.org/PagerDuty/devdocs.png)](https://travis-ci.org/PagerDuty/devdocs)
 
-This is the official repository for [PagerDuty's developer documentation](https://developer.pagerduty.com).
+## Version
+
+*This is an old version.  Please use Version 2 of the PagerDuty Developer Documentation.*
+
+This is the official repository for version 1 of [PagerDuty's developer documentation](https://v1.developer.pagerduty.com/).
 
 Anyone is welcome to make contributions that they feel would make PagerDuty's documentation better.
 
