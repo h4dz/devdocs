@@ -1679,7 +1679,7 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
 }
 }.footer {
     background: #1f293a;
-    padding: 20px 20px;
+    padding: 20px 20px 50px;
 }
 .footer:before, .footer:after {
     content: " ";
@@ -1994,4 +1994,36 @@ a.pgd-button, a.pgd-button:visited {
 a.pgd-button:hover, a.pgd-button:active  {
     background-color: #21AB48;
     border-color: #21AB48;
+}
+
+/* Deprecation Warning */
+#deprecation-warning {
+    height: 40px;
+}
+#deprecation-warning .alert {
+    z-index: 10000;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    border: 0 none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    border-top: 1px solid #eecc62;
+    padding: 10px;
+}
+#deprecation-warning .alert p {
+    text-align: center;
+}
+
+@media (max-width: 1500px) {
+    #deprecation-warning .alert p {
+        text-align: left;
+    }
+}
+
+@media (max-width: 1200px) {
+    #deprecation-warning .alert p {
+        margin-right: 280px; /* Don't interfere with chat widget */
+    }
 }
