@@ -1,19 +1,14 @@
 ---
 title: Events API
 layout: main
-permalink: /documentation/integration/events/
+permalink: /documentation/events/
 redirect_from:
+  - /documentation/integration/events/
   - /documentation/integration/events.html
   - /documentation/integration/
 ---
 <ul class="breadcrumb">
-  <li>
-    <a href="/documentation/integration/events/">Integration</a>
-  </li>
-  <li style="list-style: none">
-    <span class="divider">/</span>
-  </li>
-  <li>Events
+  <li>Events API
   </li>
 </ul>
 <div class='section'>
@@ -42,7 +37,7 @@ redirect_from:
     Getting Started
   </h2>
   <p>
-    The Events API can be used with any "Generic API" integration in PagerDuty. If you don't already have a service with a "Generic API" integration, you should create one by <a href="https://support.pagerduty.com/hc/en-us/articles/202830340-Creating-a-Generic-API-Integration">following the steps in our "Creating a Generic API Integration" guide.</a>
+    The Events API can be used with any "Generic API" integration in PagerDuty. If you don't already have a service with a "Generic API" integration, you should create one by <a href="https://support.pagerduty.com/hc/en-us/articles/202830340">following the steps in our "Creating a Generic API Integration" guide.</a>
   </p>
   <p>
     Once the integration has been created, make a note of its "Integration Key". You'll use this value, which is unique to the integration, as the <code>service_key</code> that's submitted to the Events API.
@@ -324,18 +319,4 @@ https://events.pagerduty.com/generic/2010-04-15/create_event.json
   <p>
     If each of the events your monitoring system is sending is important, be sure to retry on a 403 response code, preferably with a back off.
   </p>
-  <h2>Discuss</h2>
-    <p>
-      Stuck? Drop us a line here and we'll be happy to help you out.
-    </p>
-    <div id='discourse-comments'></div>
-    <script type="text/javascript">
-      DiscourseEmbed = { discourseUrl: 'https://community.pagerduty.com/',
-                       discourseEmbedUrl: 'https://v1.developer.pagerduty.com/documentation/integration/events' };
-      (function() {
-        var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-        d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-      })();
-    </script>
 </div>
