@@ -1,0 +1,51 @@
+---
+title: Integrating your Monitoring Tool with PagerDuty
+layout: main
+permalink: /documentation/howto/integration-tutorial/
+---
+<h1 class="title">
+  Integrating your Monitoring Tool with PagerDuty
+</h1>
+<p>
+  Thank you for your interest in integrating your monitoring tool with PagerDuty! This guide will introduce you to the various ways our partners and customers create new monitoring tool integrations with PagerDuty.
+</p>
+<p>
+  <strong>There are four ways to send incidents to PagerDuty:</strong>
+</p>
+<ul>
+  <li>
+    <strong>Best:</strong> <a href="https://www.pagerduty.com/docs/guides/pagerduty-connect/">PD Connect</a> + <a href="/documentation/integration/events">Events API</a>, a streamlined integration workflow allowing your users to easily integrate their accounts on your service with their PagerDuty accounts.
+  </li>
+  <li>
+    <strong>Good:</strong> <a href="/documentation/integration/events">Events API</a> only.
+  </li>
+  <li>
+    <strong>Good:</strong> <a href="https://www.pagerduty.com/docs/guides/agent-install-guide/">PD Agent</a>. PD Agent includes command-line tools to accept events from your monitoring tool to PagerDuty and a daemon process that handles the sending of these events to PagerDuty. This is generally used for on-premise monitoring tools (such as Nagios and Icinga) that have the ability to use command-line tools.
+  </li>
+  <li>
+    <strong>Okay:</strong> <a href="https://www.pagerduty.com/docs/guides/email-integration-guide/">Email-based integrations</a>. Note that while we fully support email-based integrations, they lack the security and real-time acknowledgement available with our <a href="/documentation/integration/events">Events API</a>. Most of our customers do not consider email-based integrations to be “real” integrations and will ask for something better.
+  </li>
+</ul>
+<p>
+  <strong>If you are integrating a proprietary, in-house monitoring tool with PagerDuty</strong>, we recommending using the <a href="/documentation/integration/events">Events API</a>. You can also use the <a href="https://www.pagerduty.com/docs/guides/agent-install-guide/">PD Agent</a>.
+</p>
+<p>
+  <strong>If your monitoring tool will be used by other companies</strong>, we recommend implementing <a href="https://www.pagerduty.com/docs/guides/pagerduty-connect/">PD Connect</a> and the <a href="/documentation/integration/events">Events API</a> to provide a one-click integration for your customers. We also strongly recommend that you write an integration guide (with screenshots) that walks your customers through the process on both your application and PagerDuty. If you do so, we will host your integration guide on our site, add your company to our Partners page, and provide a complementary single-user PagerDuty account for your ongoing integration testing needs.
+</p>
+<p>
+  <strong>If it’s relevant to your application, we strongly recommend creating a bi-directional integration.</strong> We’ve found our customers have come to expect their monitoring and incident management tools to remain in sync. PagerDuty can send incident updates (e.g., acknowledge/resolve) to your application in two different ways:
+</p>
+<ul>
+  <li>
+    <strong>Best:</strong> <a href="/documentation/webhooks">Webhooks</a>. PagerDuty can automatically send HTTP callbacks whenever an incident is triggered, acknowledged, unacknowledged (due to timeout), resolved, reassigned, escalated, or delegated. Webhooks are specific to a Service. This is the preferred method for SaaS-based monitoring tools.
+  </li>
+  <li>
+    <strong>Okay:</strong> Regularly poll the <a href="/documentation/rest/incidents">Incidents API</a> for <a href="/documentation/rest/incidents/show">details about incidents</a> you’ve sent over. Webhooks are preferable because the <a href="/documentation/rest/incidents">Incidents API</a> requires an additional, distinct <a href="https://support.pagerduty.com/hc/en-us/articles/202829310">API Access Key</a> and polling isn’t fun for anyone. This is only option for those running software behind an impenetrable firewall.
+  </li>
+</ul>
+<p>
+  <strong>If your monitoring tool has the notion of maintenance windows</strong>, you may want to develop an integration with our <a href="/documentation/rest/maintenance_windows">Maintenance Windows API</a> to keep the maintenance windows between your application and PagerDuty in sync. A bi-directional integration will require polling, but a longer interval should work relatively well. Note: this API requires the use of a <a href="https://support.pagerduty.com/hc/en-us/articles/202829310">API Access Key</a> (distinct from the "Integration Key" used by the <a href="/documentation/integration/events">Events API</a>).
+</p>
+<p>
+  <strong>If your monitoring tool has the notion of notes</strong>, you can also <a href="/documentation/rest/incidents/notes/list">read</a> and <a href="/documentation/rest/incidents/notes/create">add</a> notes to incidents. A bi-directional integration will require polling. Note: this API requires the use of a <a href="https://support.pagerduty.com/hc/en-us/articles/202829310">API Access Key</a> (distinct from the "Integration Key" used by the <a href="/documentation/integration/events">Events API</a>).
+</p>
