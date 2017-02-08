@@ -34,12 +34,4 @@ All files are located in the `source/` directory. When you compile the site, ren
 
 ### Deployment
 
-This project is currently deployed to Heroku app named pd-developer. You can deploy your own copy by using this button: 
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/PagerDuty/devdocs)
-
-This project also uses a custom build pack which you will need to configure within Heroku. Provided you have the [Heroku toolbelt](https://toolbelt.heroku.com/) installed, you can use this buildpack by issuing `heroku config:set BUILDPACK_URL=https://github.com/SwiftIRC/heroku-buildpack-ruby-octopress` from within the project's directory.
-
-Each time you make a change and push to the master Heroku branch, the site will be regenerated and your changes will appear.
-
-Some users may find that merges fail because libssl is missing. The current fix for this is to roll back your Heroku stack version from Cedar-14 to Cedar with `heroku stack:set cedar`. When you merge again, it should complete the build.
+This project is currently deployed to Heroku app named pd-developer. Once you merge to master, it will automatically be deployed to pd-devoper-staging. Once you verify your changes, use the pd-developer pipeline to promote to production
