@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby '~> 2.0'
+ruby '2.4.5'
 gem 'jekyll', '~> 2.0'
 gem 'jekyll-redirect-from'
 gem 'jekyll-sitemap'

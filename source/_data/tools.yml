@@ -148,11 +148,11 @@
   description: "CanaryRelic is a Microsoft .NET Console Application that polls the New Relic API for one or more custom metrics you can configure and will dispatch an alert to PagerDuty when the 5-minute average of the given metric exceeds the alerting threshold you specify."
   tag: Tool
 
-- name: chrome-pagerduty
-  url: https://github.com/dankrause/chrome-pagerduty
-  type: Alerting
-  description: "A chrome plugin that wraps the pagerduty mobile site, and supports notifications."
-  tag: Tool
+#- name: chrome-pagerduty
+#  url: https://github.com/dankrause/chrome-pagerduty
+#  type: Alerting
+#  description: "A chrome plugin that wraps the pagerduty mobile site, and supports notifications."
+#  tag: Tool
 
 - name: Klaxon
   url: https://play.google.com/store/apps/details?id=org.nerdcircus.android.klaxon
@@ -178,8 +178,8 @@
   description: "A Google Chrome extension to show PagerDuty notifications using Chrome's notification API."
   tag: Tool
 
-- name: pd-trigger
-  url: https://github.com/enigma-io/pd-trigger
-  type: Alerting
-  description: "A lightweight, portable, and robust PagerDuty trigger utility."
-  tag: Tool
+#- name: pd-trigger
+#  url: https://github.com/enigma-io/pd-trigger
+#  type: Alerting
+#  description: "A lightweight, portable, and robust PagerDuty trigger utility."
+#  tag: Tool
