@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-- 2.0.0
+- 2.4.5
 
 branches:
   only:
@@ -9,13 +9,8 @@ branches:
 
 script:
 - bundle exec jekyll build
-- bundle exec htmlproof ./public/ --href-ignore "#"
+- bundle exec htmlproof ./public/ --href-ignore "#" --disable-external
 
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-
-notifications:
-  hipchat:
-    rooms:
-      secure: KFrw+hP21IId8NcQT9xJFjxpuahmuryu5JpZdSw1NDP/rT//4Aeos9/7JHc+F9WFIK+xl9N5UAmj49PAbOjKdu5Cq8wNl5VAWbdCDS//81QjHej7bzCwTbmuk2FK2d0ZunZVrxxglTyox/d+JYRgEEZnahbpgtE+L7d+ki29YwU=

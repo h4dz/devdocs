@@ -32,7 +32,7 @@
 
 - name: Bloombuzz
   url: https://github.com/JohnnyJohnAndTheFunkyBunch/bloombuzz
-  description: "A winner of the <a href='http://hackthenorth.com/'>Hack the North</a> hackathon in Waterloo, alerts on Bloomberg stock movements in Python."
+  description: "A winner of the <a href='https://hackthenorth.com/'>Hack the North</a> hackathon in Waterloo, alerts on Bloomberg stock movements in Python."
 
 - name: Twilio and PagerDuty
   url: http://www.whiteboardcoder.com/p/twilio-and-pagerduty.html
@@ -82,9 +82,9 @@
   url: https://github.com/discordianfish/pager-hours
   description: "Export on call hours for all users on all schedules within a pagerduty account"
 
-- name: jira-pagerduty-escalation_scripts
-  url: https://github.com/jmunevar/jira-pagerduty-escalation_scripts
-  description: "This is a set of Bash and Ruby scripts that can be customized to automate the escalation of particular JIRA issues matching a JQL query to PagerDuty. "
+#- name: jira-pagerduty-escalation_scripts
+#  url: https://github.com/jmunevar/jira-pagerduty-escalation_scripts
+#  description: "This is a set of Bash and Ruby scripts that can be customized to automate the escalation of particular JIRA issues matching a JQL query to PagerDuty. "
 
 - name: Get Incident Details with Body
   url: https://gist.github.com/ryanhoskin/b9c305274627c783f0d7
