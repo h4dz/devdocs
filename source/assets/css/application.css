@@ -1930,9 +1930,7 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
 
 .api-v20-hero {
     width:100%;
-    background-image: url('/assets/images/header.png');
-    background-size: cover;
-    background-position: top center;
+    background-color: #546875;
     padding: 60px 0px;
     font-family: "Colfax","Helvetica Neue",Helvetica,Arial,sans-serif;
     text-align: center;
@@ -2009,15 +2007,11 @@ a.pgd-button:hover, a.pgd-button:active  {
     border: 0 none;
     -webkit-border-radius: 0;
     border-radius: 0;
-    border-top: 1px solid #FD9E8E;
+    border-top: 1px solid #eecc62;
     padding: 10px;
-	background-color: #FC8B8D;
 }
 #deprecation-warning .alert p {
     text-align: center;
-}
-#deprecation-warning .alert a {
-    color: #FFF4CB;
 }
 
 @media (max-width: 1500px) {
